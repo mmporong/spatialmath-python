@@ -406,7 +406,8 @@ class Quaternion(BasePoseList):
             if smb.iszerovec(self._A[1:4]):
                 v = np.zeros((3,))
             else:
-                v = math.acos(np.clip(self._A[0] / norm, -1, 1)) * smb.unitvec(
+                # atan2 retains small angles when s / norm rounds to one.
+                v = math.atan2(smb.norm(self._A[1:4]), self._A[0]) * smb.unitvec(
                     self._A[1:4]
                 )
             return Quaternion(s=s, v=v)
@@ -414,8 +415,8 @@ class Quaternion(BasePoseList):
             v = [
                 np.zeros((3,))
                 if smb.iszerovec(A[1:4])
-                else math.acos(np.clip(A[0] / n, -1, 1)) * smb.unitvec(A[1:4])
-                for A, n in zip(self._A, norm)
+                else math.atan2(smb.norm(A[1:4]), A[0]) * smb.unitvec(A[1:4])
+                for A in self._A
             ]
             return Quaternion(s=s, v=np.array(v))
 
