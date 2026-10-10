@@ -304,6 +304,14 @@ class TestND(unittest.TestCase):
         nt.assert_almost_equal(e2h(np.c_[[1, 2, 3]].T), np.array([[1, 2, 3], [1, 1, 1]]))
         nt.assert_almost_equal(h2e(np.array([[1.0, 2, 4], [1, 2, 2]])), np.array([[1, 1, 2]]))
 
+    def test_h2e_too_few_rows(self):
+        # a homogeneous point needs at least 2 elements, h2e of 1 row would be
+        # an empty (0,N) array
+        for bad in (np.ones((1, 3)), np.ones((1, 1)), [5], 5, np.ones((1,))):
+            with self.subTest(value=repr(bad)):
+                with self.assertRaises(ValueError):
+                    h2e(bad)
+
     def test_homog_bad_type(self):
         for convert in (e2h, h2e):
             for bad in ("hello", None, np.empty((0,))):
