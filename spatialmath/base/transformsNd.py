@@ -726,8 +726,10 @@ def h2e(v: NDArray) -> NDArray:
         >>> h2e(h)
 
     .. note:: The result is always a 2D array, a 1D input results in a column vector.
+    .. note:: A 2D array is always treated as a matrix of column vectors, so a
+        row vector of shape (1,N) is interpreted as N homogeneous 1-vectors.
 
-    :seealso: e2h
+    :seealso: :func:`e2h`
     """
     if isinstance(v, np.ndarray) and len(v.shape) == 2:
         # dealing with matrix
@@ -765,8 +767,11 @@ def e2h(v: NDArray) -> NDArray:
         >>> e2h(e)
 
     .. note:: The result is always a 2D array, a 1D input results in a column vector.
+    .. note:: A 2D array is always treated as a matrix of column vectors, so a
+        row vector of shape (1,N) is interpreted as N 1-vectors and the result
+        has shape (2,N).
 
-    :seealso: e2h
+    :seealso: :func:`h2e`
     """
     if isinstance(v, np.ndarray) and len(v.shape) == 2:
         # dealing with matrix
