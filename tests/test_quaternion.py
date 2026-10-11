@@ -946,7 +946,7 @@ class TestQuaternion(unittest.TestCase):
     def test_log_small_rotation(self):
         axis = np.array([1.0, -2.0, 3.0]) / math.sqrt(14)
         for angle in (1e-12, -1e-9, 1e-7, 1e-4, 0.3):
-            for scale in (1.0, 3.0):
+            for scale in (1.0, 3.0, 1e-6):
                 with self.subTest(angle=angle, scale=scale):
                     values = scale * np.r_[cos(angle / 2), sin(angle / 2) * axis]
                     q = UnitQuaternion(values) if scale == 1 else Quaternion(values)
@@ -964,7 +964,11 @@ class TestQuaternion(unittest.TestCase):
             (np.cos(angles / 2), np.sin(angles[:, None] / 2) * axes)
         )
         expected = angles[:, None] / 2 * axes
-        for scales in (np.ones(4), np.array([2.0, 3.0, 4.0, 5.0])):
+        for scales in (
+            np.ones(4),
+            np.array([2.0, 3.0, 4.0, 5.0]),
+            1e-6 * np.ones(4),
+        ):
             with self.subTest(scales=scales):
                 scaled = scales[:, None] * values
                 q = (
