@@ -771,12 +771,15 @@ def h2e(v: NDArray) -> NDArray:
     :param v: homogeneous vector or matrix
     :type v: array_like(n), ndarray(n,m)
     :return: Euclidean vector
-    :rtype: ndarray(n-1), ndarray(n-1,m)
+    :rtype: ndarray(n-1,1), ndarray(n-1,m)
+    :raises ValueError: if ``v`` has fewer than two rows, or is not a vector or
+        matrix
 
-    - If ``v`` is an N-vector, return an (N-1)-column vector where the elements have
-      all been scaled by the last element of ``v``.
-    - If ``v`` is a matrix (NxM), return a matrix (N-1xM), where each column has
-      been scaled by its last element.
+    Each *column* of ``v`` is a homogeneous point, and is scaled by its last element:
+
+    - If ``v`` is an N-vector, shape (N,) or (N,1), or a list or tuple, return an
+      (N-1,1) column vector.
+    - If ``v`` is a matrix (NxM), return a matrix (N-1xM).
 
     .. runblock:: pycon
 
@@ -788,16 +791,24 @@ def h2e(v: NDArray) -> NDArray:
         >>> h2e(h)
 
     .. note:: The result is always a 2D array, a 1D input results in a column vector.
+    .. note:: A 2D array is always a matrix of column vectors, rows are never
+        points.  To convert a row vector of shape (1,N) pass its transpose.  A
+        homogeneous point needs at least two elements, so an input with a single
+        row, such as shape (1,N), raises a ``ValueError``.
 
-    :seealso: e2h
+    :seealso: :func:`e2h`
     """
     if isinstance(v, np.ndarray) and len(v.shape) == 2:
         # dealing with matrix
+        if v.shape[0] < 2:
+            raise ValueError("homogeneous input must have at least 2 rows")
         return v[:-1, :] / v[-1, :][np.newaxis, :]
 
     elif isvector(v):
         # dealing with shape (N,) array
         v = getvector(v, out="col")
+        if v.shape[0] < 2:
+            raise ValueError("homogeneous input must have at least 2 elements")
         return v[0:-1] / v[-1]
 
     else:
@@ -811,12 +822,15 @@ def e2h(v: NDArray) -> NDArray:
     :param v: Euclidean vector or matrix
     :type v: array_like(n), ndarray(n,m)
     :return: homogeneous vector
-    :rtype: ndarray(n+1,m)
+    :rtype: ndarray(n+1,1), ndarray(n+1,m)
+    :raises ValueError: if ``v`` is not a vector or matrix
 
-    - If ``v`` is an N-vector, return an (N+1)-column vector where a value of 1 has
-      been appended as the last element.
-    - If ``v`` is a matrix (NxM), return a matrix (N+1xM), where each column has
-      been appended with a value of 1, ie. a row of ones has been appended to the matrix.
+    Each *column* of ``v`` is a Euclidean point, and has a 1 appended:
+
+    - If ``v`` is an N-vector, shape (N,) or (N,1), or a list or tuple, return an
+      (N+1,1) column vector.
+    - If ``v`` is a matrix (NxM), return a matrix (N+1xM), ie. a row of ones has
+      been appended to the matrix.
 
     .. runblock:: pycon
 
@@ -827,8 +841,12 @@ def e2h(v: NDArray) -> NDArray:
         >>> e2h(e)
 
     .. note:: The result is always a 2D array, a 1D input results in a column vector.
+    .. note:: A 2D array is always a matrix of column vectors, rows are never
+        points.  A row vector of shape (1,N) is therefore N one-dimensional
+        points and the result has shape (2,N).  To convert a row vector to a
+        single point pass its transpose.
 
-    :seealso: e2h
+    :seealso: :func:`h2e`
     """
     if isinstance(v, np.ndarray) and len(v.shape) == 2:
         # dealing with matrix
