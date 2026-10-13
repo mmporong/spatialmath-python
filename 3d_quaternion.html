@@ -1044,6 +1044,8 @@ to the list</p>
 <p><code class="docutils literal notranslate"><span class="pre">q.log()</span></code> is the logarithm of the quaternion <code class="docutils literal notranslate"><span class="pre">q</span></code>, ie.</p>
 <div class="math notranslate nohighlight">
 \[\ln \| q \|,  \langle \frac{\vec{v}}{\| \vec{v} \|} \cos^{-1} \frac{s}{\| q \|} \rangle\]</div>
+<p>The implementation uses the equivalent <span class="math notranslate nohighlight">\(\operatorname{atan2}(\|\vec{v}\|, s)\)</span>
+to avoid the loss of precision in <code class="docutils literal notranslate"><span class="pre">acos</span></code> for small rotation angles.</p>
 <p>For a <code class="docutils literal notranslate"><span class="pre">UnitQuaternion</span></code> the logarithm is a pure quaternion whose vector
 part <span class="math notranslate nohighlight">\(\vec{v}\)</span> and <span class="math notranslate nohighlight">\(\vec{v}/2\)</span> is a Euler vector: parallel
 to the axis of rotation and whose norm is the magnitude of rotation.</p>
