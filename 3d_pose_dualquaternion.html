@@ -197,14 +197,14 @@ the rigid-body motion described by the SE3 value <code class="docutils literal n
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitDualQuaternion</span><span class="p">,</span> <span class="n">SE3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="go">  -0.1034    0.02125  -0.9944    0.5507    </span>
-<span class="go">  -0.9659   -0.2408    0.09527   0.5881    </span>
-<span class="go">  -0.2374    0.9703    0.04542   0.7944    </span>
+<span class="go">   0.3929    0.911    -0.1256    0.09425   </span>
+<span class="go">   0.6905   -0.3824   -0.614     0.4491    </span>
+<span class="go">  -0.6073    0.1545   -0.7793   -0.1322    </span>
 <span class="go">   0         0         0         1         </span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">UnitDualQuaternion</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="go">-0.4187 &lt;&lt; -0.5225,  0.4520,  0.5894 &gt;&gt; + ε -0.2231 &lt; -0.1215, -0.4929,  0.1118 &gt;</span>
+<span class="go"> 0.2404 &lt;&lt;  0.7992,  0.5010, -0.2293 &gt;&gt; + ε -0.1653 &lt; -0.0070,  0.0120, -0.1717 &gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="go">&lt;class 'spatialmath.DualQuaternion.UnitDualQuaternion'&gt;</span>
 </pre></div>
@@ -383,7 +383,7 @@ number (1,0).</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 16-Sep-2026.
+      <span class="lastupdated">Last updated on 13-Oct-2026.
       </span></p>
   </div>
 
