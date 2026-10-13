@@ -137,6 +137,11 @@
 
 <span class="n">_eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
 
+<span class="c1"># read-only constant: safe to use directly as an operand in expressions that</span>
+<span class="c1"># produce a new array (e.g. `_EYE3 + ...`), never in a context that could</span>
+<span class="c1"># mutate it in place or return it directly to a caller</span>
+<span class="n">_EYE3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
 <span class="c1"># ---------------------------------------------------------------------------------------#</span>
 
 
@@ -1514,7 +1519,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># general case</span>
             <span class="n">Ginv</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                <span class="n">_EYE3</span>
                 <span class="o">-</span> <span class="n">S</span> <span class="o">/</span> <span class="mi">2</span>
                 <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">theta</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">theta</span> <span class="o">*</span> <span class="n">S</span> <span class="o">@</span> <span class="n">S</span>
             <span class="p">)</span>
@@ -1533,8 +1538,7 @@
             <span class="n">diagonal</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span>
             <span class="n">k</span> <span class="o">=</span> <span class="n">diagonal</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
             <span class="n">mx</span> <span class="o">=</span> <span class="n">diagonal</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-            <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-            <span class="n">col</span> <span class="o">=</span> <span class="n">R</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">I</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="n">R</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">_EYE3</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span>
             <span class="n">w</span> <span class="o">=</span> <span class="n">col</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">mx</span><span class="p">))</span>
             <span class="n">theta</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
             <span class="k">if</span> <span class="n">twist</span><span class="p">:</span>
@@ -1676,7 +1680,7 @@
 
         <span class="n">skw</span> <span class="o">=</span> <span class="n">skew</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
         <span class="n">V</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">theta</span>
+            <span class="n">_EYE3</span> <span class="o">*</span> <span class="n">theta</span>
             <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span> <span class="o">*</span> <span class="n">skw</span>
             <span class="o">+</span> <span class="p">(</span><span class="n">theta</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span> <span class="o">*</span> <span class="n">skw</span> <span class="o">@</span> <span class="n">skw</span>
         <span class="p">)</span>
@@ -3016,7 +3020,7 @@
 
     <span class="n">skw</span> <span class="o">=</span> <span class="n">skew</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">ArrayLike3</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
     <span class="k">return</span> <span class="p">(</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">skw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">_EYE3</span>
         <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">skw</span>
         <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span> <span class="o">*</span> <span class="n">skw</span> <span class="o">@</span> <span class="n">skw</span>
     <span class="p">)</span></div>

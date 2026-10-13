@@ -138,13 +138,13 @@ to zero, defaults to True</p></li>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">array2str</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">array2str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="go">'[ 0.709, 0.487 | 0.959, 0.437 ]'</span>
+<span class="go">'[ 0.54, 0.471 | 0.303, 0.259 ]'</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">array2str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">rowsep</span><span class="o">=</span><span class="s2">"; "</span><span class="p">)</span>  <span class="c1"># MATLAB-like</span>
-<span class="go">'[ 0.0501, 0.649; 0.694, 0.147 ]'</span>
+<span class="go">'[ 0.174, 0.668; 0.16, 0.712 ]'</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">array2str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
-<span class="go">'[ 0.621, 0.193, 0.501 ]'</span>
+<span class="go">'[ 0.0252, 0.895, 0.537 ]'</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">array2str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="go">'[ 0.832 | 0.659 | 0.552 ]'</span>
+<span class="go">'[ 0.339 | 0.343 | 0.215 ]'</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -368,7 +368,7 @@ an SE(N) matrix and the derivative is converted to a colun vector.</p>
   File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/numeric.py"</span>, line <span class="m">59</span>, in <span class="n">numjac</span>
 <span class="w">    </span><span class="n">J0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="w">         </span><span class="pm">^^^^</span>
-  File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/transforms3d.py"</span>, line <span class="m">91</span>, in <span class="n">rotx</span>
+  File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/transforms3d.py"</span>, line <span class="m">96</span>, in <span class="n">rotx</span>
 <span class="w">    </span><span class="n">ct</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 <span class="w">         </span><span class="pm">^^^^^^^^^^^^^^</span>
   File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/symbolic.py"</span>, line <span class="m">161</span>, in <span class="n">cos</span>
@@ -380,7 +380,7 @@ an SE(N) matrix and the derivative is converted to a colun vector.</p>
   File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/numeric.py"</span>, line <span class="m">59</span>, in <span class="n">numjac</span>
 <span class="w">    </span><span class="n">J0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="w">         </span><span class="pm">^^^^</span>
-  File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/transforms3d.py"</span>, line <span class="m">91</span>, in <span class="n">rotx</span>
+  File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/transforms3d.py"</span>, line <span class="m">96</span>, in <span class="n">rotx</span>
 <span class="w">    </span><span class="n">ct</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 <span class="w">         </span><span class="pm">^^^^^^^^^^^^^^</span>
   File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/symbolic.py"</span>, line <span class="m">161</span>, in <span class="n">cos</span>
