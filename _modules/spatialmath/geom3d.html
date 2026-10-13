@@ -1000,7 +1000,7 @@
 
 <span class="sd">        :param l2: Second line</span>
 <span class="sd">        :type l2: ``Line3``</span>
-<span class="sd">        :param tol: Tolerance in multiples of eps, defaults to 20</span>
+<span class="sd">        :param tol: Parallel-direction tolerance in multiples of eps, defaults to 20</span>
 <span class="sd">        :type tol: float, optional</span>
 <span class="sd">        :return: Closest distance between lines</span>
 <span class="sd">        :rtype: float</span>
@@ -1011,20 +1011,16 @@
 
 <span class="sd">        :seealso: :meth:`closest_to_line`</span>
 <span class="sd">        """</span>
-        <span class="k">if</span> <span class="n">l1</span> <span class="o">|</span> <span class="n">l2</span><span class="p">:</span>
-            <span class="c1"># lines are parallel</span>
-            <span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span>
-                <span class="n">l1</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">l1</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span> <span class="n">l2</span><span class="o">.</span><span class="n">v</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">l2</span><span class="o">.</span><span class="n">w</span><span class="p">)</span> <span class="o">/</span> <span class="n">dot</span><span class="p">(</span><span class="n">l2</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">l2</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
-            <span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">w</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># lines are not parallel</span>
-            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">l1</span> <span class="o">*</span> <span class="n">l2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="o">*</span> <span class="n">_eps</span><span class="p">:</span>
-                <span class="c1"># lines intersect at a point</span>
-                <span class="n">l</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="c1"># lines don't intersect, find closest distance</span>
-                <span class="n">l</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">l1</span> <span class="o">*</span> <span class="n">l2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">l2</span><span class="o">.</span><span class="n">w</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span>
-        <span class="k">return</span> <span class="n">l</span></div>
+        <span class="n">w1</span><span class="p">,</span> <span class="n">w2</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="n">uw</span><span class="p">,</span> <span class="n">l2</span><span class="o">.</span><span class="n">uw</span>
+        <span class="n">normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)</span>
+        <span class="n">normal_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">normal</span><span class="p">)</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="n">pp</span> <span class="o">-</span> <span class="n">l1</span><span class="o">.</span><span class="n">pp</span>
+        <span class="k">if</span> <span class="n">normal_length</span> <span class="o">&lt;=</span> <span class="n">tol</span> <span class="o">*</span> <span class="n">_eps</span><span class="p">:</span>
+            <span class="c1"># Parallel lines: remove the component along the common direction.</span>
+            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">w1</span><span class="p">)))</span>
+        <span class="c1"># The displacement along the common normal is the shortest distance.</span>
+        <span class="c1"># Unit directions make the result independent of Plucker scaling.</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">normal</span><span class="p">))</span> <span class="o">/</span> <span class="n">normal_length</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Line3.closest_to_line">
