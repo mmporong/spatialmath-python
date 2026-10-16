@@ -117,7 +117,7 @@
 <dd class="field-odd"><p><strong>n</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – Number of values, defaults to 1</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pose instance with <code class="docutils literal notranslate"><span class="pre">n</span></code> default values</p>
@@ -151,7 +151,7 @@ vector.</p>
 <dd><p>Construct an empty instance (BasePoseList superclass method)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>pose instance with zero values</p>
@@ -171,7 +171,7 @@ vector.</p>
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">IntersectingPlanes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pi1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pi2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/geom3d.html#Line3.IntersectingPlanes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.geom3d.Line3.IntersectingPlanes" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -191,7 +191,7 @@ vector.</p>
 <dd class="field-even"><p>3D line</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">Line3.Join(P,</span> <span class="pre">Q)</span></code> create a <code class="docutils literal notranslate"><span class="pre">Line3</span></code> object that represents
@@ -219,7 +219,7 @@ is from <code class="docutils literal notranslate"><span class="pre">Q</span></c
 <dd class="field-even"><p>3D line</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">Line3.PointDir(P,</span> <span class="pre">W)</span></code> is a <cite>Line3`</cite> object that represents the
@@ -246,7 +246,7 @@ line containing the point <code class="docutils literal notranslate"><span class
 <dd class="field-even"><p>3D line</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">Line3.TwoPlanes(π1,</span> <span class="pre">π2)</span></code> is a <code class="docutils literal notranslate"><span class="pre">Line3</span></code> object that represents
@@ -752,7 +752,7 @@ at that closest point.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Line3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">line1</span> <span class="o">=</span> <span class="n">Line3</span><span class="o">.</span><span class="n">Join</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">line1</span><span class="o">.</span><span class="n">closest_to_point</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="go">(array([0.82352941, 0.82352941, 1.23529412]), np.float64(0.3429971702850176))</span>
+<span class="go">(array([0.8235, 0.8235, 1.2353]), np.float64(0.3429971702850176))</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1212,7 +1212,7 @@ direction given by <code class="docutils literal notranslate"><span class="pre">
 <dd class="field-even"><p>the popped value</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>IndexError</strong> – if there are no values to pop</p>
@@ -1527,7 +1527,7 @@ to the origin.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 13-Oct-2026.
+      <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
   </div>
 

@@ -179,9 +179,9 @@
 equivalent to a rotation of <code class="docutils literal notranslate"><span class="pre">θ</span></code> about the vector <code class="docutils literal notranslate"><span class="pre">V</span></code>.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">angvec2r</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">angvec2r</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># rotx(0.3)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">angvec2r</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>    <span class="c1"># rotx(0)</span>
 <span class="go">array([[1., 0., 0.],</span>
 <span class="go">       [0., 1., 0.],</span>
@@ -228,10 +228,10 @@ equivalent to a rotation of <code class="docutils literal notranslate"><span cla
 equivalent to a rotation of <code class="docutils literal notranslate"><span class="pre">θ</span></code> about the vector <code class="docutils literal notranslate"><span class="pre">V</span></code>.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">angvec2tr</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">angvec2tr</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># rtotx(0.3)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -327,9 +327,9 @@ is a 3-vector with values (φ θ ψ).</p></li>
 <p>Example:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">eul2jac</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eul2jac</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-<span class="go">array([[ 0.        , -0.09983342,  0.19767681],</span>
-<span class="go">       [ 0.        ,  0.99500417,  0.01983384],</span>
-<span class="go">       [ 1.        ,  0.        ,  0.98006658]])</span>
+<span class="go">array([[ 0.    , -0.0998,  0.1977],</span>
+<span class="go">       [ 0.    ,  0.995 ,  0.0198],</span>
+<span class="go">       [ 1.    ,  0.    ,  0.9801]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -381,17 +381,17 @@ to rotations about the Z, Y, Z axes respectively.</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">eul2r</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eul2r</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 0.902113  , -0.38355704,  0.19767681],</span>
-<span class="go">       [ 0.3875172 ,  0.92164909,  0.01983384],</span>
-<span class="go">       [-0.18979606,  0.0587108 ,  0.98006658]])</span>
+<span class="go">array([[ 0.9021, -0.3836,  0.1977],</span>
+<span class="go">       [ 0.3875,  0.9216,  0.0198],</span>
+<span class="go">       [-0.1898,  0.0587,  0.9801]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eul2r</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-<span class="go">array([[ 0.902113  , -0.38355704,  0.19767681],</span>
-<span class="go">       [ 0.3875172 ,  0.92164909,  0.01983384],</span>
-<span class="go">       [-0.18979606,  0.0587108 ,  0.98006658]])</span>
+<span class="go">array([[ 0.9021, -0.3836,  0.1977],</span>
+<span class="go">       [ 0.3875,  0.9216,  0.0198],</span>
+<span class="go">       [-0.1898,  0.0587,  0.9801]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eul2r</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'deg'</span><span class="p">)</span>
-<span class="go">array([[ 0.71461018, -0.61309202,  0.33682409],</span>
-<span class="go">       [ 0.63371836,  0.77128058,  0.05939117],</span>
-<span class="go">       [-0.29619813,  0.17101007,  0.93969262]])</span>
+<span class="go">array([[ 0.7146, -0.6131,  0.3368],</span>
+<span class="go">       [ 0.6337,  0.7713,  0.0594],</span>
+<span class="go">       [-0.2962,  0.171 ,  0.9397]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -434,20 +434,20 @@ to rotations about the Z, Y, Z axes respectively.</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">eul2tr</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eul2tr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 0.902113  , -0.38355704,  0.19767681,  0.        ],</span>
-<span class="go">       [ 0.3875172 ,  0.92164909,  0.01983384,  0.        ],</span>
-<span class="go">       [-0.18979606,  0.0587108 ,  0.98006658,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9021, -0.3836,  0.1977,  0.    ],</span>
+<span class="go">       [ 0.3875,  0.9216,  0.0198,  0.    ],</span>
+<span class="go">       [-0.1898,  0.0587,  0.9801,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eul2tr</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-<span class="go">array([[ 0.902113  , -0.38355704,  0.19767681,  0.        ],</span>
-<span class="go">       [ 0.3875172 ,  0.92164909,  0.01983384,  0.        ],</span>
-<span class="go">       [-0.18979606,  0.0587108 ,  0.98006658,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9021, -0.3836,  0.1977,  0.    ],</span>
+<span class="go">       [ 0.3875,  0.9216,  0.0198,  0.    ],</span>
+<span class="go">       [-0.1898,  0.0587,  0.9801,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eul2tr</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'deg'</span><span class="p">)</span>
-<span class="go">array([[ 0.71461018, -0.61309202,  0.33682409,  0.        ],</span>
-<span class="go">       [ 0.63371836,  0.77128058,  0.05939117,  0.        ],</span>
-<span class="go">       [-0.29619813,  0.17101007,  0.93969262,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.7146, -0.6131,  0.3368,  0.    ],</span>
+<span class="go">       [ 0.6337,  0.7713,  0.0594,  0.    ],</span>
+<span class="go">       [-0.2962,  0.171 ,  0.9397,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -486,9 +486,9 @@ rates to angular velocity at the operating point <code class="docutils literal n
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">exp2jac</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exp2jac</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.98506736, -0.14887837],</span>
-<span class="go">       [ 0.        ,  0.14887837,  0.98506736]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9851, -0.1489],</span>
+<span class="go">       [ 0.    ,  0.1489,  0.9851]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -540,13 +540,13 @@ equivalent to a rotation of <span class="math notranslate nohighlight">\(\| w \|
 <p>If <code class="docutils literal notranslate"><span class="pre">w</span></code> is zero then result is the identity matrix.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">exp2r</span><span class="p">,</span> <span class="n">rotx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exp2r</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -586,15 +586,15 @@ equivalent to a rotation of <span class="math notranslate nohighlight">\(\| w \|
 <p>If <code class="docutils literal notranslate"><span class="pre">w</span></code> is zero then result is the identity matrix.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">exp2tr</span><span class="p">,</span> <span class="n">trotx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exp2tr</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -891,13 +891,13 @@ and angle.</p>
 \[\mat{R} = \mat{I}_{3 \times 3} + \sin \theta \skx{\hat{\vec{v}}} + (1 - \cos \theta) \skx{\hat{\vec{v}}}^2\]</div>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rodrigues</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rodrigues</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1090,13 +1090,13 @@ of θ radians about the x-axis</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">rotx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotx</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.70710678, -0.70710678],</span>
-<span class="go">       [ 0.        ,  0.70710678,  0.70710678]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.7071, -0.7071],</span>
+<span class="go">       [ 0.    ,  0.7071,  0.7071]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1134,13 +1134,13 @@ of θ radians about the y-axis</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">roty</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">roty</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 0.95533649,  0.        ,  0.29552021],</span>
-<span class="go">       [ 0.        ,  1.        ,  0.        ],</span>
-<span class="go">       [-0.29552021,  0.        ,  0.95533649]])</span>
+<span class="go">array([[ 0.9553,  0.    ,  0.2955],</span>
+<span class="go">       [ 0.    ,  1.    ,  0.    ],</span>
+<span class="go">       [-0.2955,  0.    ,  0.9553]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">roty</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">)</span>
-<span class="go">array([[ 0.70710678,  0.        ,  0.70710678],</span>
-<span class="go">       [ 0.        ,  1.        ,  0.        ],</span>
-<span class="go">       [-0.70710678,  0.        ,  0.70710678]])</span>
+<span class="go">array([[ 0.7071,  0.    ,  0.7071],</span>
+<span class="go">       [ 0.    ,  1.    ,  0.    ],</span>
+<span class="go">       [-0.7071,  0.    ,  0.7071]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1178,13 +1178,13 @@ of θ radians about the z-axis</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">rotz</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotz</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 0.95533649, -0.29552021,  0.        ],</span>
-<span class="go">       [ 0.29552021,  0.95533649,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9553, -0.2955,  0.    ],</span>
+<span class="go">       [ 0.2955,  0.9553,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotz</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">)</span>
-<span class="go">array([[ 0.70710678, -0.70710678,  0.        ],</span>
-<span class="go">       [ 0.70710678,  0.70710678,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.7071, -0.7071,  0.    ],</span>
+<span class="go">       [ 0.7071,  0.7071,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1238,9 +1238,9 @@ from <code class="docutils literal notranslate"><span class="pre">𝚪</span></c
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">rpy2jac</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rpy2jac</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-<span class="go">array([[ 0.93629336, -0.29552021,  0.        ],</span>
-<span class="go">       [ 0.28962948,  0.95533649,  0.        ],</span>
-<span class="go">       [-0.19866933,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9363, -0.2955,  0.    ],</span>
+<span class="go">       [ 0.2896,  0.9553,  0.    ],</span>
+<span class="go">       [-0.1987,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1311,17 +1311,17 @@ from <code class="docutils literal notranslate"><span class="pre">RPY</span></co
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">rpy2r</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rpy2r</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 0.93629336, -0.27509585,  0.21835066],</span>
-<span class="go">       [ 0.28962948,  0.95642509, -0.03695701],</span>
-<span class="go">       [-0.19866933,  0.0978434 ,  0.97517033]])</span>
+<span class="go">array([[ 0.9363, -0.2751,  0.2184],</span>
+<span class="go">       [ 0.2896,  0.9564, -0.037 ],</span>
+<span class="go">       [-0.1987,  0.0978,  0.9752]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rpy2r</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-<span class="go">array([[ 0.93629336, -0.27509585,  0.21835066],</span>
-<span class="go">       [ 0.28962948,  0.95642509, -0.03695701],</span>
-<span class="go">       [-0.19866933,  0.0978434 ,  0.97517033]])</span>
+<span class="go">array([[ 0.9363, -0.2751,  0.2184],</span>
+<span class="go">       [ 0.2896,  0.9564, -0.037 ],</span>
+<span class="go">       [-0.1987,  0.0978,  0.9752]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rpy2r</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'deg'</span><span class="p">)</span>
-<span class="go">array([[ 0.81379768, -0.44096961,  0.37852231],</span>
-<span class="go">       [ 0.46984631,  0.88256412,  0.01802831],</span>
-<span class="go">       [-0.34202014,  0.16317591,  0.92541658]])</span>
+<span class="go">array([[ 0.8138, -0.441 ,  0.3785],</span>
+<span class="go">       [ 0.4698,  0.8826,  0.018 ],</span>
+<span class="go">       [-0.342 ,  0.1632,  0.9254]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1375,20 +1375,20 @@ from <code class="docutils literal notranslate"><span class="pre">RPY</span></co
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">rpy2tr</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rpy2tr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 0.93629336, -0.27509585,  0.21835066,  0.        ],</span>
-<span class="go">       [ 0.28962948,  0.95642509, -0.03695701,  0.        ],</span>
-<span class="go">       [-0.19866933,  0.0978434 ,  0.97517033,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9363, -0.2751,  0.2184,  0.    ],</span>
+<span class="go">       [ 0.2896,  0.9564, -0.037 ,  0.    ],</span>
+<span class="go">       [-0.1987,  0.0978,  0.9752,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rpy2tr</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-<span class="go">array([[ 0.93629336, -0.27509585,  0.21835066,  0.        ],</span>
-<span class="go">       [ 0.28962948,  0.95642509, -0.03695701,  0.        ],</span>
-<span class="go">       [-0.19866933,  0.0978434 ,  0.97517033,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9363, -0.2751,  0.2184,  0.    ],</span>
+<span class="go">       [ 0.2896,  0.9564, -0.037 ,  0.    ],</span>
+<span class="go">       [-0.1987,  0.0978,  0.9752,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rpy2tr</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'deg'</span><span class="p">)</span>
-<span class="go">array([[ 0.81379768, -0.44096961,  0.37852231,  0.        ],</span>
-<span class="go">       [ 0.46984631,  0.88256412,  0.01802831,  0.        ],</span>
-<span class="go">       [-0.34202014,  0.16317591,  0.92541658,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.8138, -0.441 ,  0.3785,  0.    ],</span>
+<span class="go">       [ 0.4698,  0.8826,  0.018 ,  0.    ],</span>
+<span class="go">       [-0.342 ,  0.1632,  0.9254,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1427,18 +1427,12 @@ homogeneous transform T = <span class="math notranslate nohighlight">\({}^A {\bf
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">tr2adjoint</span><span class="p">,</span> <span class="n">trotx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">trotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tr2adjoint</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ,  0.        , -4.2544179 ,</span>
-<span class="go">         6.54980369],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021,  6.        , -1.18208083,</span>
-<span class="go">        -3.82134596],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649, -5.        ,  3.82134596,</span>
-<span class="go">        -1.18208083],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ,  0.        ,</span>
-<span class="go">         0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.95533649,</span>
-<span class="go">        -0.29552021],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.29552021,</span>
-<span class="go">         0.95533649]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ,  0.    , -4.2544,  6.5498],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955,  6.    , -1.1821, -3.8213],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553, -5.    ,  3.8213, -1.1821],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  0.    ,  0.9553, -0.2955],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  0.    ,  0.2955,  0.9553]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1535,8 +1529,7 @@ step.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T1</span> <span class="o">=</span> <span class="n">trotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T2</span> <span class="o">=</span> <span class="n">trotx</span><span class="p">(</span><span class="mf">0.31</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mf">5.02</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tr2delta</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span>
-<span class="go">array([ 0.        ,  0.01910673, -0.0059104 ,  0.00999983,  0.        ,</span>
-<span class="go">        0.        ])</span>
+<span class="go">array([ 0.    ,  0.0191, -0.0059,  0.01  ,  0.    ,  0.    ])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1593,10 +1586,10 @@ about the Z, Y and Z axes respectively.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">tr2eul</span><span class="p">,</span> <span class="n">eul2tr</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">eul2tr</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="go">[[ 0.72642758 -0.62323169  0.28962948  0.        ]</span>
-<span class="go"> [ 0.63643066  0.76909626  0.0587108   0.        ]</span>
-<span class="go"> [-0.25934338  0.14167993  0.95533649  0.        ]</span>
-<span class="go"> [ 0.          0.          0.          1.        ]]</span>
+<span class="go">[[ 0.7264 -0.6232  0.2896  0.    ]</span>
+<span class="go"> [ 0.6364  0.7691  0.0587  0.    ]</span>
+<span class="go"> [-0.2593  0.1417  0.9553  0.    ]</span>
+<span class="go"> [ 0.      0.      0.      1.    ]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tr2eul</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="go">array([0.2, 0.3, 0.5])</span>
 </pre></div>
@@ -1644,18 +1637,12 @@ elative to {A} is represented by the homogeneous transform T = <span class="math
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">tr2jac</span><span class="p">,</span> <span class="n">trotx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">trotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tr2jac</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ,  0.        ,  0.        ,</span>
-<span class="go">         0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021,  0.        ,  0.        ,</span>
-<span class="go">         0.        ],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649,  0.        ,  0.        ,</span>
-<span class="go">         0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ,  0.        ,</span>
-<span class="go">         0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.95533649,</span>
-<span class="go">        -0.29552021],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  0.        ,  0.29552021,</span>
-<span class="go">         0.95533649]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ,  0.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955,  0.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553,  0.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  0.    ,  0.9553, -0.2955],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  0.    ,  0.2955,  0.9553]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1709,10 +1696,10 @@ sequence can be changed by setting:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">tr2rpy</span><span class="p">,</span> <span class="n">rpy2tr</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">rpy2tr</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="go">[[ 0.83838664 -0.41834537  0.34942093  0.        ]</span>
-<span class="go"> [ 0.45801271  0.8882368  -0.03549297  0.        ]</span>
-<span class="go"> [-0.29552021  0.18979606  0.93629336  0.        ]</span>
-<span class="go"> [ 0.          0.          0.          1.        ]]</span>
+<span class="go">[[ 0.8384 -0.4183  0.3494  0.    ]</span>
+<span class="go"> [ 0.458   0.8882 -0.0355  0.    ]</span>
+<span class="go"> [-0.2955  0.1898  0.9363  0.    ]</span>
+<span class="go"> [ 0.      0.      0.      1.    ]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tr2rpy</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="go">array([0.2, 0.3, 0.5])</span>
 </pre></div>
@@ -2064,21 +2051,21 @@ given by <code class="docutils literal notranslate"><span class="pre">θ</span><
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">trexp</span><span class="p">,</span> <span class="n">skew</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trexp</span><span class="p">(</span><span class="n">skew</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
-<span class="go">array([[-0.69492056,  0.71352099,  0.08929286],</span>
-<span class="go">       [-0.19200697, -0.30378504,  0.93319235],</span>
-<span class="go">       [ 0.69297817,  0.6313497 ,  0.34810748]])</span>
+<span class="go">array([[-0.6949,  0.7135,  0.0893],</span>
+<span class="go">       [-0.192 , -0.3038,  0.9332],</span>
+<span class="go">       [ 0.693 ,  0.6313,  0.3481]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trexp</span><span class="p">(</span><span class="n">skew</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># revolute unit twist</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        , -0.41614684, -0.90929743],</span>
-<span class="go">       [ 0.        ,  0.90929743, -0.41614684]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    , -0.4161, -0.9093],</span>
+<span class="go">       [ 0.    ,  0.9093, -0.4161]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trexp</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="go">array([[-0.69492056,  0.71352099,  0.08929286],</span>
-<span class="go">       [-0.19200697, -0.30378504,  0.93319235],</span>
-<span class="go">       [ 0.69297817,  0.6313497 ,  0.34810748]])</span>
+<span class="go">array([[-0.6949,  0.7135,  0.0893],</span>
+<span class="go">       [-0.192 , -0.3038,  0.9332],</span>
+<span class="go">       [ 0.693 ,  0.6313,  0.3481]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trexp</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># revolute unit twist</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        , -0.41614684, -0.90929743],</span>
-<span class="go">       [ 0.        ,  0.90929743, -0.41614684]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    , -0.4161, -0.9093],</span>
+<span class="go">       [ 0.    ,  0.9093, -0.4161]])</span>
 </pre></div>
 </div>
 <p>For se(3) the results is an SE(3) homogeneous transformation matrix:</p>
@@ -2096,20 +2083,20 @@ skew-symmetric matrix.</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">trexp</span><span class="p">,</span> <span class="n">skewa</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trexp</span><span class="p">(</span><span class="n">skewa</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
-<span class="go">array([[-0.42296095,  0.05284171,  0.90460588,  1.68665085],</span>
-<span class="go">       [ 0.88024744, -0.21301589,  0.42401495,  1.93258594],</span>
-<span class="go">       [ 0.2151011 ,  0.97561877,  0.04358362,  2.59841115],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[-0.423 ,  0.0528,  0.9046,  1.6867],</span>
+<span class="go">       [ 0.8802, -0.213 ,  0.424 ,  1.9326],</span>
+<span class="go">       [ 0.2151,  0.9756,  0.0436,  2.5984],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trexp</span><span class="p">(</span><span class="n">skewa</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># prismatic unit twist</span>
 <span class="go">array([[1., 0., 0., 2.],</span>
 <span class="go">       [0., 1., 0., 0.],</span>
 <span class="go">       [0., 0., 1., 0.],</span>
 <span class="go">       [0., 0., 0., 1.]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trexp</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-<span class="go">array([[-0.42296095,  0.05284171,  0.90460588,  1.68665085],</span>
-<span class="go">       [ 0.88024744, -0.21301589,  0.42401495,  1.93258594],</span>
-<span class="go">       [ 0.2151011 ,  0.97561877,  0.04358362,  2.59841115],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[-0.423 ,  0.0528,  0.9046,  1.6867],</span>
+<span class="go">       [ 0.8802, -0.213 ,  0.424 ,  1.9326],</span>
+<span class="go">       [ 0.2151,  0.9756,  0.0436,  2.5984],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trexp</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
 <span class="go">array([[1., 0., 0., 2.],</span>
 <span class="go">       [0., 1., 0., 0.],</span>
@@ -2226,19 +2213,15 @@ between R0 (3x3) when S=0 and R1 (3x3) when S=1.</p></li>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">trinv</span><span class="p">,</span> <span class="n">trotx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">trotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trinv</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        , -4.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649,  0.29552021, -6.54980369],</span>
-<span class="go">       [ 0.        , -0.29552021,  0.95533649, -4.2544179 ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    , -4.    ],</span>
+<span class="go">       [ 0.    ,  0.9553,  0.2955, -6.5498],</span>
+<span class="go">       [ 0.    , -0.2955,  0.9553, -4.2544],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">@</span> <span class="n">trinv</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="go">array([[ 1.00000000e+00,  0.00000000e+00,  0.00000000e+00,</span>
-<span class="go">         0.00000000e+00],</span>
-<span class="go">       [ 0.00000000e+00,  1.00000000e+00, -9.37082533e-18,</span>
-<span class="go">         8.88178420e-16],</span>
-<span class="go">       [ 0.00000000e+00, -9.37082533e-18,  1.00000000e+00,</span>
-<span class="go">         0.00000000e+00],</span>
-<span class="go">       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00,</span>
-<span class="go">         1.00000000e+00]])</span>
+<span class="go">array([[ 1.,  0.,  0.,  0.],</span>
+<span class="go">       [ 0.,  1., -0.,  0.],</span>
+<span class="go">       [ 0., -0.,  1.,  0.],</span>
+<span class="go">       [ 0.,  0.,  0.,  1.]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2392,15 +2375,15 @@ of θ radians about the x-axis.</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">trotx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trotx</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ,  1.        ],</span>
-<span class="go">       [ 0.        ,  0.70710678, -0.70710678,  2.        ],</span>
-<span class="go">       [ 0.        ,  0.70710678,  0.70710678,  3.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ,  1.    ],</span>
+<span class="go">       [ 0.    ,  0.7071, -0.7071,  2.    ],</span>
+<span class="go">       [ 0.    ,  0.7071,  0.7071,  3.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2440,15 +2423,15 @@ of θ radians about the y-axis.</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">troty</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">troty</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 0.95533649,  0.        ,  0.29552021,  0.        ],</span>
-<span class="go">       [ 0.        ,  1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [-0.29552021,  0.        ,  0.95533649,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9553,  0.    ,  0.2955,  0.    ],</span>
+<span class="go">       [ 0.    ,  1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [-0.2955,  0.    ,  0.9553,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">troty</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="go">array([[ 0.70710678,  0.        ,  0.70710678,  1.        ],</span>
-<span class="go">       [ 0.        ,  1.        ,  0.        ,  2.        ],</span>
-<span class="go">       [-0.70710678,  0.        ,  0.70710678,  3.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.7071,  0.    ,  0.7071,  1.    ],</span>
+<span class="go">       [ 0.    ,  1.    ,  0.    ,  2.    ],</span>
+<span class="go">       [-0.7071,  0.    ,  0.7071,  3.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2488,15 +2471,15 @@ of θ radians about the z-axis.</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">trotz</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trotz</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="go">array([[ 0.95533649, -0.29552021,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.29552021,  0.95533649,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  1.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9553, -0.2955,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.2955,  0.9553,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">trotz</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="go">array([[ 0.70710678, -0.70710678,  0.        ,  1.        ],</span>
-<span class="go">       [ 0.70710678,  0.70710678,  0.        ,  2.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  1.        ,  3.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.7071, -0.7071,  0.    ,  1.    ],</span>
+<span class="go">       [ 0.7071,  0.7071,  0.    ,  2.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ,  3.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2871,7 +2854,7 @@ in a minimal representation to an equivalent SE(3) matrix.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 13-Oct-2026.
+      <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
   </div>
 

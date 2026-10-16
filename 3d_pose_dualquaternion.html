@@ -129,7 +129,7 @@
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Pure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.DualQuaternion.UnitDualQuaternion.Pure" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -147,9 +147,19 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">AttributeError</span>: <span class="n">'UnitDualQuaternion' object has no attribute 'T'</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitDualQuaternion</span><span class="p">,</span> <span class="n">SE3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="go">   0.9512    0.06849  -0.301    -0.4284    </span>
+<span class="go">  -0.0959    0.9924   -0.07722  -0.9333    </span>
+<span class="go">   0.2934    0.1023    0.9505    0.9406    </span>
+<span class="go">   0         0         0         1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">UnitDualQuaternion</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="go"> 0.9867 &lt;&lt;  0.0455, -0.1506, -0.0417 &gt;&gt; + ε -0.0410 &lt; -0.1211, -0.4479,  0.5175 &gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="go">!! [RUNBLOCK-ERROR] spatialmath/DualQuaternion.py:docstring of spatialmath.DualQuaternion.UnitDualQuaternion.SE3:37</span>
+<span class="go">    AttributeError: 'UnitDualQuaternion' object has no attribute 'T'</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -163,7 +173,7 @@
 <dd class="field-odd"><p>Product</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -197,14 +207,13 @@ the rigid-body motion described by the SE3 value <code class="docutils literal n
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitDualQuaternion</span><span class="p">,</span> <span class="n">SE3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="go">  -0.2954    0.00286  -0.9554   -0.3908    </span>
-<span class="go">  -0.9105   -0.3036    0.2807   -0.5986    </span>
-<span class="go">  -0.2892    0.9528    0.09229  -0.2803    </span>
-<span class="go">   0         0         0         1         </span>
-
+<span class="go">  -0.2511   -0.9648    0.07799  -0.749     </span>
+<span class="go">  -0.9282    0.2629    0.2632    0.5556    </span>
+<span class="go">  -0.2745   -0.006291 -0.9616    0.2872    </span>
+<span class="go">   0         0         0         1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">UnitDualQuaternion</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="go">-0.3512 &lt;&lt; -0.4785,  0.4742,  0.6502 &gt;&gt; + ε  0.1396 &lt; -0.0595,  0.2992, -0.1867 &gt;</span>
+<span class="go"> 0.1120 &lt;&lt; -0.6016,  0.7867,  0.0817 &gt;&gt; + ε -0.4555 &lt; -0.1322, -0.0247, -0.1114 &gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="go">&lt;class 'spatialmath.DualQuaternion.UnitDualQuaternion'&gt;</span>
 </pre></div>
@@ -239,7 +248,7 @@ will be a unit dual quaternion.</p></li>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -253,7 +262,7 @@ will be a unit dual quaternion.</p></li>
 <dd class="field-odd"><p>Product</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -274,7 +283,7 @@ will be a unit dual quaternion.</p></li>
 <dd class="field-odd"><p>Conjugate</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 <p>There are several conjugates defined for a dual quaternion. This one
@@ -383,7 +392,7 @@ number (1,0).</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 13-Oct-2026.
+      <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
   </div>
 

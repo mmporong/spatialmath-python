@@ -289,27 +289,33 @@ attempt to reshape <code class="docutils literal notranslate"><span class="pre">
 </dd>
 </dl>
 <p>The input value is assumed to be in units of <code class="docutils literal notranslate"><span class="pre">unit</span></code> and is converted to radians.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-  File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/argcheck.py"</span>, line <span class="m">572</span>, in <span class="n">getunit</span>
-<span class="w">    </span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"for dim==0 input must be a scalar"</span><span class="p">)</span>
-<span class="gr">ValueError</span>: <span class="n">for dim==0 input must be a scalar</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-  File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/argcheck.py"</span>, line <span class="m">594</span>, in <span class="n">getunit</span>
-<span class="w">    </span><span class="n">v</span> <span class="o">=</span> <span class="n">getvector</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
-<span class="w">        </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^</span>
-  File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/argcheck.py"</span>, line <span class="m">398</span>, in <span class="n">getvector</span>
-<span class="w">    </span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="gr">ValueError</span>: <span class="n">incorrect vector length: expected 3, got 1</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-  File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/argcheck.py"</span>, line <span class="m">594</span>, in <span class="n">getunit</span>
-<span class="w">    </span><span class="n">v</span> <span class="o">=</span> <span class="n">getvector</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
-<span class="w">        </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^</span>
-  File <span class="nb">"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/spatialmath/base/argcheck.py"</span>, line <span class="m">398</span>, in <span class="n">getvector</span>
-<span class="w">    </span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="gr">ValueError</span>: <span class="n">incorrect vector length: expected 3, got 2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">getunit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="s1">'rad'</span><span class="p">)</span>
+<span class="go">array([1.5])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">)</span>
+<span class="go">array([1.5708])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">,</span> <span class="n">vector</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># force a scalar output</span>
+<span class="go">np.float64(1.5707963267948966)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="s1">'rad'</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># check argument is scalar</span>
+<span class="go">array([1.5])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="s1">'rad'</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># check argument is a 3-vector</span>
+<span class="go">!! [RUNBLOCK-ERROR] base/argcheck.py:docstring of spatialmath.base.argcheck.getunit:130</span>
+<span class="go">    ValueError: for dim==0 input must be a scalar</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">([</span><span class="mf">1.5</span><span class="p">],</span> <span class="s1">'rad'</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># check argument is a 1-vector</span>
+<span class="go">array([1.5])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">([</span><span class="mf">1.5</span><span class="p">],</span> <span class="s1">'rad'</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># check argument is a 3-vector</span>
+<span class="go">!! [RUNBLOCK-ERROR] base/argcheck.py:docstring of spatialmath.base.argcheck.getunit:130</span>
+<span class="go">    ValueError: incorrect vector length: expected 3, got 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span> <span class="s1">'deg'</span><span class="p">)</span>
+<span class="go">array([1.5708, 3.1416])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span> <span class="s1">'deg'</span><span class="p">)</span>
+<span class="go">array([1.5708, 3.1416])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span> <span class="s1">'deg'</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># check argument is a 2-vector</span>
+<span class="go">array([1.5708, 3.1416])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">getunit</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span> <span class="s1">'deg'</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># check argument is a 3-vector</span>
+<span class="go">!! [RUNBLOCK-ERROR] base/argcheck.py:docstring of spatialmath.base.argcheck.getunit:130</span>
+<span class="go">    ValueError: incorrect vector length: expected 3, got 2</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -739,7 +745,7 @@ dimensions.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 13-Oct-2026.
+      <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
   </div>
 

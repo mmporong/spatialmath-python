@@ -199,7 +199,7 @@ of delimeters given by <cite>delim</cite>.</p>
 <span class="go">' 1.0000 &lt;  2.0000,  3.0000,  4.0000 &gt;'</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">qrand</span><span class="p">()</span>   <span class="c1"># a unit quaternion</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q2str</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">delim</span><span class="o">=</span><span class="p">(</span><span class="s1">'&lt;&lt;'</span><span class="p">,</span> <span class="s1">'&gt;&gt;'</span><span class="p">))</span>
-<span class="go">'-0.1821 &lt;&lt;  0.0027, -0.9655,  0.1863 &gt;&gt;'</span>
+<span class="go">'-0.5237 &lt;&lt; -0.2819,  0.2036,  0.7777 &gt;&gt;'</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -231,10 +231,10 @@ entire quaternion by -1, then the vector part is taken.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q2v</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>
-<span class="go">[0.         0.70710678 0.        ]</span>
+<span class="go">[0.     0.7071 0.    ]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q2v</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>
-<span class="go">[-0.         -0.70710678 -0.        ]</span>
+<span class="go">[-0.     -0.7071 -0.    ]</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -346,7 +346,7 @@ the world frame.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>   <span class="c1"># 90deg rotation about x-axis</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qdot</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="go">array([-0.35355339,  0.35355339,  1.76776695,  0.35355339])</span>
+<span class="go">array([-0.3536,  0.3536,  1.7678,  0.3536])</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -380,7 +380,7 @@ the body frame.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>   <span class="c1"># 90deg rotation about x-axis</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qdotb</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="go">array([-0.35355339,  0.35355339, -0.35355339,  1.76776695])</span>
+<span class="go">array([-0.3536,  0.3536, -0.3536,  1.7678])</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -542,12 +542,20 @@ return <code class="docutils literal notranslate"><span class="pre">True</span><
 <p>Hamilton multiplication between two quaternions can be considered as a
 matrix-vector product, the left-hand quaternion is represented by an
 equivalent 4x4 matrix and the right-hand quaternion as 4x1 column vector.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'v' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">qmatrix</span><span class="p">,</span> <span class="n">qqmul</span><span class="p">,</span> <span class="n">qprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">qqmul</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">)</span>    <span class="c1"># conventional Hamilton product</span>
+<span class="go">array([-60.,  12.,  30.,  24.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">qmatrix</span><span class="p">(</span><span class="n">q1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="go">[[ 1. -2. -3. -4.]</span>
+<span class="go"> [ 2.  1. -4.  3.]</span>
+<span class="go"> [ 3.  4.  1. -2.]</span>
+<span class="go"> [ 4. -3.  2.  1.]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">m</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">q2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="go">[-60.  12.  30.  24.]</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -682,8 +690,8 @@ of delimeters given by <cite>delim</cite>.</p>
 <span class="go">' 1.0000 &lt;  2.0000,  3.0000,  4.0000 &gt;'</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">qrand</span><span class="p">()</span>   <span class="c1"># a unit quaternion</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qprint</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">delim</span><span class="o">=</span><span class="p">(</span><span class="s1">'&lt;&lt;'</span><span class="p">,</span> <span class="s1">'&gt;&gt;'</span><span class="p">))</span>
-<span class="go"> 0.0464 &lt;&lt; -0.0159,  0.8343, -0.5491 &gt;&gt;</span>
-<span class="go">' 0.0464 &lt;&lt; -0.0159,  0.8343, -0.5491 &gt;&gt;'</span>
+<span class="go"> 0.5274 &lt;&lt; -0.3270, -0.0515, -0.7825 &gt;&gt;</span>
+<span class="go">' 0.5274 &lt;&lt; -0.3270, -0.0515, -0.7825 &gt;&gt;'</span>
 </pre></div>
 </div>
 <div class="deprecated">
@@ -787,8 +795,8 @@ the product will be a unit-quaternion.</p>
 angular magnitude, which can be considered equivalent to a random SO(3) rotation.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">qrand</span><span class="p">,</span> <span class="n">qprint</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qprint</span><span class="p">(</span><span class="n">qrand</span><span class="p">())</span>
-<span class="go"> 0.0783 &lt;  0.1579,  0.2816,  0.9432 &gt;</span>
-<span class="go">' 0.0783 &lt;  0.1579,  0.2816,  0.9432 &gt;'</span>
+<span class="go">-0.1829 &lt; -0.6029,  0.7697, -0.1032 &gt;</span>
+<span class="go">'-0.1829 &lt; -0.6029,  0.7697, -0.1032 &gt;'</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -961,9 +969,9 @@ quaternion.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2q</span><span class="p">,</span> <span class="n">qprint</span><span class="p">,</span> <span class="n">rotx</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">rotx</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">)</span> <span class="c1"># rotation of 90deg about x-axis</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="go">[[ 1.000000e+00  0.000000e+00  0.000000e+00]</span>
-<span class="go"> [ 0.000000e+00  6.123234e-17 -1.000000e+00]</span>
-<span class="go"> [ 0.000000e+00  1.000000e+00  6.123234e-17]]</span>
+<span class="go">[[ 1.  0.  0.]</span>
+<span class="go"> [ 0.  0. -1.]</span>
+<span class="go"> [ 0.  1.  0.]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qprint</span><span class="p">(</span><span class="n">r2q</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
 <span class="go"> 0.7071 &lt;  0.7071,  0.0000,  0.0000 &gt;</span>
 <span class="go">' 0.7071 &lt;  0.7071,  0.0000,  0.0000 &gt;'</span>
@@ -1092,7 +1100,7 @@ by its vector component.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 13-Oct-2026.
+      <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
   </div>
 

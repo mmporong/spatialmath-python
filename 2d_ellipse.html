@@ -118,7 +118,7 @@
 <dd class="field-even"><p>an ellipse instance</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 <p>Example:</p>
@@ -151,7 +151,7 @@
 <dd class="field-even"><p>an ellipse instance</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 <p>Computes the ellipse that has the same inertia as the set of points.</p>
@@ -177,7 +177,7 @@
 <dd class="field-even"><p>an ellipse instance</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 </dl>
 <p>An ellipse can be specified by a polynomial <span class="math notranslate nohighlight">\(\vec{e} \in \mathbb{R}^6\)</span></p>
@@ -233,7 +233,7 @@ and its centre coordinate <span class="math notranslate nohighlight">\(\vec{x}_0
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Ellipse</span><span class="p">(</span><span class="n">radii</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">theta</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">Ellipse(radii=[1.+0.j 2.-0.j], centre=(0, 0), theta=0.0)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Ellipse</span><span class="p">(</span><span class="n">E</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]))</span>
-<span class="go">Ellipse(radii=[1.61803399-0.j 0.61803399+0.j], centre=(0, 0), theta=1.0172219678978514)</span>
+<span class="go">Ellipse(radii=[1.618-0.j 0.618+0.j], centre=(0, 0), theta=1.0172219678978514)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -335,8 +335,8 @@ set is not closed, that is, last point != first point.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ellipse</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span><span class="n">radii</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">centre</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">theta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="o">.</span><span class="n">points</span><span class="p">()[:,:</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># first 5 points</span>
-<span class="go">array([[4.22984885, 4.03964134, 3.7476665 , 3.38250485, 2.97990096],</span>
-<span class="go">       [3.57926451, 4.14686356, 4.70008658, 5.18478025, 5.55349937]])</span>
+<span class="go">array([[4.2298, 4.0396, 3.7477, 3.3825, 2.9799],</span>
+<span class="go">       [3.5793, 4.1469, 4.7001, 5.1848, 5.5535]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -402,8 +402,8 @@ the orientation of the ellipse</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ellipse</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span><span class="n">radii</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">centre</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">theta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="o">.</span><span class="n">E</span>
-<span class="go">array([[0.82761336, 0.31555162],</span>
-<span class="go">       [0.31555162, 0.42238664]])</span>
+<span class="go">array([[0.8276, 0.3156],</span>
+<span class="go">       [0.3156, 0.4224]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -475,8 +475,7 @@ coefficents of a quadratic in <span class="math notranslate nohighlight">\(x\)</
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ellipse</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span><span class="n">radii</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">centre</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">theta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="o">.</span><span class="n">polynomial</span>
-<span class="go">array([ 0.82761336,  0.42238664,  0.63110324, -7.49009314, -5.2724028 ,</span>
-<span class="go">       21.77994531])</span>
+<span class="go">array([ 0.8276,  0.4224,  0.6311, -7.4901, -5.2724, 21.7799])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -554,7 +553,7 @@ coefficents of a quadratic in <span class="math notranslate nohighlight">\(x\)</
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 13-Oct-2026.
+      <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
   </div>
 

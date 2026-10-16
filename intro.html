@@ -123,9 +123,9 @@ and twists <span class="math notranslate nohighlight">\(S \in \se{2}, \se{3}\)</
 <p>For example, we can create a rigid-body transformation that is a rotation about the x-axis of 30 degrees:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotx</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s1">'deg'</span><span class="p">)</span>
-<span class="go">array([[ 1.       ,  0.       ,  0.       ],</span>
-<span class="go">       [ 0.       ,  0.8660254, -0.5      ],</span>
-<span class="go">       [ 0.       ,  0.5      ,  0.8660254]])</span>
+<span class="go">array([[ 1.   ,  0.   ,  0.   ],</span>
+<span class="go">       [ 0.   ,  0.866, -0.5  ],</span>
+<span class="go">       [ 0.   ,  0.5  ,  0.866]])</span>
 </pre></div>
 </div>
 <p>which results in a NumPy <span class="math notranslate nohighlight">\(4 \times 4\)</span> array that belongs to the group
@@ -138,8 +138,7 @@ and twists <span class="math notranslate nohighlight">\(S \in \se{2}, \se{3}\)</
 <span class="go">   1         0         0         0         </span>
 <span class="go">   0         0.866    -0.5       0         </span>
 <span class="go">   0         0.5       0.866     0         </span>
-<span class="go">   0         0         0         1         </span>
-
+<span class="go">   0         0         0         1</span>
 </pre></div>
 </div>
 <p>which is <em>internally</em> represented as a <span class="math notranslate nohighlight">\(4 \times 4\)</span> NumPy array.</p>
@@ -277,8 +276,7 @@ enforce homogeneity of objects within an array (with <code class="docutils liter
 <span class="go">   1         0         0         0         </span>
 <span class="go">   0         0.9801   -0.1987    0         </span>
 <span class="go">   0         0.1987    0.9801    0         </span>
-<span class="go">   0         0         0         1         </span>
-
+<span class="go">   0         0         0         1</span>
 </pre></div>
 </div>
 <p>The classes form a rich hierarchy</p>
@@ -365,15 +363,15 @@ Euclidean form.</p></li>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">SO3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span>
-<span class="go">array([[1.        ],</span>
-<span class="go">       [1.02411236],</span>
-<span class="go">       [3.45704988]])</span>
+<span class="go">array([[1.    ],</span>
+<span class="go">       [1.0241],</span>
+<span class="go">       [3.457 ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span>
-<span class="go">array([[1.        ],</span>
-<span class="go">       [1.02411236],</span>
-<span class="go">       [3.45704988]])</span>
+<span class="go">array([[1.    ],</span>
+<span class="go">       [1.0241],</span>
+<span class="go">       [3.457 ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">UnitQuaternion</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span>
-<span class="go">array([1.        , 1.02411236, 3.45704988])</span>
+<span class="go">array([1.    , 1.0241, 3.457 ])</span>
 </pre></div>
 </div>
 </section>
@@ -423,9 +421,9 @@ quaternion is a ring not a group:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">UnitQuaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span>
-<span class="go">UnitQuaternion(array([0.18257419, 0.36514837, 0.54772256, 0.73029674]))</span>
+<span class="go">UnitQuaternion(array([0.1826, 0.3651, 0.5477, 0.7303]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">q</span>
-<span class="go">Quaternion(array([0.36514837, 0.73029674, 1.09544512, 1.46059349]))</span>
+<span class="go">Quaternion(array([0.3651, 0.7303, 1.0954, 1.4606]))</span>
 </pre></div>
 </div>
 <p>Noting that unit quaternions are denoted by double angle bracket delimiters of their vector part,
@@ -441,7 +439,7 @@ listing to the console, file and returns a string:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">printline</span><span class="p">()</span>
-<span class="go">t = -0.859, 0.945, 0.706; rpy/zyx = -3.51°, 44.8°, 110°</span>
+<span class="go">t = -0.153, -0.832, 0.926; rpy/zyx = 72.8°, 67.6°, -104°</span>
 </pre></div>
 </div>
 <p>The classes <code class="docutils literal notranslate"><span class="pre">SE3</span></code>, <code class="docutils literal notranslate"><span class="pre">SO3</span></code>, <code class="docutils literal notranslate"><span class="pre">SE2</span></code> and <code class="docutils literal notranslate"><span class="pre">SO2</span></code> can provide colorized text output to the console:</p>
@@ -550,9 +548,9 @@ class variables for the <code class="docutils literal notranslate"><span class="
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">SE2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="go">SE2(array([[ 0.95533649, -0.29552021,  1.        ],</span>
-<span class="go">           [ 0.29552021,  0.95533649,  2.        ],</span>
-<span class="go">           [ 0.        ,  0.        ,  1.        ]]))</span>
+<span class="go">SE2(array([[ 0.9553, -0.2955,  1.    ],</span>
+<span class="go">           [ 0.2955,  0.9553,  2.    ],</span>
+<span class="go">           [ 0.    ,  0.    ,  1.    ]]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">UnitQuaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="go">UnitQuaternion(array([1., 0., 0., 0.]))</span>
 </pre></div>
@@ -652,17 +650,17 @@ a Python list</p>
 <span class="go">           [0., 1., 0.],</span>
 <span class="go">           [0., 0., 1.]]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">SO3(array([[ 1.       ,  0.       ,  0.       ],</span>
-<span class="go">           [ 0.       ,  0.9965421,  0.0830894],</span>
-<span class="go">           [ 0.       , -0.0830894,  0.9965421]]))</span>
+<span class="go">SO3(array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">           [ 0.    ,  0.9965,  0.0831],</span>
+<span class="go">           [ 0.    , -0.0831,  0.9965]]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 <span class="go">SO3([</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.92106099, -0.38941834],</span>
-<span class="go">       [ 0.        ,  0.38941834,  0.92106099]]),</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.82533561, -0.56464247],</span>
-<span class="go">       [ 0.        ,  0.56464247,  0.82533561]]) ])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9211, -0.3894],</span>
+<span class="go">       [ 0.    ,  0.3894,  0.9211]]),</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.8253, -0.5646],</span>
+<span class="go">       [ 0.    ,  0.5646,  0.8253]]) ])</span>
 </pre></div>
 </div>
 <p>where each item is an object of the same class as that it was extracted from.
@@ -677,7 +675,7 @@ Slice notation is also available, eg. <code class="docutils literal notranslate"
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">eul</span><span class="p">)</span>
 <span class="go">32</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eul</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
-<span class="go">array([-1.57079633,  2.        ,  1.57079633])</span>
+<span class="go">array([-1.5708,  2.    ,  1.5708])</span>
 </pre></div>
 </div>
 <p>Useful functions that be used on such objects include</p>
@@ -941,18 +939,18 @@ or keep them in a list, tuple or any other Python container described in the
 <p>Let’s show a simple example:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">rotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="linenos"> 3</span><span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="linenos"> 4</span><span class="go">       [ 0.        ,  0.95533649, -0.29552021],</span>
-<span class="linenos"> 5</span><span class="go">       [ 0.        ,  0.29552021,  0.95533649]])</span>
+<span class="linenos"> 3</span><span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="linenos"> 4</span><span class="go">       [ 0.    ,  0.9553, -0.2955],</span>
+<span class="linenos"> 5</span><span class="go">       [ 0.    ,  0.2955,  0.9553]])</span>
 <span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">rotx</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'deg'</span><span class="p">)</span>
-<span class="linenos"> 7</span><span class="go">array([[ 1.       ,  0.       ,  0.       ],</span>
-<span class="linenos"> 8</span><span class="go">       [ 0.       ,  0.8660254, -0.5      ],</span>
-<span class="linenos"> 9</span><span class="go">       [ 0.       ,  0.5      ,  0.8660254]])</span>
+<span class="linenos"> 7</span><span class="go">array([[ 1.   ,  0.   ,  0.   ],</span>
+<span class="linenos"> 8</span><span class="go">       [ 0.   ,  0.866, -0.5  ],</span>
+<span class="linenos"> 9</span><span class="go">       [ 0.   ,  0.5  ,  0.866]])</span>
 <span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">rotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span> <span class="o">@</span> <span class="n">roty</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span>
-<span class="linenos">12</span><span class="go">array([[ 0.98006658,  0.        ,  0.19866933],</span>
-<span class="linenos">13</span><span class="go">       [ 0.0587108 ,  0.95533649, -0.28962948],</span>
-<span class="linenos">14</span><span class="go">       [-0.18979606,  0.29552021,  0.93629336]])</span>
+<span class="linenos">12</span><span class="go">array([[ 0.9801,  0.    ,  0.1987],</span>
+<span class="linenos">13</span><span class="go">       [ 0.0587,  0.9553, -0.2896],</span>
+<span class="linenos">14</span><span class="go">       [-0.1898,  0.2955,  0.9363]])</span>
 </pre></div>
 </div>
 <p>At line 1 we import all the base functions into the current namespace. In line
@@ -987,9 +985,11 @@ which is equivalent to the MATLAB <code class="docutils literal notranslate"><sp
 <ul class="simple">
 <li><p>or as a NumPy array</p></li>
 </ul>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transl2</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> <span class="p">)</span>
+<span class="go">array([[1., 0., 1.],</span>
+<span class="go">       [0., 1., 2.],</span>
+<span class="go">       [0., 0., 1.]])</span>
 </pre></div>
 </div>
 <p>There is a single module that deals with quaternions, regular quaternions and
@@ -1171,7 +1171,7 @@ equivalents are.  Vectorization is done by the classes.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 13-Oct-2026.
+      <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
   </div>
 

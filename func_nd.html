@@ -149,12 +149,13 @@ tuple, numpy array, numpy row vector or numpy column vector.</p>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">A</span></code> is 2x2 and <code class="docutils literal notranslate"><span class="pre">b</span></code> is 2x1, then <code class="docutils literal notranslate"><span class="pre">M</span></code> is 3x3</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">A</span></code> is 3x3 and <code class="docutils literal notranslate"><span class="pre">b</span></code> is 3x1, then <code class="docutils literal notranslate"><span class="pre">M</span></code> is 4x4</p></li>
 </ul>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'A' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span><span class="o">.</span><span class="n">T</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ab2M</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="go">array([[1., 2., 5.],</span>
+<span class="go">       [3., 4., 6.],</span>
+<span class="go">       [0., 0., 0.]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -216,15 +217,20 @@ been appended as the last element.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is a matrix (NxM), return a matrix (N+1xM), where each column has
 been appended with a value of 1, ie. a row of ones has been appended to the matrix.</p></li>
 </ul>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'e' is not defined</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'e' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e2h</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="go">array([[2.],</span>
+<span class="go">       [4.],</span>
+<span class="go">       [6.],</span>
+<span class="go">       [1.]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span>
+<span class="go">array([[1, 3, 5],</span>
+<span class="go">       [2, 4, 6]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e2h</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="go">array([[1., 3., 5.],</span>
+<span class="go">       [2., 4., 6.],</span>
+<span class="go">       [1., 1., 1.]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -259,15 +265,23 @@ all been scaled by the last element of <code class="docutils literal notranslate
 <li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is a matrix (NxM), return a matrix (N-1xM), where each column has
 been scaled by its last element.</p></li>
 </ul>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'h' is not defined</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'h' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h2e</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">array([[2.],</span>
+<span class="go">       [4.],</span>
+<span class="go">       [6.]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h2e</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="go">array([[1.],</span>
+<span class="go">       [2.],</span>
+<span class="go">       [3.]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span>
+<span class="go">array([[1, 3, 5],</span>
+<span class="go">       [2, 4, 6],</span>
+<span class="go">       [1, 2, 1]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h2e</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="go">array([[1. , 1.5, 5. ],</span>
+<span class="go">       [2. , 2. , 6. ]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -312,13 +326,13 @@ retured value will be a column vector.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">trotx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h2e</span><span class="p">(</span> <span class="n">T</span> <span class="o">@</span> <span class="n">e2h</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
-<span class="go">array([[1.        ],</span>
-<span class="go">       [1.02411236],</span>
-<span class="go">       [3.45704988]])</span>
+<span class="go">array([[1.    ],</span>
+<span class="go">       [1.0241],</span>
+<span class="go">       [3.457 ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">homtrans</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="go">array([[1.        ],</span>
-<span class="go">       [1.02411236],</span>
-<span class="go">       [3.45704988]])</span>
+<span class="go">array([[1.    ],</span>
+<span class="go">       [1.0241],</span>
+<span class="go">       [3.457 ]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -356,12 +370,13 @@ with respect to frame {A}.</p></li>
 </dl>
 <p>Checks orthogonality, ie. <span class="math notranslate nohighlight">\({\bf R} {\bf R}^T = {\bf I}\)</span> and <span class="math notranslate nohighlight">\(\det({\bf R}) &gt; 0\)</span>.
 For the first test we check that the norm of the residual is less than <code class="docutils literal notranslate"><span class="pre">tol</span> <span class="pre">*</span> <span class="pre">eps</span></code>.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isR</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isR</span><span class="p">(</span><span class="n">rot2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isR</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<span class="go">False</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -512,12 +527,12 @@ component</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">rot2</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R</span>
-<span class="go">array([[ 0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 0.9553, -0.2955],</span>
+<span class="go">       [ 0.2955,  0.9553]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r2t</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="go">array([[ 0.95533649, -0.29552021,  0.        ],</span>
-<span class="go">       [ 0.29552021,  0.95533649,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9553, -0.2955,  0.    ],</span>
+<span class="go">       [ 0.2955,  0.9553,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -560,9 +575,9 @@ orthonormal rotation matrix <code class="docutils literal notranslate"><span cla
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">rot2</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rt2tr</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-<span class="go">array([[ 0.95533649, -0.29552021,  1.        ],</span>
-<span class="go">       [ 0.29552021,  0.95533649,  2.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9553, -0.2955,  1.    ],</span>
+<span class="go">       [ 0.2955,  0.9553,  2.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ]])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -705,12 +720,12 @@ transformation matrix <code class="docutils literal notranslate"><span class="pr
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">trot2</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span>
-<span class="go">array([[ 0.95533649, -0.29552021,  1.        ],</span>
-<span class="go">       [ 0.29552021,  0.95533649,  2.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9553, -0.2955,  1.    ],</span>
+<span class="go">       [ 0.2955,  0.9553,  2.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t2r</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-<span class="go">array([[ 0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 0.9553, -0.2955],</span>
+<span class="go">       [ 0.2955,  0.9553]])</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -754,13 +769,13 @@ rotation matrix R (MxM) and a translation vector T (Mx1), where N=M+1.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">trot2</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">T</span>
-<span class="go">array([[ 0.95533649, -0.29552021,  1.        ],</span>
-<span class="go">       [ 0.29552021,  0.95533649,  2.        ],</span>
-<span class="go">       [ 0.        ,  0.        ,  1.        ]])</span>
+<span class="go">array([[ 0.9553, -0.2955,  1.    ],</span>
+<span class="go">       [ 0.2955,  0.9553,  2.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">tr2rt</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R</span>
-<span class="go">array([[ 0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 0.9553, -0.2955],</span>
+<span class="go">       [ 0.2955,  0.9553]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span>
 <span class="go">array([1., 2.])</span>
 </pre></div>
@@ -912,7 +927,7 @@ element of the matrix.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 13-Oct-2026.
+      <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
   </div>
 

@@ -135,7 +135,7 @@ as a double mapping.</p>
 <dd class="field-odd"><p><strong>n</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – Number of values, defaults to 1</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>pose instance with <code class="docutils literal notranslate"><span class="pre">n</span></code> default values</p>
@@ -210,7 +210,7 @@ defined by a rotation of <code class="docutils literal notranslate"><span class=
 <dd><p>Construct an empty instance (BasePoseList superclass method)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>pose instance with zero values</p>
@@ -467,11 +467,11 @@ values.</p></li>
 <p>Example:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitQuaternion</span> <span class="k">as</span> <span class="n">UQ</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">UQ</span><span class="o">.</span><span class="n">Rand</span><span class="p">())</span>
-<span class="go"> 0.2562 &lt;&lt;  0.1298, -0.8905, -0.3528 &gt;&gt;</span>
+<span class="go"> 0.5151 &lt;&lt; -0.5105,  0.4841,  0.4896 &gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">UQ</span><span class="o">.</span><span class="n">Rand</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="go"> 0.0350 &lt;&lt;  0.2059, -0.9779,  0.0076 &gt;&gt;</span>
-<span class="go"> 0.2172 &lt;&lt;  0.5087,  0.8330,  0.0142 &gt;&gt;</span>
-<span class="go"> 0.0592 &lt;&lt; -0.4299,  0.4659,  0.7712 &gt;&gt;</span>
+<span class="go"> 0.2591 &lt;&lt; -0.5859, -0.2561, -0.7238 &gt;&gt;</span>
+<span class="go"> 0.4690 &lt;&lt; -0.1576,  0.5368, -0.6834 &gt;&gt;</span>
+<span class="go"> 0.1952 &lt;&lt;  0.2765, -0.7705, -0.5401 &gt;&gt;</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -612,7 +612,7 @@ and the scalar part is</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 <span class="go"> 0.4161 &lt;&lt; -0.0000, -0.0000,  0.9093 &gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">vec3</span>
-<span class="go">array([-0.        , -0.        ,  0.90929743])</span>
+<span class="go">array([-0.    , -0.    ,  0.9093])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q2</span> <span class="o">=</span> <span class="n">UQ</span><span class="o">.</span><span class="n">Vec3</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">vec3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q2</span><span class="p">)</span>
 <span class="go"> 0.4161 &lt;&lt; -0.0000, -0.0000,  0.9093 &gt;&gt;</span>
@@ -679,11 +679,11 @@ represented in minimal vector form.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q2</span> <span class="o">=</span> <span class="n">UQ</span><span class="o">.</span><span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qv1</span> <span class="o">=</span> <span class="n">q1</span><span class="o">.</span><span class="n">vec3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qv1</span>
-<span class="go">array([0.14943813, 0.        , 0.        ])</span>
+<span class="go">array([0.1494, 0.    , 0.    ])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qv2</span> <span class="o">=</span> <span class="n">q2</span><span class="o">.</span><span class="n">vec3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qv</span> <span class="o">=</span> <span class="n">UQ</span><span class="o">.</span><span class="n">qvmul</span><span class="p">(</span><span class="n">qv1</span><span class="p">,</span> <span class="n">qv2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qv</span>
-<span class="go">array([ 0.1477601 , -0.1477601 , -0.02233176])</span>
+<span class="go">array([ 0.1478, -0.1478, -0.0223])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">UQ</span><span class="o">.</span><span class="n">Vec3</span><span class="p">(</span><span class="n">qv</span><span class="p">))</span>
 <span class="go"> 0.9777 &lt;&lt;  0.1478, -0.1478, -0.0223 &gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">UQ</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span> <span class="o">*</span> <span class="n">UQ</span><span class="o">.</span><span class="n">Ry</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">))</span>
@@ -714,10 +714,10 @@ as the unit quaternion <code class="docutils literal notranslate"><span class="p
 <p>Example:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitQuaternion</span> <span class="k">as</span> <span class="n">UQ</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">UQ</span><span class="o">.</span><span class="n">Rz</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">SE3</span><span class="p">()</span>
-<span class="go">SE3(array([[ 0.95533649, -0.29552021,  0.        ,  0.        ],</span>
-<span class="go">           [ 0.29552021,  0.95533649,  0.        ,  0.        ],</span>
-<span class="go">           [ 0.        ,  0.        ,  1.        ,  0.        ],</span>
-<span class="go">           [ 0.        ,  0.        ,  0.        ,  1.        ]]))</span>
+<span class="go">SE3(array([[ 0.9553, -0.2955,  0.    ,  0.    ],</span>
+<span class="go">           [ 0.2955,  0.9553,  0.    ,  0.    ],</span>
+<span class="go">           [ 0.    ,  0.    ,  1.    ,  0.    ],</span>
+<span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -739,9 +739,9 @@ as the unit quaternion <code class="docutils literal notranslate"><span class="p
 <p>Example:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitQuaternion</span> <span class="k">as</span> <span class="n">UQ</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">UQ</span><span class="o">.</span><span class="n">Rz</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">SO3</span><span class="p">()</span>
-<span class="go">SO3(array([[ 0.95533649, -0.29552021,  0.        ],</span>
-<span class="go">           [ 0.29552021,  0.95533649,  0.        ],</span>
-<span class="go">           [ 0.        ,  0.        ,  1.        ]]))</span>
+<span class="go">SO3(array([[ 0.9553, -0.2955,  0.    ],</span>
+<span class="go">           [ 0.2955,  0.9553,  0.    ],</span>
+<span class="go">           [ 0.    ,  0.    ,  1.    ]]))</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -849,12 +849,17 @@ as the unit quaternion <code class="docutils literal notranslate"><span class="p
 <p>A scalar of length N is a list, tuple or numpy array.
 A 3-vector of length N is a 3xN numpy array, where each column is a 3-vector.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quaternion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="o">+</span> <span class="n">Quaternion</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="go">Quaternion(array([ 6,  8, 10, 12]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span> <span class="o">+</span> <span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="go">Quaternion([</span>
+<span class="go">  array([2, 4, 6, 8]),</span>
+<span class="go">  array([ 6,  8, 10, 12]) ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span> <span class="o">+</span> <span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
+<span class="go">Quaternion([</span>
+<span class="go">  array([2, 4, 6, 8]),</span>
+<span class="go">  array([10, 12, 14, 16]) ])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1010,7 +1015,7 @@ the resulting unit quaternion is of the same length.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">UQ</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
 <span class="go"> 1.9775 &lt;  0.2989,  0.0000,  0.0000 &gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">UQ</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="go">[1.         1.02411236 3.45704988]</span>
+<span class="go">[1.     1.0241 3.457 ]</span>
 </pre></div>
 </div>
 <p>Note that left and right can have a length greater than 1 in which case:</p>
@@ -1127,9 +1132,14 @@ double mapping. Supports broadcasting.</p>
 <p><code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">**</span> <span class="pre">N</span></code> computes the product of <code class="docutils literal notranslate"><span class="pre">q</span></code> with itself <code class="docutils literal notranslate"><span class="pre">N-1</span></code> times, where <code class="docutils literal notranslate"><span class="pre">N</span></code> must be
 an integer.  If <code class="docutils literal notranslate"><span class="pre">N</span></code> &lt; 0 the result is conjugated.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quaternion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">-28.0000 &lt;  4.0000,  6.0000,  8.0000 &gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go"> 1.0000 &lt; -2.0000, -3.0000, -4.0000 &gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">-28.0000 &lt;  4.0000,  6.0000,  8.0000 &gt;</span>
+<span class="go">-124.0000 &lt;  60.0000,  70.0000,  80.0000 &gt;</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1242,12 +1252,17 @@ an integer.  If <code class="docutils literal notranslate"><span class="pre">N</
 <p>A scalar of length N is a list, tuple or numpy array.
 A 3-vector of length N is a 3xN numpy array, where each column is a 3-vector.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quaternion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="o">-</span> <span class="n">Quaternion</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="go">Quaternion(array([-4, -4, -4, -4]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span> <span class="o">-</span> <span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="go">Quaternion([</span>
+<span class="go">  array([0, 0, 0, 0]),</span>
+<span class="go">  array([4, 4, 4, 4]) ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span> <span class="o">-</span> <span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
+<span class="go">Quaternion([</span>
+<span class="go">  array([0, 0, 0, 0]),</span>
+<span class="go">  array([0, 0, 0, 0]) ])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1827,18 +1842,18 @@ steps.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q2</span><span class="p">)</span>
 <span class="go"> 0.9801 &lt;&lt;  0.0000,  0.0000, -0.1987 &gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">q2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>    <span class="c1"># this is q1</span>
-<span class="go">UnitQuaternion(array([0.98877108, 0.14943813, 0.        , 0.        ]))</span>
+<span class="go">UnitQuaternion(array([0.9888, 0.1494, 0.    , 0.    ]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">q2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,)</span>   <span class="c1"># this is q2</span>
-<span class="go">UnitQuaternion(array([ 0.98006658,  0.        ,  0.        , -0.19866933]))</span>
+<span class="go">UnitQuaternion(array([ 0.9801,  0.    ,  0.    , -0.1987]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">q2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># this is in between</span>
-<span class="go">UnitQuaternion(array([ 0.99212243,  0.07530378,  0.        , -0.10011201]))</span>
+<span class="go">UnitQuaternion(array([ 0.9921,  0.0753,  0.    , -0.1001]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">q1</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">q2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>  <span class="c1"># in 11 steps</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 <span class="go">11</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                <span class="c1"># this is q1</span>
-<span class="go">UnitQuaternion(array([0.98877108, 0.14943813, 0.        , 0.        ]))</span>
+<span class="go">UnitQuaternion(array([0.9888, 0.1494, 0.    , 0.    ]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>                <span class="c1"># this is in between</span>
-<span class="go">UnitQuaternion(array([ 0.99212243,  0.07530378,  0.        , -0.10011201]))</span>
+<span class="go">UnitQuaternion(array([ 0.9921,  0.0753,  0.    , -0.1001]))</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1886,16 +1901,16 @@ steps.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">interp1</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># this is identity</span>
 <span class="go">UnitQuaternion(array([1., 0., 0., 0.]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">interp1</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># this is q</span>
-<span class="go">UnitQuaternion(array([0.98877108, 0.14943813, 0.        , 0.        ]))</span>
+<span class="go">UnitQuaternion(array([0.9888, 0.1494, 0.    , 0.    ]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">interp1</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># this is in between</span>
-<span class="go">UnitQuaternion(array([0.99718882, 0.07492971, 0.        , 0.        ]))</span>
+<span class="go">UnitQuaternion(array([0.9972, 0.0749, 0.    , 0.    ]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qi</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">interp1</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>  <span class="c1"># in 11 steps</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">qi</span><span class="p">)</span>
 <span class="go">11</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                <span class="c1"># this is q1</span>
 <span class="go">UnitQuaternion(array([1., 0., 0., 0.]))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">qi</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>                <span class="c1"># this is in between</span>
-<span class="go">UnitQuaternion(array([0.99718882, 0.07492971, 0.        , 0.        ]))</span>
+<span class="go">UnitQuaternion(array([0.9972, 0.0749, 0.    , 0.    ]))</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1991,9 +2006,11 @@ to the axis of rotation and whose norm is the magnitude of rotation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">q.norm()</span></code> is the norm or length of the quaternion
 <span class="math notranslate nohighlight">\(\sqrt{s^2 + v_x^2 + v_y^2 + v_z^2}\)</span></p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quaternion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+<span class="go">np.float64(5.477225575051661)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+<span class="go">array([ 5.4772, 13.1909])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2040,7 +2057,7 @@ There are many options, see the links below.</p></li>
 <dd class="field-even"><p>the popped value</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Self</span></code></span></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Self</span></code></span></p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>IndexError</strong> – if there are no values to pop</p>
@@ -2156,9 +2173,15 @@ to the optic axis and x-axis parallel to the pixel rows.</p></li>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">q.unit()</span></code> is the quaternion <code class="docutils literal notranslate"><span class="pre">q</span></code> normalized to have a unit length.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quaternion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<span class="go"> 1.0000 &lt;  2.0000,  3.0000,  4.0000 &gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">unit</span><span class="p">())</span>
+<span class="go"> 0.1826 &lt;&lt;  0.3651,  0.5477,  0.7303 &gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span><span class="o">.</span><span class="n">unit</span><span class="p">())</span>
+<span class="go"> 0.1826 &lt;&lt;  0.3651,  0.5477,  0.7303 &gt;&gt;</span>
+<span class="go"> 0.3790 &lt;&lt;  0.4549,  0.5307,  0.6065 &gt;&gt;</span>
 </pre></div>
 </div>
 <p>Note that the return type is different, a <code class="docutils literal notranslate"><span class="pre">UnitQuaternion</span></code>, which is
@@ -2217,18 +2240,18 @@ instance.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitQuaternion</span> <span class="k">as</span> <span class="n">UQ</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">UQ</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">R</span>
-<span class="go">array([[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">       [ 0.        ,  0.95533649, -0.29552021],</span>
-<span class="go">       [ 0.        ,  0.29552021,  0.95533649]])</span>
+<span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">       [ 0.    ,  0.9553, -0.2955],</span>
+<span class="go">       [ 0.    ,  0.2955,  0.9553]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">UQ</span><span class="o">.</span><span class="n">Rx</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">R</span>
-<span class="go">array([[[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">        [ 0.        ,  0.95533649, -0.29552021],</span>
-<span class="go">        [ 0.        ,  0.29552021,  0.95533649]],</span>
+<span class="go">array([[[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">        [ 0.    ,  0.9553, -0.2955],</span>
+<span class="go">        [ 0.    ,  0.2955,  0.9553]],</span>
 
-<span class="go">       [[ 1.        ,  0.        ,  0.        ],</span>
-<span class="go">        [ 0.        ,  0.92106099, -0.38941834],</span>
-<span class="go">        [ 0.        ,  0.38941834,  0.92106099]]])</span>
+<span class="go">       [[ 1.    ,  0.    ,  0.    ],</span>
+<span class="go">        [ 0.    ,  0.9211, -0.3894],</span>
+<span class="go">        [ 0.    ,  0.3894,  0.9211]]])</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -2291,9 +2314,11 @@ equivalent of the Hamilton product.</p>
 </ul>
 </div></blockquote>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quaternion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">s</span>
+<span class="go">np.int64(1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span><span class="o">.</span><span class="n">s</span>
+<span class="go">array([1, 5])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2332,9 +2357,12 @@ equivalent of the Hamilton product.</p>
 </ul>
 </div></blockquote>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quaternion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">v</span>
+<span class="go">array([2, 3, 4])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span><span class="o">.</span><span class="n">v</span>
+<span class="go">array([[2, 3, 4],</span>
+<span class="go">       [6, 7, 8]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2361,9 +2389,12 @@ equivalent of the Hamilton product.</p>
 <p>The quaternion coefficients are in the order (s, vx, vy, vz), ie. with
 the scalar (real part) first.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quaternion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">vec</span>
+<span class="go">array([1, 2, 3, 4])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span><span class="o">.</span><span class="n">vec</span>
+<span class="go">array([[1, 2, 3, 4],</span>
+<span class="go">       [5, 6, 7, 8]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2391,7 +2422,7 @@ optimization procedures such as bundle adjustment.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 <span class="go"> 0.4161 &lt;&lt; -0.0000, -0.0000,  0.9093 &gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">vec3</span>
-<span class="go">array([-0.        , -0.        ,  0.90929743])</span>
+<span class="go">array([-0.    , -0.    ,  0.9093])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q2</span> <span class="o">=</span> <span class="n">UQ</span><span class="o">.</span><span class="n">Vec3</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">vec3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">q2</span><span class="p">)</span>
 <span class="go"> 0.4161 &lt;&lt; -0.0000, -0.0000,  0.9093 &gt;&gt;</span>
@@ -2429,9 +2460,12 @@ optimization procedures such as bundle adjustment.</p>
 the scalar (real part) last. This is useful when exporting to other
 packages like three.js or pybullet.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">"&lt;input&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">NameError</span>: <span class="n">name 'np' is not defined</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quaternion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">vec_xyzs</span>
+<span class="go">array([2, 3, 4, 1])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Quaternion</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span><span class="o">.</span><span class="n">vec_xyzs</span>
+<span class="go">array([[2, 3, 4, 1],</span>
+<span class="go">       [6, 7, 8, 5]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2452,7 +2486,7 @@ packages like three.js or pybullet.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2020-, Peter Corke..
-      <span class="lastupdated">Last updated on 13-Oct-2026.
+      <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
   </div>
 
