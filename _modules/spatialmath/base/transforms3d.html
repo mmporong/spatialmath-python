@@ -3279,7 +3279,6 @@
         <span class="n">dims</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLikePure</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">d2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.15</span><span class="p">,</span>
         <span class="n">flo</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">),</span>
-        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Plot a 3D coordinate frame</span>
@@ -3467,6 +3466,9 @@
             <span class="n">ax</span><span class="o">.</span><span class="n">set_proj_type</span><span class="p">(</span><span class="s2">"persp"</span><span class="p">)</span>
 
             <span class="c1"># collect all the arguments to use for left and right views</span>
+            <span class="c1"># note: dims is deliberately excluded, it was already applied to</span>
+            <span class="c1"># ax above; block is deliberately excluded and handled once</span>
+            <span class="c1"># below, after both eyes are drawn, rather than per-eye</span>
             <span class="n">args</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">"ax"</span><span class="p">:</span> <span class="n">ax</span><span class="p">,</span>
                 <span class="s2">"frame"</span><span class="p">:</span> <span class="n">frame</span><span class="p">,</span>
@@ -3475,8 +3477,15 @@
                 <span class="s2">"wtl"</span><span class="p">:</span> <span class="n">wtl</span><span class="p">,</span>
                 <span class="s2">"flo"</span><span class="p">:</span> <span class="n">flo</span><span class="p">,</span>
                 <span class="s2">"d2"</span><span class="p">:</span> <span class="n">d2</span><span class="p">,</span>
+                <span class="s2">"textcolor"</span><span class="p">:</span> <span class="n">textcolor</span><span class="p">,</span>
+                <span class="s2">"labels"</span><span class="p">:</span> <span class="n">labels</span><span class="p">,</span>
+                <span class="s2">"originsize"</span><span class="p">:</span> <span class="n">originsize</span><span class="p">,</span>
+                <span class="s2">"origincolor"</span><span class="p">:</span> <span class="n">origincolor</span><span class="p">,</span>
+                <span class="s2">"axislabel"</span><span class="p">:</span> <span class="n">axislabel</span><span class="p">,</span>
+                <span class="s2">"axissubscript"</span><span class="p">:</span> <span class="n">axissubscript</span><span class="p">,</span>
+                <span class="s2">"width"</span><span class="p">:</span> <span class="n">width</span><span class="p">,</span>
+                <span class="s2">"projection"</span><span class="p">:</span> <span class="n">projection</span><span class="p">,</span>
             <span class="p">}</span>
-            <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
 
             <span class="c1"># unpack the anaglyph parameters</span>
             <span class="n">shift</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -3498,7 +3507,11 @@
                 <span class="n">T</span> <span class="o">=</span> <span class="n">r2t</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="n">SO3Array</span><span class="p">,</span> <span class="n">T</span><span class="p">))</span>
             <span class="n">trplot</span><span class="p">(</span><span class="n">transl</span><span class="p">(</span><span class="n">shift</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">@</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">args</span><span class="p">)</span>
 
-            <span class="k">return</span>
+            <span class="k">if</span> <span class="n">block</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+                <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">block</span><span class="o">=</span><span class="n">block</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">ax</span>
 
         <span class="k">if</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">"rviz"</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">originsize</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -3550,9 +3563,9 @@
                     <span class="n">flo</span><span class="o">=</span><span class="n">flo</span><span class="p">,</span>
                     <span class="n">anaglyph</span><span class="o">=</span><span class="n">anaglyph</span><span class="p">,</span>
                     <span class="n">axislabel</span><span class="o">=</span><span class="n">axislabel</span><span class="p">,</span>
-                    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+                    <span class="n">axissubscript</span><span class="o">=</span><span class="n">axissubscript</span><span class="p">,</span>
                 <span class="p">)</span>
-            <span class="k">return</span>
+            <span class="k">return</span> <span class="n">ax</span>
 
         <span class="k">if</span> <span class="n">dims</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">dims</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
@@ -3769,9 +3782,18 @@
         <span class="c1"># alias for backward compatibility with the previous docstring/API</span>
         <span class="n">dim</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"dim"</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"dims"</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
         <span class="n">ax</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"ax"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># Animate.run()'s own parameters must not also be forwarded to</span>
+        <span class="c1"># trplot's drawing call, which now validates its keywords strictly</span>
+        <span class="c1"># (see Animate.run's signature for this parameter set)</span>
+        <span class="n">run_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"movie"</span><span class="p">,</span> <span class="s2">"repeat"</span><span class="p">,</span> <span class="s2">"interval"</span><span class="p">,</span> <span class="s2">"nframes"</span><span class="p">,</span> <span class="s2">"wait"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span>
+        <span class="p">}</span>
         <span class="n">anim</span> <span class="o">=</span> <span class="n">Animate</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">anim</span><span class="o">.</span><span class="n">trplot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">anim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">anim</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="o">**</span><span class="n">run_kwargs</span><span class="p">)</span></div>
 
 
 
