@@ -892,12 +892,15 @@
 <span class="sd">    :param v: homogeneous vector or matrix</span>
 <span class="sd">    :type v: array_like(n), ndarray(n,m)</span>
 <span class="sd">    :return: Euclidean vector</span>
-<span class="sd">    :rtype: ndarray(n-1), ndarray(n-1,m)</span>
+<span class="sd">    :rtype: ndarray(n-1,1), ndarray(n-1,m)</span>
+<span class="sd">    :raises ValueError: if ``v`` has fewer than two rows, or is not a vector or</span>
+<span class="sd">        matrix</span>
 
-<span class="sd">    - If ``v`` is an N-vector, return an (N-1)-column vector where the elements have</span>
-<span class="sd">      all been scaled by the last element of ``v``.</span>
-<span class="sd">    - If ``v`` is a matrix (NxM), return a matrix (N-1xM), where each column has</span>
-<span class="sd">      been scaled by its last element.</span>
+<span class="sd">    Each *column* of ``v`` is a homogeneous point, and is scaled by its last element:</span>
+
+<span class="sd">    - If ``v`` is an N-vector, shape (N,) or (N,1), or a list or tuple, return an</span>
+<span class="sd">      (N-1,1) column vector.</span>
+<span class="sd">    - If ``v`` is a matrix (NxM), return a matrix (N-1xM).</span>
 
 <span class="sd">    .. runblock:: pycon</span>
 
@@ -909,16 +912,24 @@
 <span class="sd">        &gt;&gt;&gt; h2e(h)</span>
 
 <span class="sd">    .. note:: The result is always a 2D array, a 1D input results in a column vector.</span>
+<span class="sd">    .. note:: A 2D array is always a matrix of column vectors, rows are never</span>
+<span class="sd">        points.  To convert a row vector of shape (1,N) pass its transpose.  A</span>
+<span class="sd">        homogeneous point needs at least two elements, so an input with a single</span>
+<span class="sd">        row, such as shape (1,N), raises a ``ValueError``.</span>
 
-<span class="sd">    :seealso: e2h</span>
+<span class="sd">    :seealso: :func:`e2h`</span>
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="c1"># dealing with matrix</span>
+        <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"homogeneous input must have at least 2 rows"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">/</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:][</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
 
     <span class="k">elif</span> <span class="n">isvector</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
         <span class="c1"># dealing with shape (N,) array</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">getvector</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s2">"col"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"homogeneous input must have at least 2 elements"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="k">else</span><span class="p">:</span>
@@ -935,12 +946,15 @@
 <span class="sd">    :param v: Euclidean vector or matrix</span>
 <span class="sd">    :type v: array_like(n), ndarray(n,m)</span>
 <span class="sd">    :return: homogeneous vector</span>
-<span class="sd">    :rtype: ndarray(n+1,m)</span>
+<span class="sd">    :rtype: ndarray(n+1,1), ndarray(n+1,m)</span>
+<span class="sd">    :raises ValueError: if ``v`` is not a vector or matrix</span>
 
-<span class="sd">    - If ``v`` is an N-vector, return an (N+1)-column vector where a value of 1 has</span>
-<span class="sd">      been appended as the last element.</span>
-<span class="sd">    - If ``v`` is a matrix (NxM), return a matrix (N+1xM), where each column has</span>
-<span class="sd">      been appended with a value of 1, ie. a row of ones has been appended to the matrix.</span>
+<span class="sd">    Each *column* of ``v`` is a Euclidean point, and has a 1 appended:</span>
+
+<span class="sd">    - If ``v`` is an N-vector, shape (N,) or (N,1), or a list or tuple, return an</span>
+<span class="sd">      (N+1,1) column vector.</span>
+<span class="sd">    - If ``v`` is a matrix (NxM), return a matrix (N+1xM), ie. a row of ones has</span>
+<span class="sd">      been appended to the matrix.</span>
 
 <span class="sd">    .. runblock:: pycon</span>
 
@@ -951,8 +965,12 @@
 <span class="sd">        &gt;&gt;&gt; e2h(e)</span>
 
 <span class="sd">    .. note:: The result is always a 2D array, a 1D input results in a column vector.</span>
+<span class="sd">    .. note:: A 2D array is always a matrix of column vectors, rows are never</span>
+<span class="sd">        points.  A row vector of shape (1,N) is therefore N one-dimensional</span>
+<span class="sd">        points and the result has shape (2,N).  To convert a row vector to a</span>
+<span class="sd">        single point pass its transpose.</span>
 
-<span class="sd">    :seealso: e2h</span>
+<span class="sd">    :seealso: :func:`h2e`</span>
 <span class="sd">    """</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="c1"># dealing with matrix</span>

@@ -202,12 +202,16 @@ tuple, numpy array, numpy row vector or numpy column vector.</p>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/typing.html#numpy.typing.NDArray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NDArray</span></code></a></span></p>
 </dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if <code class="docutils literal notranslate"><span class="pre">v</span></code> is not a vector or matrix</p>
+</dd>
 </dl>
+<p>Each <em>column</em> of <code class="docutils literal notranslate"><span class="pre">v</span></code> is a Euclidean point, and has a 1 appended:</p>
 <ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is an N-vector, return an (N+1)-column vector where a value of 1 has
-been appended as the last element.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is a matrix (NxM), return a matrix (N+1xM), where each column has
-been appended with a value of 1, ie. a row of ones has been appended to the matrix.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is an N-vector, shape (N,) or (N,1), or a list or tuple, return an
+(N+1,1) column vector.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is a matrix (NxM), return a matrix (N+1xM), ie. a row of ones has
+been appended to the matrix.</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="func_nd.html#spatialmath.base.transformsNd.e2h" title="spatialmath.base.transformsNd.e2h"><span class="n">e2h</span></a><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
@@ -229,9 +233,16 @@ been appended with a value of 1, ie. a row of ones has been appended to the matr
 <p class="admonition-title">Note</p>
 <p>The result is always a 2D array, a 1D input results in a column vector.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A 2D array is always a matrix of column vectors, rows are never
+points.  A row vector of shape (1,N) is therefore N one-dimensional
+points and the result has shape (2,N).  To convert a row vector to a
+single point pass its transpose.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Seealso<span class="colon">:</span></dt>
-<dd class="field-odd"><p>e2h</p>
+<dd class="field-odd"><p><a class="reference internal" href="#spatialmath.base.transformsNd.h2e" title="spatialmath.base.transformsNd.h2e"><code class="xref py py-func docutils literal notranslate"><span class="pre">h2e()</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -249,12 +260,16 @@ been appended with a value of 1, ie. a row of ones has been appended to the matr
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/typing.html#numpy.typing.NDArray" title="(in NumPy v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NDArray</span></code></a></span></p>
 </dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – if <code class="docutils literal notranslate"><span class="pre">v</span></code> has fewer than two rows, or is not a vector or
+matrix</p>
+</dd>
 </dl>
+<p>Each <em>column</em> of <code class="docutils literal notranslate"><span class="pre">v</span></code> is a homogeneous point, and is scaled by its last element:</p>
 <ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is an N-vector, return an (N-1)-column vector where the elements have
-all been scaled by the last element of <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is a matrix (NxM), return a matrix (N-1xM), where each column has
-been scaled by its last element.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is an N-vector, shape (N,) or (N,1), or a list or tuple, return an
+(N-1,1) column vector.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">v</span></code> is a matrix (NxM), return a matrix (N-1xM).</p></li>
 </ul>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="func_nd.html#spatialmath.base.transformsNd.h2e" title="spatialmath.base.transformsNd.h2e"><span class="n">h2e</span></a><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -279,9 +294,16 @@ been scaled by its last element.</p></li>
 <p class="admonition-title">Note</p>
 <p>The result is always a 2D array, a 1D input results in a column vector.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A 2D array is always a matrix of column vectors, rows are never
+points.  To convert a row vector of shape (1,N) pass its transpose.  A
+homogeneous point needs at least two elements, so an input with a single
+row, such as shape (1,N), raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Seealso<span class="colon">:</span></dt>
-<dd class="field-odd"><p>e2h</p>
+<dd class="field-odd"><p><a class="reference internal" href="#spatialmath.base.transformsNd.e2h" title="spatialmath.base.transformsNd.e2h"><code class="xref py py-func docutils literal notranslate"><span class="pre">e2h()</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
