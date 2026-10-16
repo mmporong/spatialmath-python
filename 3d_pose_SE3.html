@@ -1,57 +1,55 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
+
+<html class="writer-html5" data-content_root="./" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" sizes="16x16" href="_static/favicon-16x16.png" type="image/png">
-    <link rel="icon" sizes="32x32" href="_static/favicon-32x32.png" type="image/png">
-    <link rel="apple-touch-icon" sizes="180x180" href="_static/apple-touch-icon.png" type="image/png">
-    <link rel="android-chrome" sizes="192x192" href="_static/android-chrome-192x192.png" type="image/png">
-    <link rel="android-chrome" sizes="512x512" href="_static/android-chrome-512x512.png" type="image/png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SE(3) matrix &mdash; Spatial Maths package  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
-      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
-      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
-
-  
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=fd6eb6e6"></script>
-      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
-      <script>window.MathJax = {"tex": {"macros": {"presup": ["\\,{}^{\\scriptscriptstyle #1}\\!", 1], "SE": ["\\mathbf{SE}(#1)", 1], "SO": ["\\mathbf{SO}(#1)", 1], "se": ["\\mathbf{se}(#1)", 1], "so": ["\\mathbf{so}(#1)", 1], "vec": ["\\boldsymbol{#1}", 1], "dvec": ["\\dot{\\boldsymbol{#1}}", 1], "ddvec": ["\\ddot{\\boldsymbol{#1}}", 1], "fvec": ["\\presup{#1}\\boldsymbol{#2}", 2], "fdvec": ["\\presup{#1}\\dot{\\boldsymbol{#2}}", 2], "fddvec": ["\\presup{#1}\\ddot{\\boldsymbol{#2}}", 2], "norm": ["\\Vert #1 \\Vert", 1], "mat": ["\\mathbf{#1}", 1], "dmat": ["\\dot{\\mathbf{#1}}", 1], "fmat": ["\\presup{#1}\\mathbf{#2}", 2], "sk": ["\\left[#1\\right]", 1], "skx": ["\\left[#1\\right]_{\\times}", 1], "vex": ["\\vee\\left( #1\\right)", 1], "vexx": ["\\vee_{\\times}\\left( #1\\right)", 1], "q": "\\mathring{q}", "fq": ["\\presup{#1}\\mathring{q}", 1]}}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
-    <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="se(3) twist" href="3d_pose_twist.html" />
-    <link rel="prev" title="Class reference" href="spatialmath.html" /> 
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="_static/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="_static/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="_static/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" type="image/png"/>
+<link href="_static/android-chrome-192x192.png" rel="android-chrome" sizes="192x192" type="image/png"/>
+<link href="_static/android-chrome-512x512.png" rel="android-chrome" sizes="512x512" type="image/png"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SE(3) matrix — Spatial Maths package  documentation</title>
+<link href="_static/pygments.css?v=b86133f3" rel="stylesheet" type="text/css"/>
+<link href="_static/css/theme.css?v=9edc463e" rel="stylesheet" type="text/css"/>
+<link href="_static/graphviz.css?v=4ae1632d" rel="stylesheet" type="text/css"/>
+<link href="_static/plot_directive.css" rel="stylesheet" type="text/css"/>
+<link href="_static/copybutton.css?v=76b2166b" rel="stylesheet" type="text/css"/>
+<link href="_static/sphinx-codeautolink.css?v=b2176991" rel="stylesheet" type="text/css"/>
+<script src="_static/jquery.js?v=5d32c60e"></script>
+<script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+<script src="_static/documentation_options.js?v=5929fcd5"></script>
+<script src="_static/doctools.js?v=fd6eb6e6"></script>
+<script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+<script src="_static/clipboard.min.js?v=a7894cd8"></script>
+<script src="_static/copybutton.js?v=3a14cefc"></script>
+<script>window.MathJax = {"tex": {"macros": {"presup": ["\\,{}^{\\scriptscriptstyle #1}\\!", 1], "SE": ["\\mathbf{SE}(#1)", 1], "SO": ["\\mathbf{SO}(#1)", 1], "se": ["\\mathbf{se}(#1)", 1], "so": ["\\mathbf{so}(#1)", 1], "vec": ["\\boldsymbol{#1}", 1], "dvec": ["\\dot{\\boldsymbol{#1}}", 1], "ddvec": ["\\ddot{\\boldsymbol{#1}}", 1], "fvec": ["\\presup{#1}\\boldsymbol{#2}", 2], "fdvec": ["\\presup{#1}\\dot{\\boldsymbol{#2}}", 2], "fddvec": ["\\presup{#1}\\ddot{\\boldsymbol{#2}}", 2], "norm": ["\\Vert #1 \\Vert", 1], "mat": ["\\mathbf{#1}", 1], "dmat": ["\\dot{\\mathbf{#1}}", 1], "fmat": ["\\presup{#1}\\mathbf{#2}", 2], "sk": ["\\left[#1\\right]", 1], "skx": ["\\left[#1\\right]_{\\times}", 1], "vex": ["\\vee\\left( #1\\right)", 1], "vexx": ["\\vee_{\\times}\\left( #1\\right)", 1], "q": "\\mathring{q}", "fq": ["\\presup{#1}\\mathring{q}", 1]}}}</script>
+<script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<script src="_static/js/theme.js"></script>
+<link href="genindex.html" rel="index" title="Index"/>
+<link href="search.html" rel="search" title="Search"/>
+<link href="3d_pose_twist.html" rel="next" title="se(3) twist"/>
+<link href="spatialmath.html" rel="prev" title="Class reference"/>
 </head>
-
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="index.html" class="icon icon-home">
+<body class="wy-body-for-nav">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="index.html">
             Spatial Maths package
-              <img src="_static/CartesianSnakes_LogoW.png" class="logo" alt="Logo"/>
-          </a>
+              <img alt="Logo" class="logo" src="_static/CartesianSnakes_LogoW.png"/>
+</a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+<form action="search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+</div><div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="spatialmath.html">Class reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="spatialmath.html#d-space">3D-space</a><ul class="current">
@@ -73,36 +71,32 @@
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Function reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="indices.html">Indices</a></li>
 </ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Spatial Maths package</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="spatialmath.html">Class reference</a></li>
-      <li class="breadcrumb-item active">SE(3) matrix</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/3d_pose_SE3.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="spatialmath.html" class="btn btn-neutral float-left" title="Class reference" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="3d_pose_twist.html" class="btn btn-neutral float-right" title="se(3) twist" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-  </div>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="se-3-matrix">
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift"><nav aria-label="Mobile navigation menu" class="wy-nav-top">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="index.html">Spatial Maths package</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="Page navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Home" class="icon icon-home" href="index.html"></a></li>
+<li class="breadcrumb-item"><a href="spatialmath.html">Class reference</a></li>
+<li class="breadcrumb-item active">SE(3) matrix</li>
+<li class="wy-breadcrumbs-aside">
+<a href="_sources/3d_pose_SE3.rst.txt" rel="nofollow"> View page source</a>
+</li>
+</ul><div aria-label="Sequential page navigation" class="rst-breadcrumbs-buttons" role="navigation">
+<a accesskey="p" class="btn btn-neutral float-left" href="spatialmath.html" title="Class reference"><span aria-hidden="true" class="fa fa-arrow-circle-left"></span> Previous</a>
+<a accesskey="n" class="btn btn-neutral float-right" href="3d_pose_twist.html" title="se(3) twist">Next <span aria-hidden="true" class="fa fa-arrow-circle-right"></span></a>
+</div>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div itemprop="articleBody">
+<section id="se-3-matrix">
 <h1>SE(3) matrix<a class="headerlink" href="#se-3-matrix" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3">
@@ -113,10 +107,10 @@
 <p>This subclass represents rigid-body motion in 3D space.  Internally it is a
 4x4 homogeneous transformation matrix belonging to the group SE(3).</p>
 </div></blockquote>
-<div class="graphviz"><img src="_images/inheritance-dace87cf874b4939163e4cb7f18d93fb8754c1c3.png" alt="Inheritance diagram of spatialmath.pose3d.SE3" usemap="#inheritance7d797e0ff4" class="inheritance graphviz" /></div>
+<div class="graphviz"><img alt="Inheritance diagram of spatialmath.pose3d.SE3" class="inheritance graphviz" src="_images/inheritance-dace87cf874b4939163e4cb7f18d93fb8754c1c3.png" usemap="#inheritance7d797e0ff4"/></div>
 <map id="inheritance7d797e0ff4" name="inheritance7d797e0ff4">
-<area shape="rect" id="node6" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" target="_top" title="SO(3) matrix class" alt="" coords="459,31,531,56"/>
-<area shape="rect" id="node5" href="#spatialmath.pose3d.SE3" target="_top" title="SE(3) matrix class" alt="" coords="579,31,651,56"/>
+<area alt="" coords="459,31,531,56" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" id="node6" shape="rect" target="_top" title="SO(3) matrix class"/>
+<area alt="" coords="579,31,651,56" href="#spatialmath.pose3d.SE3" id="node5" shape="rect" target="_top" title="SE(3) matrix class"/>
 </map><dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Alloc">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Alloc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.Alloc" title="Link to this definition"></a></dt>
@@ -153,7 +147,6 @@ vector.</p>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">X</span></code> is any of the SMTB classes.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.AngVec">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">AngVec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.AngVec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.AngVec" title="Link to this definition"></a></dt>
@@ -184,7 +177,6 @@ a rotation of <code class="docutils literal notranslate"><span class="pre">θ</s
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.AngleAxis">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">AngleAxis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.AngleAxis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.AngleAxis" title="Link to this definition"></a></dt>
@@ -218,7 +210,6 @@ a rotation of <code class="docutils literal notranslate"><span class="pre">θ</s
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.CopyFrom">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">CopyFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.CopyFrom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.CopyFrom" title="Link to this definition"></a></dt>
@@ -241,7 +232,6 @@ a rotation of <code class="docutils literal notranslate"><span class="pre">θ</s
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Delta">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Delta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Delta" title="Link to this definition"></a></dt>
@@ -271,7 +261,6 @@ motion <span class="math notranslate nohighlight">\(d = [\delta_x, \delta_y, \de
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Empty">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.Empty" title="Link to this definition"></a></dt>
@@ -292,7 +281,6 @@ motion <span class="math notranslate nohighlight">\(d = [\delta_x, \delta_y, \de
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">X</span></code> is any of the SMTB classes.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Eul">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Eul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Eul"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Eul" title="Link to this definition"></a></dt>
@@ -324,18 +312,18 @@ rotations each defined by Euler angles corresponding to the rows of
 scalars.</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Eul</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Eul" title="spatialmath.pose3d.SE3.Eul"><span class="n">SE3</span><span class="o">.</span><span class="n">Eul</span></a><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 <span class="go">SE3(array([[ 0.9021, -0.3836,  0.1977,  0.    ],</span>
 <span class="go">           [ 0.3875,  0.9216,  0.0198,  0.    ],</span>
 <span class="go">           [-0.1898,  0.0587,  0.9801,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Eul</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Eul" title="spatialmath.pose3d.SE3.Eul"><span class="n">SE3</span><span class="o">.</span><span class="n">Eul</span></a><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
 <span class="go">SE3(array([[ 0.9021, -0.3836,  0.1977,  0.    ],</span>
 <span class="go">           [ 0.3875,  0.9216,  0.0198,  0.    ],</span>
 <span class="go">           [-0.1898,  0.0587,  0.9801,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Eul</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">"deg"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Eul" title="spatialmath.pose3d.SE3.Eul"><span class="n">SE3</span><span class="o">.</span><span class="n">Eul</span></a><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">"deg"</span><span class="p">)</span>
 <span class="go">SE3(array([[ 0.7146, -0.6131,  0.3368,  0.    ],</span>
 <span class="go">           [ 0.6337,  0.7713,  0.0594,  0.    ],</span>
 <span class="go">           [-0.2962,  0.171 ,  0.9397,  0.    ],</span>
@@ -351,7 +339,6 @@ scalars.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.EulerVec">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">EulerVec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.EulerVec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.EulerVec" title="Link to this definition"></a></dt>
@@ -371,8 +358,8 @@ scalars.</p></li>
 defined by a rotation of <span class="math notranslate nohighlight">\(\theta = \lVert \omega \rVert\)</span> about the
 unit 3-vector <span class="math notranslate nohighlight">\(\omega / \lVert \omega \rVert\)</span>.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">EulerVec</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.EulerVec" title="spatialmath.pose3d.SE3.EulerVec"><span class="n">SE3</span><span class="o">.</span><span class="n">EulerVec</span></a><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 <span class="go">SE3(array([[ 1.    ,  0.    ,  0.    ,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.8776, -0.4794,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.4794,  0.8776,  0.    ],</span>
@@ -390,7 +377,6 @@ unit 3-vector <span class="math notranslate nohighlight">\(\omega / \lVert \omeg
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Exp">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Exp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Exp" title="Link to this definition"></a></dt>
@@ -418,7 +404,6 @@ vector (the unique elements of the se(3) skew-symmetric matrix)</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.OA">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">OA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.OA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.OA" title="Link to this definition"></a></dt>
@@ -453,8 +438,8 @@ rotation matrix</p></li>
 </ul>
 </div>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">OA</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.OA" title="spatialmath.pose3d.SE3.OA"><span class="n">SE3</span><span class="o">.</span><span class="n">OA</span></a><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="go">SE3(array([[ 0.,  1.,  0.,  0.],</span>
 <span class="go">           [ 1.,  0.,  0.,  0.],</span>
 <span class="go">           [ 0.,  0., -1.,  0.],</span>
@@ -467,7 +452,6 @@ rotation matrix</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.RPY">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">RPY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">angles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.RPY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.RPY" title="Link to this definition"></a></dt>
@@ -513,23 +497,23 @@ corresponding to the rows of <code class="docutils literal notranslate"><span cl
 scalars.</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">RPY</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.RPY" title="spatialmath.pose3d.SE3.RPY"><span class="n">SE3</span><span class="o">.</span><span class="n">RPY</span></a><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 <span class="go">SE3(array([[ 0.9363, -0.2751,  0.2184,  0.    ],</span>
 <span class="go">           [ 0.2896,  0.9564, -0.037 ,  0.    ],</span>
 <span class="go">           [-0.1987,  0.0978,  0.9752,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">RPY</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.RPY" title="spatialmath.pose3d.SE3.RPY"><span class="n">SE3</span><span class="o">.</span><span class="n">RPY</span></a><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
 <span class="go">SE3(array([[ 0.9363, -0.2751,  0.2184,  0.    ],</span>
 <span class="go">           [ 0.2896,  0.9564, -0.037 ,  0.    ],</span>
 <span class="go">           [-0.1987,  0.0978,  0.9752,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">RPY</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'xyz'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.RPY" title="spatialmath.pose3d.SE3.RPY"><span class="n">SE3</span><span class="o">.</span><span class="n">RPY</span></a><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">'xyz'</span><span class="p">)</span>
 <span class="go">SE3(array([[ 0.9752, -0.0978,  0.1987,  0.    ],</span>
 <span class="go">           [ 0.1538,  0.9447, -0.2896,  0.    ],</span>
 <span class="go">           [-0.1593,  0.313 ,  0.9363,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">RPY</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'deg'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.RPY" title="spatialmath.pose3d.SE3.RPY"><span class="n">SE3</span><span class="o">.</span><span class="n">RPY</span></a><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">'deg'</span><span class="p">)</span>
 <span class="go">SE3(array([[ 0.8138, -0.441 ,  0.3785,  0.    ],</span>
 <span class="go">           [ 0.4698,  0.8826,  0.018 ,  0.    ],</span>
 <span class="go">           [-0.342 ,  0.1632,  0.9254,  0.    ],</span>
@@ -545,7 +529,6 @@ scalars.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.RTvec">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">RTvec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rvec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tvec</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.RTvec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.RTvec" title="Link to this definition"></a></dt>
@@ -573,7 +556,6 @@ method combines them into an SE(3) instance.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Rand">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Rand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Rand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Rand" title="Link to this definition"></a></dt>
@@ -603,16 +585,16 @@ method combines them into an SE(3) instance.</p>
 poses.</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rand" title="spatialmath.pose3d.SE3.Rand"><span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span></a><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">SE3([</span>
-<span class="go">array([[ 0.6013, -0.7887, -0.1284,  0.9374],</span>
-<span class="go">       [-0.7858, -0.6127,  0.0841, -0.3436],</span>
-<span class="go">       [-0.145 ,  0.0503, -0.9882, -0.5301],</span>
+<span class="go">array([[ 0.1518, -0.6755,  0.7216, -0.9422],</span>
+<span class="go">       [ 0.9489,  0.304 ,  0.085 , -0.4934],</span>
+<span class="go">       [-0.2768,  0.6718,  0.6871, -0.9714],</span>
 <span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]]),</span>
-<span class="go">array([[ 0.5328, -0.6639, -0.5248, -0.5119],</span>
-<span class="go">       [-0.3404,  0.3996, -0.8512, -0.9594],</span>
-<span class="go">       [ 0.7748,  0.6321, -0.0131, -0.3072],</span>
+<span class="go">array([[ 0.4465,  0.7467, -0.4931,  0.2943],</span>
+<span class="go">       [ 0.8754, -0.4786,  0.0679, -0.3304],</span>
+<span class="go">       [-0.1853, -0.462 , -0.8673,  0.281 ],</span>
 <span class="go">       [ 0.    ,  0.    ,  0.    ,  1.    ]]) ])</span>
 </pre></div>
 </div>
@@ -622,7 +604,6 @@ poses.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.RotatedVector">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">RotatedVector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.RotatedVector" title="Link to this definition"></a></dt>
@@ -644,19 +625,19 @@ poses.</p></li>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">SO3.RotatedVector(v1,</span> <span class="pre">v2)</span></code> is an SO(3) rotation defined in terms of
 two vectors. The rotation takes vector <code class="docutils literal notranslate"><span class="pre">v1</span></code> to <code class="docutils literal notranslate"><span class="pre">v2</span></code>.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SO3</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">SO3</span></a>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">v1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span> <span class="o">=</span> <span class="n">SO3</span><span class="o">.</span><span class="n">Eul</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">v1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v2</span> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.Eul" title="spatialmath.pose3d.SO3.Eul"><span class="n">SO3</span><span class="o">.</span><span class="n">Eul</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">v1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
 <span class="go">[[0.3842]</span>
 <span class="go"> [2.4579]</span>
 <span class="go"> [2.7948]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">SO3</span><span class="o">.</span><span class="n">RotatedVector</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">R</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.RotatedVector" title="spatialmath.pose3d.SO3.RotatedVector"><span class="n">SO3</span><span class="o">.</span><span class="n">RotatedVector</span></a><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">R</span></a><span class="p">)</span>
 <span class="go">   0.9857   -0.1131   -0.1251    </span>
 <span class="go">   0.1282    0.9844    0.1203    </span>
 <span class="go">   0.1095   -0.1346    0.9848</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">R</span> <span class="o">*</span> <span class="n">v1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">R</span></a> <span class="o">*</span> <span class="n">v1</span><span class="p">)</span>
 <span class="go">[[0.3842]</span>
 <span class="go"> [2.4579]</span>
 <span class="go"> [2.7948]]</span>
@@ -667,7 +648,6 @@ two vectors. The rotation takes vector <code class="docutils literal notranslate
 <p>The vectors do not have to be unit-length.</p>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Rt">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Rt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Rt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Rt" title="Link to this definition"></a></dt>
@@ -691,7 +671,6 @@ two vectors. The rotation takes vector <code class="docutils literal notranslate
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Rx">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Rx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Rx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Rx" title="Link to this definition"></a></dt>
@@ -713,7 +692,7 @@ two vectors. The rotation takes vector <code class="docutils literal notranslate
 </dl>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SE3.Rx(θ)</span></code> is an SE(3) rotation of θ radians about the x-axis</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SE3.Rx(θ,</span> <span class="pre">&quot;deg&quot;)</span></code> as above but θ is in degrees</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SE3.Rx(θ,</span> <span class="pre">"deg")</span></code> as above but θ is in degrees</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SE3.Rx(θ,</span> <span class="pre">t=T)</span></code> as above but also sets the translational component</p></li>
 </ul>
 <p>If <code class="docutils literal notranslate"><span class="pre">θ</span></code> is an array then the result is a sequence of rotations defined
@@ -723,13 +702,13 @@ by consecutive elements.</p>
 <p>The translation option only works for the scalar θ case.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="go">SE3(array([[ 1.    ,  0.    ,  0.    ,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.9553, -0.2955,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.2955,  0.9553,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
 <span class="go">SE3([</span>
 <span class="go">array([[ 1.    ,  0.    ,  0.    ,  0.    ],</span>
 <span class="go">       [ 0.    ,  0.9553, -0.2955,  0.    ],</span>
@@ -750,7 +729,6 @@ by consecutive elements.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Ry">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Ry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Ry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Ry" title="Link to this definition"></a></dt>
@@ -772,7 +750,7 @@ by consecutive elements.</p>
 </dl>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SE3.Ry(θ)</span></code> is an SO(3) rotation of θ radians about the y-axis</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SE3.Ry(θ,</span> <span class="pre">&quot;deg&quot;)</span></code> as above but θ is in degrees</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SE3.Ry(θ,</span> <span class="pre">"deg")</span></code> as above but θ is in degrees</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SE3.Ry(θ,</span> <span class="pre">t=T)</span></code> as above but also sets the translational component</p></li>
 </ul>
 <p>If <code class="docutils literal notranslate"><span class="pre">θ</span></code> is an array then the result is a sequence of rotations defined
@@ -782,13 +760,13 @@ by consecutive elements.</p>
 <p>The translation option only works for the scalar θ case.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Ry</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Ry" title="spatialmath.pose3d.SE3.Ry"><span class="n">SE3</span><span class="o">.</span><span class="n">Ry</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="go">SE3(array([[ 0.9553,  0.    ,  0.2955,  0.    ],</span>
 <span class="go">           [ 0.    ,  1.    ,  0.    ,  0.    ],</span>
 <span class="go">           [-0.2955,  0.    ,  0.9553,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Ry</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Ry" title="spatialmath.pose3d.SE3.Ry"><span class="n">SE3</span><span class="o">.</span><span class="n">Ry</span></a><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
 <span class="go">SE3([</span>
 <span class="go">array([[ 0.9553,  0.    ,  0.2955,  0.    ],</span>
 <span class="go">       [ 0.    ,  1.    ,  0.    ,  0.    ],</span>
@@ -809,7 +787,6 @@ by consecutive elements.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Rz">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Rz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Rz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Rz" title="Link to this definition"></a></dt>
@@ -831,7 +808,7 @@ by consecutive elements.</p>
 </dl>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SE3.Rz(θ)</span></code> is an SO(3) rotation of θ radians about the z-axis</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SE3.Rz(θ,</span> <span class="pre">&quot;deg&quot;)</span></code> as above but θ is in degrees</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SE3.Rz(θ,</span> <span class="pre">"deg")</span></code> as above but θ is in degrees</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">SE3.Rz(θ,</span> <span class="pre">t=T)</span></code> as above but also sets the translational component</p></li>
 </ul>
 <p>If <code class="docutils literal notranslate"><span class="pre">θ</span></code> is an array then the result is a sequence of rotations defined
@@ -841,13 +818,13 @@ by consecutive elements.</p>
 <p>The translation option only works for the scalar θ case.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Rz</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rz" title="spatialmath.pose3d.SE3.Rz"><span class="n">SE3</span><span class="o">.</span><span class="n">Rz</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="go">SE3(array([[ 0.9553, -0.2955,  0.    ,  0.    ],</span>
 <span class="go">           [ 0.2955,  0.9553,  0.    ,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  1.    ,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Rz</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rz" title="spatialmath.pose3d.SE3.Rz"><span class="n">SE3</span><span class="o">.</span><span class="n">Rz</span></a><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
 <span class="go">SE3([</span>
 <span class="go">array([[ 0.9553, -0.2955,  0.    ,  0.    ],</span>
 <span class="go">       [ 0.2955,  0.9553,  0.    ,  0.    ],</span>
@@ -868,7 +845,6 @@ by consecutive elements.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Trans">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Trans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Trans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Trans" title="Link to this definition"></a></dt>
@@ -896,7 +872,6 @@ array.</p></li>
 N elements whose translation is defined by the rows of <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p></li>
 </ul>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.TwoVectors">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">TwoVectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.TwoVectors" title="Link to this definition"></a></dt>
@@ -914,8 +889,8 @@ N elements whose translation is defined by the rows of <code class="docutils lit
 </dd>
 </dl>
 <p>Create a rotation by defining the direction of two of the new
-axes in terms of the old axes.  Axes are denoted by strings <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;-x&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;-y&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;-z&quot;</span></code>.</p>
+axes in terms of the old axes.  Axes are denoted by strings <code class="docutils literal notranslate"><span class="pre">"x"</span></code>,
+<code class="docutils literal notranslate"><span class="pre">"y"</span></code>, <code class="docutils literal notranslate"><span class="pre">"z"</span></code>, <code class="docutils literal notranslate"><span class="pre">"-x"</span></code>, <code class="docutils literal notranslate"><span class="pre">"-y"</span></code>, <code class="docutils literal notranslate"><span class="pre">"-z"</span></code>.</p>
 <p>The directions can also be specified by 3-element vectors. If the vectors are not orthogonal,
 they will orthogonalized w.r.t. the first available dimension. I.e. if x is available, it will be
 normalized and the remaining vector will be orthogonalized w.r.t. x, else, y will be normalized
@@ -927,7 +902,6 @@ frame is:</p>
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Tx">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Tx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Tx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Tx" title="Link to this definition"></a></dt>
@@ -945,13 +919,13 @@ frame is:</p>
 </dl>
 <p><cite>SE3.Tx(x)</cite> is an SE(3) translation of <code class="docutils literal notranslate"><span class="pre">x</span></code> along the x-axis</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Tx</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Tx" title="spatialmath.pose3d.SE3.Tx"><span class="n">SE3</span><span class="o">.</span><span class="n">Tx</span></a><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">SE3(array([[1., 0., 0., 2.],</span>
 <span class="go">           [0., 1., 0., 0.],</span>
 <span class="go">           [0., 0., 1., 0.],</span>
 <span class="go">           [0., 0., 0., 1.]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Tx</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Tx" title="spatialmath.pose3d.SE3.Tx"><span class="n">SE3</span><span class="o">.</span><span class="n">Tx</span></a><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="go">SE3([</span>
 <span class="go">array([[1., 0., 0., 2.],</span>
 <span class="go">       [0., 1., 0., 0.],</span>
@@ -972,7 +946,6 @@ frame is:</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Ty">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Ty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Ty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Ty" title="Link to this definition"></a></dt>
@@ -990,13 +963,13 @@ frame is:</p>
 </dl>
 <p><cite>SE3.Ty(y) is an SE(3) translation of ``y`</cite> along the y-axis</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Ty</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Ty" title="spatialmath.pose3d.SE3.Ty"><span class="n">SE3</span><span class="o">.</span><span class="n">Ty</span></a><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">SE3(array([[1., 0., 0., 0.],</span>
 <span class="go">           [0., 1., 0., 2.],</span>
 <span class="go">           [0., 0., 1., 0.],</span>
 <span class="go">           [0., 0., 0., 1.]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Ty</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Ty" title="spatialmath.pose3d.SE3.Ty"><span class="n">SE3</span><span class="o">.</span><span class="n">Ty</span></a><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="go">SE3([</span>
 <span class="go">array([[1., 0., 0., 0.],</span>
 <span class="go">       [0., 1., 0., 2.],</span>
@@ -1017,7 +990,6 @@ frame is:</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Tz">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Tz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Tz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Tz" title="Link to this definition"></a></dt>
@@ -1035,13 +1007,13 @@ frame is:</p>
 </dl>
 <p><cite>SE3.Tz(z)</cite> is an SE(3) translation of <code class="docutils literal notranslate"><span class="pre">z</span></code> along the z-axis</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Tz</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Tz" title="spatialmath.pose3d.SE3.Tz"><span class="n">SE3</span><span class="o">.</span><span class="n">Tz</span></a><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">SE3(array([[1., 0., 0., 0.],</span>
 <span class="go">           [0., 1., 0., 0.],</span>
 <span class="go">           [0., 0., 1., 2.],</span>
 <span class="go">           [0., 0., 0., 1.]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Tz</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Tz" title="spatialmath.pose3d.SE3.Tz"><span class="n">SE3</span><span class="o">.</span><span class="n">Tz</span></a><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="go">SE3([</span>
 <span class="go">array([[1., 0., 0., 0.],</span>
 <span class="go">       [0., 1., 0., 0.],</span>
@@ -1062,7 +1034,6 @@ frame is:</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.isvalid">
 <span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isvalid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.isvalid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.isvalid" title="Link to this definition"></a></dt>
@@ -1083,7 +1054,6 @@ is a valid homogeneous transformation matrix.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.Ad">
 <span class="sig-name descname"><span class="pre">Ad</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.Ad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.Ad" title="Link to this definition"></a></dt>
@@ -1123,7 +1093,6 @@ the same rigid-body.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.UnitQuaternion">
 <span class="sig-name descname"><span class="pre">UnitQuaternion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.UnitQuaternion" title="Link to this definition"></a></dt>
@@ -1139,13 +1108,12 @@ the same rigid-body.</p>
 <p><code class="docutils literal notranslate"><span class="pre">R.UnitQuaternion()</span></code> is an <code class="docutils literal notranslate"><span class="pre">UnitQuaternion</span></code> instance representing the same rotation
 as the SO3 rotation <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SO3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SO3</span><span class="o">.</span><span class="n">Rz</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">UnitQuaternion</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">SO3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.Rz" title="spatialmath.pose3d.SO3.Rz"><span class="n">SO3</span><span class="o">.</span><span class="n">Rz</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.UnitQuaternion" title="spatialmath.pose3d.SO3.UnitQuaternion"><span class="n">UnitQuaternion</span></a><span class="p">()</span>
 <span class="go">UnitQuaternion(array([0.9888, 0.    , 0.    , 0.1494]))</span>
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.__add__">
 <span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.__add__" title="Link to this definition"></a></dt>
@@ -1241,7 +1209,6 @@ results in the sum holding more than one value according to:</p>
 </tbody>
 </table>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.__eq__">
 <span class="sig-name descname"><span class="pre">__eq__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.__eq__" title="Link to this definition"></a></dt>
@@ -1291,7 +1258,6 @@ results in the equality test holding more than one value according to:</p>
 </tbody>
 </table>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.__init__" title="Link to this definition"></a></dt>
@@ -1325,7 +1291,6 @@ given by the elements <code class="docutils literal notranslate"><span class="pr
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.__mul__">
 <span class="sig-name descname"><span class="pre">__mul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.__mul__" title="Link to this definition"></a></dt>
@@ -1490,7 +1455,6 @@ form, transformed, then converted back to Euclidean form.</p></li>
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.__ne__">
 <span class="sig-name descname"><span class="pre">__ne__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.__ne__" title="Link to this definition"></a></dt>
@@ -1542,7 +1506,6 @@ results in the inequality test holding more than one value according to:</p>
 </tbody>
 </table>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.__pow__">
 <span class="sig-name descname"><span class="pre">__pow__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.__pow__" title="Link to this definition"></a></dt>
@@ -1561,13 +1524,13 @@ results in the inequality test holding more than one value according to:</p>
 <p><code class="docutils literal notranslate"><span class="pre">X**n</span></code> raise all values held in <cite>X</cite> to the specified power using repeated
 multiplication.  If <code class="docutils literal notranslate"><span class="pre">n</span></code> &lt; 0 then the result is inverted.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 <span class="go">SE3(array([[ 1.    ,  0.    ,  0.    ,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.9801, -0.1987,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.1987,  0.9801,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.    ,  0.    ,  1.    ]]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
 <span class="go">SE3([</span>
 <span class="go">array([[1., 0., 0., 0.],</span>
 <span class="go">       [0., 1., 0., 0.],</span>
@@ -1580,7 +1543,6 @@ multiplication.  If <code class="docutils literal notranslate"><span class="pre"
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.__sub__">
 <span class="sig-name descname"><span class="pre">__sub__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.__sub__" title="Link to this definition"></a></dt>
@@ -1670,12 +1632,11 @@ results in the difference holding more than one value according to:</p>
 <tr class="row-odd"><td><p>M</p></td>
 <td><p>M</p></td>
 <td><p>M</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">diff[i]</span> <span class="pre">=</span> <span class="pre">left[i]</span>&#160; <span class="pre">right[i]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diff[i]</span> <span class="pre">=</span> <span class="pre">left[i]</span>  <span class="pre">right[i]</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.__truediv__">
 <span class="sig-name descname"><span class="pre">__truediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.__truediv__" title="Link to this definition"></a></dt>
@@ -1764,7 +1725,6 @@ results in the composition holding more than one value according to:</p>
 </tbody>
 </table>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.angdist">
 <span class="sig-name descname"><span class="pre">angdist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.angdist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.angdist" title="Link to this definition"></a></dt>
@@ -1821,12 +1781,12 @@ to unit quaternions.</p>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">T1</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">T2</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Ry</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">T1</span><span class="o">.</span><span class="n">angdist</span><span class="p">(</span><span class="n">T1</span><span class="p">))</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">T1</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">T2</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Ry" title="spatialmath.pose3d.SE3.Ry"><span class="n">SE3</span><span class="o">.</span><span class="n">Ry</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.angdist" title="spatialmath.pose3d.SE3.angdist"><span class="n">T1</span><span class="o">.</span><span class="n">angdist</span></a><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">T1</span></a><span class="p">))</span>
 <span class="go">0.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">T1</span><span class="o">.</span><span class="n">angdist</span><span class="p">(</span><span class="n">T2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.angdist" title="spatialmath.pose3d.SE3.angdist"><span class="n">T1</span><span class="o">.</span><span class="n">angdist</span></a><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">T2</span></a><span class="p">))</span>
 <span class="go">0.4234654354756045</span>
 </pre></div>
 </div>
@@ -1845,7 +1805,6 @@ outside its domain [0, 1].</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.angvec">
 <span class="sig-name descname"><span class="pre">angvec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.angvec" title="Link to this definition"></a></dt>
@@ -1871,9 +1830,9 @@ angle and a rotation axis.</p>
 </ul>
 </div>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SO3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">SO3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span><span class="o">.</span><span class="n">angvec</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">SO3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">R</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.Rx" title="spatialmath.pose3d.SO3.Rx"><span class="n">SO3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.angvec" title="spatialmath.pose3d.SO3.angvec"><span class="n">R</span><span class="o">.</span><span class="n">angvec</span></a><span class="p">()</span>
 <span class="go">(0.3, array([1., 0., 0.]))</span>
 </pre></div>
 </div>
@@ -1883,7 +1842,6 @@ angle and a rotation axis.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.animate">
 <span class="sig-name descname"><span class="pre">animate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.animate" title="Link to this definition"></a></dt>
@@ -1919,7 +1877,6 @@ many options, see the links below.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.append">
 <span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.append" title="Link to this definition"></a></dt>
@@ -1947,12 +1904,10 @@ many options, see the links below.</p></li>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">X</span></code> is any of the SMTB classes.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">--</span> <span class="pre">remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">S</span></span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.clear" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">--</span> <span class="pre">remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">S</span></span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.clear" title="Link to this definition"></a></dt>
 <dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.conjugation">
 <span class="sig-name descname"><span class="pre">conjugation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.conjugation" title="Link to this definition"></a></dt>
@@ -1971,20 +1926,19 @@ many options, see the links below.</p></li>
 <p>Compute the conjugation <span class="math notranslate nohighlight">\(\mat{X} \mat{A} \mat{X}^{-1}\)</span> where <span class="math notranslate nohighlight">\(\mat{X}\)</span>
 is the current object.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SO2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">SO2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">R</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">R</span><span class="o">.</span><span class="n">inv</span><span class="p">())</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="2d_orient_SO2.html#spatialmath.pose2d.SO2" title="spatialmath.pose2d.SO2"><span class="n">SO2</span></a>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><a class="sphinx-codeautolink-a" href="https://numpy.org/doc/stable/reference/index.html#module-numpy"><span class="nn">numpy</span></a><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_orient_SO2.html#spatialmath.pose2d.SO2" title="spatialmath.pose2d.SO2"><span class="n">R</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_orient_SO2.html#spatialmath.pose2d.SO2" title="spatialmath.pose2d.SO2"><span class="n">SO2</span></a><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><a class="sphinx-codeautolink-a" href="2d_orient_SO2.html#spatialmath.pose2d.SO2" title="spatialmath.pose2d.SO2"><span class="n">R</span></a> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <a class="sphinx-codeautolink-a" href="2d_orient_SO2.html#spatialmath.pose2d.SO2.inv" title="spatialmath.pose2d.SO2.inv"><span class="n">R</span><span class="o">.</span><span class="n">inv</span></a><span class="p">())</span>
 <span class="go">[[7.9314 3.7866]</span>
 <span class="go"> [3.7866 3.0686]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">conjugation</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><a class="sphinx-codeautolink-a" href="2d_orient_SO2.html#spatialmath.pose2d.SO2.conjugation" title="spatialmath.pose2d.SO2.conjugation"><span class="n">R</span><span class="o">.</span><span class="n">conjugation</span></a><span class="p">(</span><span class="n">A</span><span class="p">))</span>
 <span class="go">[[7.9314 3.7866]</span>
 <span class="go"> [3.7866 3.0686]]</span>
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.delta">
 <span class="sig-name descname"><span class="pre">delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.delta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.delta" title="Link to this definition"></a></dt>
@@ -2002,10 +1956,10 @@ infinitesimal motion (in the <code class="docutils literal notranslate"><span cl
 <p>The vector <span class="math notranslate nohighlight">\(d = [\delta_x, \delta_y, \delta_z, \theta_x, \theta_y, \theta_z]\)</span>
 represents infinitesimal translation and rotation.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3001</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x1</span><span class="o">.</span><span class="n">delta</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x1</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x2</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3001</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.delta" title="spatialmath.pose3d.SE3.delta"><span class="n">x1</span><span class="o">.</span><span class="n">delta</span></a><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x2</span></a><span class="p">)</span>
 <span class="go">array([0.    , 0.    , 0.    , 0.0001, 0.    , 0.    ])</span>
 </pre></div>
 </div>
@@ -2027,7 +1981,6 @@ a time interval, ie. the average spatial velocity multiplied by time.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.det">
 <span class="sig-name descname"><span class="pre">det</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.det" title="Link to this definition"></a></dt>
@@ -2057,7 +2010,6 @@ of <code class="docutils literal notranslate"><span class="pre">x</span></code>.
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.eul">
 <span class="sig-name descname"><span class="pre">eul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.eul" title="Link to this definition"></a></dt>
@@ -2090,7 +2042,6 @@ rotations about the Z, Y, Z axes respectively.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.eulervec">
 <span class="sig-name descname"><span class="pre">eulervec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.eulervec" title="Link to this definition"></a></dt>
@@ -2107,9 +2058,9 @@ rotations about the Z, Y, Z axes respectively.</p>
 is related to angle-axis notation and is the product of the rotation
 angle and the rotation axis.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SO3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">SO3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span><span class="o">.</span><span class="n">eulervec</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">SO3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">R</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.Rx" title="spatialmath.pose3d.SO3.Rx"><span class="n">SO3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.eulervec" title="spatialmath.pose3d.SO3.eulervec"><span class="n">R</span><span class="o">.</span><span class="n">eulervec</span></a><span class="p">()</span>
 <span class="go">array([0.3, 0. , 0. ])</span>
 </pre></div>
 </div>
@@ -2125,7 +2076,6 @@ angle and the rotation axis.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.extend">
 <span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.extend" title="Link to this definition"></a></dt>
@@ -2153,7 +2103,6 @@ angle and the rotation axis.</p>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">X</span></code> is any of the SMTB classes.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.insert">
 <span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.insert" title="Link to this definition"></a></dt>
@@ -2192,7 +2141,6 @@ angle and the rotation axis.</p>
 to the list</p>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.interp">
 <span class="sig-name descname"><span class="pre">interp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.interp" title="Link to this definition"></a></dt>
@@ -2268,7 +2216,6 @@ and Y when s=1.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.interp1">
 <span class="sig-name descname"><span class="pre">interp1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.interp1" title="Link to this definition"></a></dt>
@@ -2354,7 +2301,6 @@ and Y when s=1.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.inv">
 <span class="sig-name descname"><span class="pre">inv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.inv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.inv" title="Link to this definition"></a></dt>
@@ -2373,9 +2319,9 @@ account the matrix structure.</p>
 \[\begin{split}T = \left[ \begin{array}{cc} \mat{R} &amp; \vec{t} \\ 0 &amp; 1 \end{array} \right],
 \mat{T}^{-1} = \left[ \begin{array}{cc} \mat{R}^T &amp; -\mat{R}^T \vec{t} \\ 0 &amp; 1 \end{array} \right]`\end{split}\]</div>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.inv" title="spatialmath.pose3d.SE3.inv"><span class="n">x</span><span class="o">.</span><span class="n">inv</span></a><span class="p">()</span>
 <span class="go">SE3(array([[ 1.,  0.,  0., -1.],</span>
 <span class="go">           [ 0.,  1.,  0., -2.],</span>
 <span class="go">           [ 0.,  0.,  1., -3.],</span>
@@ -2391,7 +2337,6 @@ account the matrix structure.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.ishom">
 <span class="sig-name descname"><span class="pre">ishom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.ishom" title="Link to this definition"></a></dt>
@@ -2416,7 +2361,6 @@ In Python use <code class="docutils literal notranslate"><span class="pre">isins
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.ishom2">
 <span class="sig-name descname"><span class="pre">ishom2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.ishom2" title="Link to this definition"></a></dt>
@@ -2441,7 +2385,6 @@ In Python use <code class="docutils literal notranslate"><span class="pre">isins
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.isrot">
 <span class="sig-name descname"><span class="pre">isrot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.isrot" title="Link to this definition"></a></dt>
@@ -2466,7 +2409,6 @@ In Python use <code class="docutils literal notranslate"><span class="pre">isins
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.isrot2">
 <span class="sig-name descname"><span class="pre">isrot2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.isrot2" title="Link to this definition"></a></dt>
@@ -2491,7 +2433,6 @@ In Python use <code class="docutils literal notranslate"><span class="pre">isins
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.jacob">
 <span class="sig-name descname"><span class="pre">jacob</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.jacob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.jacob" title="Link to this definition"></a></dt>
@@ -2533,7 +2474,6 @@ on the same rigid-body.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.log">
 <span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">twist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.log" title="Link to this definition"></a></dt>
@@ -2582,12 +2522,12 @@ elements are also known as the exponential coordinates of the rotation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">runblock</span><span class="p">::</span> <span class="n">pycon</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SO3</span><span class="p">,</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">log</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">twist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">SO3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">twist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># exponential coordinates</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">SO3</span></a><span class="p">,</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">T</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.log" title="spatialmath.pose3d.SE3.log"><span class="n">T</span><span class="o">.</span><span class="n">log</span></a><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.log" title="spatialmath.pose3d.SE3.log"><span class="n">T</span><span class="o">.</span><span class="n">log</span></a><span class="p">(</span><span class="n">twist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">R</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.Rx" title="spatialmath.pose3d.SO3.Rx"><span class="n">SO3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.log" title="spatialmath.pose3d.SO3.log"><span class="n">R</span><span class="o">.</span><span class="n">log</span></a><span class="p">(</span><span class="n">twist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># exponential coordinates</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2599,7 +2539,6 @@ elements are also known as the exponential coordinates of the rotation.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.mean">
 <span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.mean" title="Link to this definition"></a></dt>
@@ -2630,7 +2569,6 @@ arithmetic mean.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.norm">
 <span class="sig-name descname"><span class="pre">norm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.norm" title="Link to this definition"></a></dt>
@@ -2670,7 +2608,6 @@ become ‘unnormalized’.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.plot">
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.plot" title="Link to this definition"></a></dt>
@@ -2694,7 +2631,7 @@ become ‘unnormalized’.</p></li>
 </div>
 <p>(<a class="reference download internal" download="" href="_downloads/e3e33d991e4cae9f4d49b94d104bace7/3d_pose_SE3-1.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/a89c8ca5404bf78c3c5fcf6bbd213df3/3d_pose_SE3-1.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/4dd22395c42929e6392e778fa2e02a7c/3d_pose_SE3-1.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/c9a83af1a8d55eaf0b8b0c60840a8e0e/3d_pose_SE3-1.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
-<img alt="_images/3d_pose_SE3-1.png" class="plot-directive" src="_images/3d_pose_SE3-1.png" />
+<img alt="_images/3d_pose_SE3-1.png" class="plot-directive" src="_images/3d_pose_SE3-1.png"/>
 </figure>
 <dl class="field-list simple">
 <dt class="field-odd">Seealso<span class="colon">:</span></dt>
@@ -2702,7 +2639,6 @@ become ‘unnormalized’.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.pop">
 <span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.pop" title="Link to this definition"></a></dt>
@@ -2737,7 +2673,6 @@ instance is modified.</p>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">X</span></code> is any of the SMTB classes.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.print">
 <span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.print" title="Link to this definition"></a></dt>
@@ -2756,13 +2691,13 @@ instance is modified.</p>
 <p>Print the pose as a matrix, with an optional line beforehand.  By default
 the matrix is printed to stdout.</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="p">()</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">()</span><span class="o">.</span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.print" title="spatialmath.pose3d.SE3.print"><span class="n">print</span></a><span class="p">()</span>
 <span class="go">   1         0         0         0         </span>
 <span class="go">   0         1         0         0         </span>
 <span class="go">   0         0         1         0         </span>
 <span class="go">   0         0         0         1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">SE3</span><span class="p">()</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">"pose is:"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">()</span><span class="o">.</span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.print" title="spatialmath.pose3d.SE3.print"><span class="n">print</span></a><span class="p">(</span><span class="s2">"pose is:"</span><span class="p">)</span>
 <span class="go">pose is:</span>
 <span class="go">   1         0         0         0         </span>
 <span class="go">   0         1         0         0         </span>
@@ -2776,7 +2711,6 @@ the matrix is printed to stdout.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.printline">
 <span class="sig-name descname"><span class="pre">printline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.printline" title="Link to this definition"></a></dt>
@@ -2826,22 +2760,22 @@ values, print one per line.</p>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE2</span><span class="p">,</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">printline</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">,</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.printline" title="spatialmath.pose3d.SE3.printline"><span class="n">x</span><span class="o">.</span><span class="n">printline</span></a><span class="p">()</span>
 <span class="go">t = 0, 0, 0; rpy/zyx = 17.2°, 0°, 0°</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">printline</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.printline" title="spatialmath.pose3d.SE3.printline"><span class="n">x</span><span class="o">.</span><span class="n">printline</span></a><span class="p">()</span>
 <span class="go">t = 0, 0, 0; rpy/zyx = 11.5°, 0°, 0°</span>
 <span class="go">t = 0, 0, 0; rpy/zyx = 17.2°, 0°, 0°</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">printline</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"angvec"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.printline" title="spatialmath.pose3d.SE3.printline"><span class="n">x</span><span class="o">.</span><span class="n">printline</span></a><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"angvec"</span><span class="p">)</span>
 <span class="go">t = 0, 0, 0; angvec = (11.5° | 1, 0, 0)</span>
 <span class="go">t = 0, 0, 0; angvec = (17.2° | 1, 0, 0)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">printline</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"angvec"</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"</span><span class="si">{:.6f}</span><span class="s2">"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.printline" title="spatialmath.pose3d.SE3.printline"><span class="n">x</span><span class="o">.</span><span class="n">printline</span></a><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"angvec"</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"</span><span class="si">{:.6f}</span><span class="s2">"</span><span class="p">)</span>
 <span class="go">t = 0.000000, 0.000000, 0.000000; angvec = (11.459156° | 1.000000, 0.000000, 0.000000)</span>
 <span class="go">t = 0.000000, 0.000000, 0.000000; angvec = (17.188734° | 1.000000, 0.000000, 0.000000)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">printline</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2.printline" title="spatialmath.pose2d.SE2.printline"><span class="n">x</span><span class="o">.</span><span class="n">printline</span></a><span class="p">()</span>
 <span class="go">t = 1, 2; 17.2°</span>
 </pre></div>
 </div>
@@ -2859,7 +2793,6 @@ values, print one per line.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.prod">
 <span class="sig-name descname"><span class="pre">prod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.prod" title="Link to this definition"></a></dt>
@@ -2883,9 +2816,9 @@ values, print one per line.</p>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">x.prod()</span></code> is the product of the values held by <code class="docutils literal notranslate"><span class="pre">x</span></code>, ie.
 <span class="math notranslate nohighlight">\(\prod_i^N T_i\)</span>.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.prod" title="spatialmath.pose3d.SE3.prod"><span class="n">x</span><span class="o">.</span><span class="n">prod</span></a><span class="p">()</span>
 <span class="go">SE3(array([[ 1.    ,  0.    ,  0.    ,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.8253, -0.5646,  0.    ],</span>
 <span class="go">           [ 0.    ,  0.5646,  0.8253,  0.    ],</span>
@@ -2900,13 +2833,11 @@ group.  You can either disable membership checking by <code class="docutils lite
 which is risky, or normalize the result by <code class="docutils literal notranslate"><span class="pre">norm=True</span></code>.</p>
 </div>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.reverse">
 <span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.reverse" title="Link to this definition"></a></dt>
 <dd><p>S.reverse() – reverse <em>IN PLACE</em></p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.rpy">
 <span class="sig-name descname"><span class="pre">rpy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.rpy" title="Link to this definition"></a></dt>
@@ -2955,7 +2886,6 @@ to the optic axis and x-axis parallel to the pixel rows.</p></li>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.rtvec">
 <span class="sig-name descname"><span class="pre">rtvec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.rtvec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.rtvec" title="Link to this definition"></a></dt>
@@ -2977,7 +2907,6 @@ into an SE(3) instance.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.simplify">
 <span class="sig-name descname"><span class="pre">simplify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.simplify" title="Link to this definition"></a></dt>
@@ -3013,7 +2942,6 @@ pose instance.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.stack">
 <span class="sig-name descname"><span class="pre">stack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.stack" title="Link to this definition"></a></dt>
@@ -3030,7 +2958,6 @@ pose instance.</p>
 stacked along the third axis.  The first two dimensions are given by
 <code class="docutils literal notranslate"><span class="pre">self.shape</span></code>.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.strline">
 <span class="sig-name descname"><span class="pre">strline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose3d.SE3.strline" title="Link to this definition"></a></dt>
@@ -3081,19 +3008,19 @@ values, the string has one pose per line.</p>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE2</span><span class="p">,</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">strline</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">,</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.strline" title="spatialmath.pose3d.SE3.strline"><span class="n">x</span><span class="o">.</span><span class="n">strline</span></a><span class="p">()</span>
 <span class="go">'t = 0, 0, 0; rpy/zyx = 17.2°, 0°, 0°'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">strline</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Rx" title="spatialmath.pose3d.SE3.Rx"><span class="n">SE3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.strline" title="spatialmath.pose3d.SE3.strline"><span class="n">x</span><span class="o">.</span><span class="n">strline</span></a><span class="p">()</span>
 <span class="go">'t = 0, 0, 0; rpy/zyx = 11.5°, 0°, 0°t = 0, 0, 0; rpy/zyx = 17.2°, 0°, 0°'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">strline</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"angvec"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.strline" title="spatialmath.pose3d.SE3.strline"><span class="n">x</span><span class="o">.</span><span class="n">strline</span></a><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"angvec"</span><span class="p">)</span>
 <span class="go">'t = 0, 0, 0; angvec = (11.5° | 1, 0, 0)t = 0, 0, 0; angvec = (17.2° | 1, 0, 0)'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">strline</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"angvec"</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"</span><span class="si">{:.6f}</span><span class="s2">"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.strline" title="spatialmath.pose3d.SE3.strline"><span class="n">x</span><span class="o">.</span><span class="n">strline</span></a><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"angvec"</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"</span><span class="si">{:.6f}</span><span class="s2">"</span><span class="p">)</span>
 <span class="go">'t = 0.000000, 0.000000, 0.000000; angvec = (11.459156° | 1.000000, 0.000000, 0.000000)t = 0.000000, 0.000000, 0.000000; angvec = (17.188734° | 1.000000, 0.000000, 0.000000)'</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">strline</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2.strline" title="spatialmath.pose2d.SE2.strline"><span class="n">x</span><span class="o">.</span><span class="n">strline</span></a><span class="p">()</span>
 <span class="go">'t = 1, 2; 17.2°'</span>
 </pre></div>
 </div>
@@ -3111,7 +3038,6 @@ values, the string has one pose per line.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.twist">
 <span class="sig-name descname"><span class="pre">twist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.twist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.twist" title="Link to this definition"></a></dt>
@@ -3125,9 +3051,9 @@ values, the string has one pose per line.</p>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">twist</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.twist" title="spatialmath.pose3d.SE3.twist"><span class="n">x</span><span class="o">.</span><span class="n">twist</span></a><span class="p">()</span>
 <span class="go">Twist3([1, 2, 3, 0, 0, 0])</span>
 </pre></div>
 </div>
@@ -3137,7 +3063,6 @@ values, the string has one pose per line.</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.yaw_SE2">
 <span class="sig-name descname"><span class="pre">yaw_SE2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zyx'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose3d.html#SE3.yaw_SE2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose3d.SE3.yaw_SE2" title="Link to this definition"></a></dt>
@@ -3169,7 +3094,6 @@ to the optic axis and x-axis parallel to the pixel rows.</p></li>
 </ul>
 </div></blockquote>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.A">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">A</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">NDArray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">NDArray</span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.A" title="Link to this definition"></a></dt>
@@ -3192,7 +3116,6 @@ and has a shape given by <code class="docutils literal notranslate"><span class=
 instance.</p>
 </div>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.N">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">N</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.N" title="Link to this definition"></a></dt>
@@ -3216,7 +3139,6 @@ rotations or rigid-body motions apply.</p>
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.R">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">R</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">SO3Array</span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.R" title="Link to this definition"></a></dt>
@@ -3238,9 +3160,9 @@ shape (3,3). If <code class="docutils literal notranslate"><span class="pre">len
 rotation matrix is <code class="docutils literal notranslate"><span class="pre">x(:,:,i)</span></code>.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SO3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SO3</span><span class="o">.</span><span class="n">Rx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">R</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">SO3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3" title="spatialmath.pose3d.SO3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.Rx" title="spatialmath.pose3d.SO3.Rx"><span class="n">SO3</span><span class="o">.</span><span class="n">Rx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_orient_SO3.html#spatialmath.pose3d.SO3.R" title="spatialmath.pose3d.SO3.R"><span class="n">x</span><span class="o">.</span><span class="n">R</span></a>
 <span class="go">array([[ 1.    ,  0.    ,  0.    ],</span>
 <span class="go">       [ 0.    ,  0.9553, -0.2955],</span>
 <span class="go">       [ 0.    ,  0.2955,  0.9553]])</span>
@@ -3252,7 +3174,6 @@ rotation matrix is <code class="docutils literal notranslate"><span class="pre">
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.a">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">a</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><span class="pre">dtype</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><span class="pre">floating</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.a" title="Link to this definition"></a></dt>
@@ -3269,7 +3190,6 @@ rotation matrix is <code class="docutils literal notranslate"><span class="pre">
 <em>approach vector</em>.  It is parallel to the z-axis of the frame defined by
 this pose.</p>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.about">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">about</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.about" title="Link to this definition"></a></dt>
@@ -3292,7 +3212,6 @@ example:</p>
 </pre></div>
 </div>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.isSE">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isSE</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.isSE" title="Link to this definition"></a></dt>
@@ -3309,7 +3228,6 @@ example:</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.isSO">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">isSO</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.isSO" title="Link to this definition"></a></dt>
@@ -3326,7 +3244,6 @@ example:</p>
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.n">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">n</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><span class="pre">dtype</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><span class="pre">floating</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.n" title="Link to this definition"></a></dt>
@@ -3343,7 +3260,6 @@ example:</p>
 <em>normal vector</em>.  It is parallel to the x-axis of the frame defined by
 this pose.</p>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.o">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">o</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><span class="pre">dtype</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><span class="pre">floating</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.o" title="Link to this definition"></a></dt>
@@ -3360,7 +3276,6 @@ this pose.</p>
 the <em>orientation vector</em>.  It is parallel to the y-axis of the frame
 defined by this pose.</p>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.shape">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">shape</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.shape" title="Link to this definition"></a></dt>
@@ -3375,7 +3290,6 @@ defined by this pose.</p>
 </dl>
 <p>Each value within the <code class="docutils literal notranslate"><span class="pre">SE3</span></code> instance is a NumPy array of this shape.</p>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.t">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">t</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><span class="pre">dtype</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><span class="pre">floating</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.t" title="Link to this definition"></a></dt>
@@ -3391,12 +3305,12 @@ defined by this pose.</p>
 <p><code class="docutils literal notranslate"><span class="pre">x.t</span></code> is the translational component of <code class="docutils literal notranslate"><span class="pre">x</span></code> as an array with
 shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(x)</span> <span class="pre">&gt;</span> <span class="pre">1</span></code>, return an array with shape=(N,3).</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">t</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.t" title="spatialmath.pose3d.SE3.t"><span class="n">x</span><span class="o">.</span><span class="n">t</span></a>
 <span class="go">array([1., 2., 3.])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">([</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">t</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">x</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">([</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.t" title="spatialmath.pose3d.SE3.t"><span class="n">x</span><span class="o">.</span><span class="n">t</span></a>
 <span class="go">array([[1., 2., 3.],</span>
 <span class="go">       [4., 5., 6.]])</span>
 </pre></div>
@@ -3407,7 +3321,6 @@ shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.x">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">x</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.x" title="Link to this definition"></a></dt>
@@ -3422,12 +3335,12 @@ shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">len(v)</span> <span class="pre">&gt;</span> <span class="pre">1</span></code>, return an array with shape=(N,).</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">v</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.x" title="spatialmath.pose3d.SE3.x"><span class="n">v</span><span class="o">.</span><span class="n">x</span></a>
 <span class="go">np.float64(1.0)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">([</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">v</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">([</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.x" title="spatialmath.pose3d.SE3.x"><span class="n">v</span><span class="o">.</span><span class="n">x</span></a>
 <span class="go">array([1., 4.])</span>
 </pre></div>
 </div>
@@ -3437,7 +3350,6 @@ shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.y">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">y</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.y" title="Link to this definition"></a></dt>
@@ -3452,12 +3364,12 @@ shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">len(v)</span> <span class="pre">&gt;</span> <span class="pre">1</span></code>, return an array with shape=(N,).</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">y</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">v</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.y" title="spatialmath.pose3d.SE3.y"><span class="n">v</span><span class="o">.</span><span class="n">y</span></a>
 <span class="go">np.float64(2.0)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">([</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">y</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">v</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">([</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.y" title="spatialmath.pose3d.SE3.y"><span class="n">v</span><span class="o">.</span><span class="n">y</span></a>
 <span class="go">array([2., 5.])</span>
 </pre></div>
 </div>
@@ -3467,7 +3379,6 @@ shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(
 </dd>
 </dl>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.pose3d.SE3.z">
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">z</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></span><a class="headerlink" href="#spatialmath.pose3d.SE3.z" title="Link to this definition"></a></dt>
@@ -3482,12 +3393,12 @@ shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">len(v)</span> <span class="pre">&gt;</span> <span class="pre">1</span></code>, return an array with shape=(N,).</p>
 <p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <span class="n">SE3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">z</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">v</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.z" title="spatialmath.pose3d.SE3.z"><span class="n">v</span><span class="o">.</span><span class="n">z</span></a>
 <span class="go">np.float64(3.0)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">SE3</span><span class="p">([</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">SE3</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span><span class="o">.</span><span class="n">z</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">v</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">([</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3" title="spatialmath.pose3d.SE3"><span class="n">SE3</span></a><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.z" title="spatialmath.pose3d.SE3.z"><span class="n">v</span><span class="o">.</span><span class="n">z</span></a>
 <span class="go">array([3., 6.])</span>
 </pre></div>
 </div>
@@ -3497,26 +3408,20 @@ shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(
 </dd>
 </dl>
 </dd></dl>
-
 </dd></dl>
-
 </section>
-
-
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="spatialmath.html" class="btn btn-neutral float-left" title="Class reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="3d_pose_twist.html" class="btn btn-neutral float-right" title="se(3) twist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2020-, Peter Corke..
+</div>
+</div>
+<footer><div aria-label="Footer" class="rst-footer-buttons" role="navigation">
+<a accesskey="p" class="btn btn-neutral float-left" href="spatialmath.html" rel="prev" title="Class reference"><span aria-hidden="true" class="fa fa-arrow-circle-left"></span> Previous</a>
+<a accesskey="n" class="btn btn-neutral float-right" href="3d_pose_twist.html" rel="next" title="se(3) twist">Next <span aria-hidden="true" class="fa fa-arrow-circle-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<p>© Copyright 2020-, Peter Corke..
       <span class="lastupdated">Last updated on 16-Oct-2026.
       </span></p>
-  </div>
+</div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
@@ -3524,18 +3429,18 @@ shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(
    
 
 </footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
+</div>
+</div>
+</section>
+</div>
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
-    <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-11Q6WJM565"></script>
-    <script>
+<!-- Theme Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-11Q6WJM565"></script>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -3543,7 +3448,6 @@ shape (3,). If <code class="docutils literal notranslate"><span class="pre">len(
       gtag('config', 'G-11Q6WJM565', {
           'anonymize_ip': false,
       });
-    </script> 
-
+    </script>
 </body>
 </html>
