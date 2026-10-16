@@ -716,11 +716,11 @@ The inverse is the negative of the twist vector.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">Twist3</span></a>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">S</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">Twist3</span></a><span class="p">(</span><span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">S</span></a>
-<span class="go">Twist3([-1.2116, 0.049677, 0.66232, 0.70184, -0.04326, 1.066])</span>
+<span class="go">Twist3([-0.049077, 0.74883, -0.57515, 1.2958, -1.1632, 0.36528])</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3.inv" title="spatialmath.twist.Twist3.inv"><span class="n">S</span><span class="o">.</span><span class="n">inv</span></a><span class="p">()</span>
-<span class="go">Twist3([1.2116, -0.049677, -0.66232, -0.70184, 0.04326, -1.066])</span>
+<span class="go">Twist3([0.049077, -0.74883, 0.57515, -1.2958, 1.1632, -0.36528])</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">S</span></a> <span class="o">*</span> <a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3.inv" title="spatialmath.twist.Twist3.inv"><span class="n">S</span><span class="o">.</span><span class="n">inv</span></a><span class="p">()</span>
-<span class="go">Twist3([0, 2.2204e-16, 5.5511e-17, 0, 0, 0])</span>
+<span class="go">Twist3([-5.5511e-17, 0, 4.1633e-17, 0, 0, 0])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -836,8 +836,7 @@ Twist <code class="docutils literal notranslate"><span class="pre">S</span></cod
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">S</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a><span class="p">(</span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2.unit" title="spatialmath.twist.Twist2.unit"><span class="n">S</span><span class="o">.</span><span class="n">unit</span></a><span class="p">()</span>
-<span class="go">!! [RUNBLOCK-ERROR] spatialmath/twist.py:docstring of spatialmath.twist.Twist2.unit:574</span>
-<span class="go">    ValueError: bad twist value</span>
+<span class="go">Twist2([4.3083, 6.1166, 1])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -924,8 +923,7 @@ homogeneous transformation.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">S</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a><span class="p">(</span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2.unit" title="spatialmath.twist.Twist2.unit"><span class="n">S</span><span class="o">.</span><span class="n">unit</span></a><span class="p">()</span>
-<span class="go">!! [RUNBLOCK-ERROR] spatialmath/twist.py:docstring of spatialmath.twist.Twist2.ad:647</span>
-<span class="go">    ValueError: bad twist value</span>
+<span class="go">Twist2([4.3083, 6.1166, 1])</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1018,15 +1016,14 @@ homogeneous transformation.</p></li>
 <dd class="field-even"><p>ndarray(2)</p>
 </dd>
 </dl>
-<p><code class="docutils literal notranslate"><span class="pre">X.pole()</span></code> is a point on the twist axis. For a pure translation
+<p><code class="docutils literal notranslate"><span class="pre">X.pole</span></code> is a point on the twist axis. For a pure translation
 this point is at infinity.</p>
 <p>Example:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">,</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">S</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a><span class="p">(</span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2.pole" title="spatialmath.twist.Twist2.pole"><span class="n">S</span><span class="o">.</span><span class="n">pole</span></a><span class="p">()</span>
-<span class="go">!! [RUNBLOCK-ERROR] spatialmath/twist.py:docstring of spatialmath.twist.Twist2.pole:735</span>
-<span class="go">    TypeError: 'numpy.ndarray' object is not callable</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2.pole" title="spatialmath.twist.Twist2.pole"><span class="n">S</span><span class="o">.</span><span class="n">pole</span></a>
+<span class="go">array([-1.835 ,  1.2925])</span>
 </pre></div>
 </div>
 </dd></dl>
