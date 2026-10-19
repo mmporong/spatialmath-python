@@ -241,6 +241,15 @@ class TestSO3(unittest.TestCase):
         # x axis should equal normalized x vector
         nt.assert_almost_equal(R.R[:, 0], v3 / np.linalg.norm(v3), 5)
 
+    def test_AngleAxis_zero_axis(self):
+        nt.assert_array_almost_equal(SO3.AngleAxis(0, [0, 0, 0]).A, np.eye(3))
+        nt.assert_array_almost_equal(SO3.AngVec(0, [0, 0, 0]).A, np.eye(3))
+        nt.assert_array_almost_equal(SE3.AngleAxis(0, [0, 0, 0]).A, np.eye(4))
+        with self.assertRaises(ValueError):
+            SO3.AngleAxis(0.5, [0, 0, 0])
+        with self.assertRaises(ValueError):
+            SE3.AngVec(0.5, [0, 0, 0])
+
     def test_conversion(self):
         R = SO3.AngleAxis(0.7, [1, 2, 3])
         q = UnitQuaternion([11, 7, 3, -6])

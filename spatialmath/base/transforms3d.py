@@ -31,6 +31,7 @@ from spatialmath.base.vectors import (
     unitvec_norm,
     norm,
     isunitvec,
+    iszero,
     iszerovec,
     unittwist_norm,
     isunittwist,
@@ -747,7 +748,7 @@ def angvec2r(theta: float, v: ArrayLike3, unit="rad", tol: float = 20) -> SO3Arr
     :type: float
     :return: SO(3) rotation matrix
     :rtype: ndarray(3,3)
-    :raises ValueError: bad arguments
+    :raises ValueError: bad arguments, or a non-zero rotation about a zero-length axis
 
     ``angvec2r(θ, V)`` is an SO(3) orthonormal rotation matrix
     equivalent to a rotation of ``θ`` about the vector ``V``.
@@ -760,8 +761,10 @@ def angvec2r(theta: float, v: ArrayLike3, unit="rad", tol: float = 20) -> SO3Arr
 
     .. note::
 
-        - If ``θ == 0`` then return identity matrix.
-        - If ``θ ~= 0`` then ``V`` must have a finite length.
+        - If ``θ`` is zero (within ``tol``) then return the identity matrix, and
+          ``V`` is ignored.
+        - Otherwise ``V`` must have a finite length, but need not be a unit
+          vector. A zero-length ``V`` raises ``ValueError``.
 
     :seealso: :func:`~angvec2tr` :func:`~tr2angvec`
 
@@ -770,10 +773,10 @@ def angvec2r(theta: float, v: ArrayLike3, unit="rad", tol: float = 20) -> SO3Arr
     if not isscalar(theta) or not isvector(v, 3):
         raise ValueError("Arguments must be angle and vector")
 
-    if np.linalg.norm(v) < tol * _eps:
-        return np.eye(3)
-
     θ = getunit(theta, unit, vector=False)
+
+    if iszero(θ, tol):
+        return np.eye(3)
 
     # Rodrigue's equation
 
@@ -806,8 +809,10 @@ def angvec2tr(theta: float, v: ArrayLike3, unit="rad") -> SE3Array:
 
     .. note::
 
-        - If ``θ == 0`` then return identity matrix.
-        - If ``θ ~= 0`` then ``V`` must have a finite length.
+        - If ``θ`` is zero (within ``tol``) then return the identity matrix, and
+          ``V`` is ignored.
+        - Otherwise ``V`` must have a finite length, but need not be a unit
+          vector. A zero-length ``V`` raises ``ValueError``.
         - The translational part is zero.
 
     :seealso: :func:`~angvec2r` :func:`~tr2angvec`
