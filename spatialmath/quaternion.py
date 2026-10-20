@@ -1544,13 +1544,17 @@ class UnitQuaternion(Quaternion):
             >>> print(UQ.AngVec(0, [1,0,0]))
             >>> print(UQ.AngVec(90, [1,0,0], unit='deg'))
 
-        .. note:: :math:`\theta = 0` the result in an identity quaternion, otherwise
-            ``V`` must have a finite length, ie. :math:`|V| > 0`.
+        .. note:: If :math:`\theta` is zero within the default tolerance of
+            :func:`~spatialmath.base.vectors.iszero`, the result is an identity
+            quaternion. Otherwise, ``v`` must have a nonzero norm.
 
         :seealso: :meth:`UnitQuaternion.angvec` :meth:`UnitQuaternion.exp` :func:`~spatialmath.base.transforms3d.angvec2r`
         """
         v = smb.getvector(v, 3)
         theta = smb.getunit(theta, unit, vector=False)
+        if smb.iszero(theta):
+            return cls()
+        v = smb.unitvec(v)
         return cls(
             s=math.cos(theta / 2), v=math.sin(theta / 2) * v, norm=False, check=False
         )
