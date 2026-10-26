@@ -167,7 +167,7 @@
 <dd class="field-even"><p><span class="sphinx_autodoc_typehints-type">SO3Array</span></p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – bad arguments</p>
+<dd class="field-odd"><p><strong>ValueError</strong> – bad arguments, or a non-zero rotation about a zero-length axis</p>
 </dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">angvec2r(θ,</span> <span class="pre">V)</span></code> is an SO(3) orthonormal rotation matrix
@@ -186,8 +186,10 @@ equivalent to a rotation of <code class="docutils literal notranslate"><span cla
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">θ</span> <span class="pre">==</span> <span class="pre">0</span></code> then return identity matrix.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">θ</span> <span class="pre">~=</span> <span class="pre">0</span></code> then <code class="docutils literal notranslate"><span class="pre">V</span></code> must have a finite length.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">θ</span></code> is zero (within <code class="docutils literal notranslate"><span class="pre">tol</span></code>) then return the identity matrix, and
+<code class="docutils literal notranslate"><span class="pre">V</span></code> is ignored.</p></li>
+<li><p>Otherwise <code class="docutils literal notranslate"><span class="pre">V</span></code> must have a finite length, but need not be a unit
+vector. A zero-length <code class="docutils literal notranslate"><span class="pre">V</span></code> raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
 </ul>
 </div>
 <dl class="field-list simple">
@@ -231,8 +233,10 @@ equivalent to a rotation of <code class="docutils literal notranslate"><span cla
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">θ</span> <span class="pre">==</span> <span class="pre">0</span></code> then return identity matrix.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">θ</span> <span class="pre">~=</span> <span class="pre">0</span></code> then <code class="docutils literal notranslate"><span class="pre">V</span></code> must have a finite length.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">θ</span></code> is zero (within <code class="docutils literal notranslate"><span class="pre">tol</span></code>) then return the identity matrix, and
+<code class="docutils literal notranslate"><span class="pre">V</span></code> is ignored.</p></li>
+<li><p>Otherwise <code class="docutils literal notranslate"><span class="pre">V</span></code> must have a finite length, but need not be a unit
+vector. A zero-length <code class="docutils literal notranslate"><span class="pre">V</span></code> raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
 <li><p>The translational part is zero.</p></li>
 </ul>
 </div>

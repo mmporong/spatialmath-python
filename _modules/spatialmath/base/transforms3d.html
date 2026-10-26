@@ -112,6 +112,7 @@
     <span class="n">unitvec_norm</span><span class="p">,</span>
     <span class="n">norm</span><span class="p">,</span>
     <span class="n">isunitvec</span><span class="p">,</span>
+    <span class="n">iszero</span><span class="p">,</span>
     <span class="n">iszerovec</span><span class="p">,</span>
     <span class="n">unittwist_norm</span><span class="p">,</span>
     <span class="n">isunittwist</span><span class="p">,</span>
@@ -869,7 +870,7 @@
 <span class="sd">    :type: float</span>
 <span class="sd">    :return: SO(3) rotation matrix</span>
 <span class="sd">    :rtype: ndarray(3,3)</span>
-<span class="sd">    :raises ValueError: bad arguments</span>
+<span class="sd">    :raises ValueError: bad arguments, or a non-zero rotation about a zero-length axis</span>
 
 <span class="sd">    ``angvec2r(θ, V)`` is an SO(3) orthonormal rotation matrix</span>
 <span class="sd">    equivalent to a rotation of ``θ`` about the vector ``V``.</span>
@@ -882,8 +883,10 @@
 
 <span class="sd">    .. note::</span>
 
-<span class="sd">        - If ``θ == 0`` then return identity matrix.</span>
-<span class="sd">        - If ``θ ~= 0`` then ``V`` must have a finite length.</span>
+<span class="sd">        - If ``θ`` is zero (within ``tol``) then return the identity matrix, and</span>
+<span class="sd">          ``V`` is ignored.</span>
+<span class="sd">        - Otherwise ``V`` must have a finite length, but need not be a unit</span>
+<span class="sd">          vector. A zero-length ``V`` raises ``ValueError``.</span>
 
 <span class="sd">    :seealso: :func:`~angvec2tr` :func:`~tr2angvec`</span>
 
@@ -892,10 +895,10 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">isscalar</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">isvector</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Arguments must be angle and vector"</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="o">*</span> <span class="n">_eps</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-
     <span class="n">θ</span> <span class="o">=</span> <span class="n">getunit</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">vector</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">iszero</span><span class="p">(</span><span class="n">θ</span><span class="p">,</span> <span class="n">tol</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
     <span class="c1"># Rodrigue's equation</span>
 
@@ -931,8 +934,10 @@
 
 <span class="sd">    .. note::</span>
 
-<span class="sd">        - If ``θ == 0`` then return identity matrix.</span>
-<span class="sd">        - If ``θ ~= 0`` then ``V`` must have a finite length.</span>
+<span class="sd">        - If ``θ`` is zero (within ``tol``) then return the identity matrix, and</span>
+<span class="sd">          ``V`` is ignored.</span>
+<span class="sd">        - Otherwise ``V`` must have a finite length, but need not be a unit</span>
+<span class="sd">          vector. A zero-length ``V`` raises ``ValueError``.</span>
 <span class="sd">        - The translational part is zero.</span>
 
 <span class="sd">    :seealso: :func:`~angvec2r` :func:`~tr2angvec`</span>
