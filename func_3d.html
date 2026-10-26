@@ -1388,10 +1388,12 @@ set to a non-zero value.</p>
 </dd>
 </dl>
 <p>Computes an adjoint matrix that maps the Lie algebra between frames.</p>
-<p>where <span class="math notranslate nohighlight">\(\mat{T} \in \SE3\)</span>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">tr2jac(T)</span></code> is an adjoint matrix (6x6) that maps spatial velocity or
-differential motion between frame {B} to frame {A} which are attached to the
-same moving body.  The pose of {B} relative to {A} is represented by the
+<div class="math notranslate nohighlight">
+\[\mathrm{Ad}(\mat{T})\,\vec{X} = \vex{\mat{T}\,\sk{\vec{X}}\,\mat{T}^{-1}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mat{T} \in \SE{3}\)</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tr2adjoint(T)</span></code> is an adjoint matrix (6x6 for SE(3), 3x3 for SO(3)) that
+maps spatial velocity or differential motion between frame {B} to frame {A}
+which are attached to the same moving body.  The pose of {B} relative to {A} is represented by the
 homogeneous transform T = <span class="math notranslate nohighlight">\({}^A {\bf T}_B\)</span>.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="func_3d.html#spatialmath.base.transforms3d.tr2adjoint" title="spatialmath.base.transforms3d.tr2adjoint"><span class="n">tr2adjoint</span></a><span class="p">,</span> <a class="sphinx-codeautolink-a" href="func_3d.html#spatialmath.base.transforms3d.trotx" title="spatialmath.base.transforms3d.trotx"><span class="n">trotx</span></a>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">T</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="func_3d.html#spatialmath.base.transforms3d.trotx" title="spatialmath.base.transforms3d.trotx"><span class="n">trotx</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>

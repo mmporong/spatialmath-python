@@ -1855,11 +1855,18 @@
 <span class="sd">            * A -&gt; [-A, A, -A, A, -A, A]</span>
 <span class="sd">            * [A,B] -&gt; [A, B, A, B, A, B]</span>
 <span class="sd">            * [A,B,C,D,E,F] -&gt; [A, B, C, D, E, F]</span>
+
+<span class="sd">        A scalar is symmetric about zero, so its sign is ignored: ``-A`` is the</span>
+<span class="sd">        same as ``A``.  For the other forms the values are returned as given and</span>
+<span class="sd">        no ordering check is made.  If a minimum is greater than the</span>
+<span class="sd">        corresponding maximum, matplotlib will invert that axis when the limits</span>
+<span class="sd">        are applied, which is a convenient way to flip an axis direction.</span>
 <span class="sd">        """</span>
         <span class="n">dim</span> <span class="o">=</span> <span class="n">smb</span><span class="o">.</span><span class="n">getvector</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">nd</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">dim</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">]</span>
             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
@@ -1869,6 +1876,7 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"bad dimension specified"</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">nd</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">dim</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">]</span>
             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
