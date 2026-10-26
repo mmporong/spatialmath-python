@@ -826,14 +826,28 @@
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">    Standard deviation of angular values</span>
 
-<span class="sd">    :param theta: angular values</span>
+<span class="sd">    :param theta: angular values, in radians</span>
 <span class="sd">    :type theta: array_like</span>
-<span class="sd">    :return: circular standard deviation</span>
+<span class="sd">    :return: circular standard deviation, in radians</span>
 <span class="sd">    :rtype: float</span>
+
+<span class="sd">    The circular standard deviation is</span>
 
 <span class="sd">    .. math::</span>
 
-<span class="sd">        \sigma_{\theta} = \sqrt{-2 \log \| \left[ \frac{\sum \sin \theta_i}{N}, \frac{\sum \sin \theta_i}{N} \right] \|} \in [0, \infty)</span>
+<span class="sd">        \sigma_{\theta} = \sqrt{-2 \log R} \in [0, \infty), \quad</span>
+<span class="sd">        R = \left\| \left[ \frac{\sum \cos \theta_i}{N}, \frac{\sum \sin \theta_i}{N} \right] \right\|</span>
+
+<span class="sd">    where :math:`R` is the length of the mean of the unit vectors at angles</span>
+<span class="sd">    :math:`\theta_i`.  :math:`R = 1` if all the angles are equal, giving a</span>
+<span class="sd">    standard deviation of zero, and :math:`R \to 0` as the angles spread evenly</span>
+<span class="sd">    around the circle, when the standard deviation grows without bound.</span>
+
+<span class="sd">    This is the same quantity as ``scipy.stats.circstd`` with its default</span>
+<span class="sd">    arguments.</span>
+
+<span class="sd">    .. note:: If :math:`R` is exactly zero the result is ``inf``, with a NumPy</span>
+<span class="sd">        divide-by-zero warning.</span>
 
 <span class="sd">    :seealso: :func:`angle_mean`</span>
 <span class="sd">    """</span>
@@ -854,16 +868,23 @@
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">    Mean of angular values</span>
 
-<span class="sd">    :param theta: angular values</span>
-<span class="sd">    :type v: array_like</span>
-<span class="sd">    :return: circular mean</span>
+<span class="sd">    :param theta: angular values, in radians</span>
+<span class="sd">    :type theta: array_like</span>
+<span class="sd">    :return: circular mean, in radians</span>
 <span class="sd">    :rtype: float</span>
 
-<span class="sd">    The circular mean is given by</span>
+<span class="sd">    The circular mean is the angle of the mean of the unit vectors at angles</span>
+<span class="sd">    :math:`\theta_i`</span>
 
 <span class="sd">    .. math::</span>
 
-<span class="sd">        \bar{\theta} = \tan^{-1} \frac{\sum \sin \theta_i}{\sum \cos \theta_i} \in [-\pi, \pi)]</span>
+<span class="sd">        \bar{\theta} = \tan^{-1} \frac{\sum \sin \theta_i}{\sum \cos \theta_i} \in [-\pi, \pi]</span>
+
+<span class="sd">    computed with the two-argument arctangent so that the quadrant is correct.</span>
+
+<span class="sd">    .. note:: If the unit vectors cancel, for example the angles :math:`0` and</span>
+<span class="sd">        :math:`\pi`, the mean direction is undefined and the result is decided by</span>
+<span class="sd">        rounding error.</span>
 
 <span class="sd">    :seealso: :func:`angle_std`</span>
 <span class="sd">    """</span>
@@ -879,8 +900,8 @@
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Generalized angle-wrapping</span>
 
-<span class="sd">    :param v: angles to wrap</span>
-<span class="sd">    :type v: array_like</span>
+<span class="sd">    :param theta: angles to wrap</span>
+<span class="sd">    :type theta: array_like</span>
 <span class="sd">    :param mode: wrapping mode, one of: ``"0:2pi"``, ``"0:pi"``, ``"-pi/2:pi/2"`` or ``"-pi:pi"`` [default]</span>
 <span class="sd">    :type mode: str, optional</span>
 <span class="sd">    :return: wrapped angles</span>

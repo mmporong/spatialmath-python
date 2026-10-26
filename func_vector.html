@@ -190,18 +190,26 @@ a NumPy array <code class="docutils literal notranslate"><span class="pre">a[i]-
 <dd><p>Mean of angular values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>theta</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>], <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">floating</span></code></a>]]]</span>) – angular values</p>
+<dd class="field-odd"><p><strong>theta</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>], <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">floating</span></code></a>]]]</span>) – angular values, in radians</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>circular mean</p>
+<dd class="field-even"><p>circular mean, in radians</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
 </dd>
 </dl>
-<p>The circular mean is given by</p>
+<p>The circular mean is the angle of the mean of the unit vectors at angles
+<span class="math notranslate nohighlight">\(\theta_i\)</span></p>
 <div class="math notranslate nohighlight">
-\[\bar{\theta} = \tan^{-1} \frac{\sum \sin \theta_i}{\sum \cos \theta_i} \in [-\pi, \pi)]\]</div>
+\[\bar{\theta} = \tan^{-1} \frac{\sum \sin \theta_i}{\sum \cos \theta_i} \in [-\pi, \pi]\]</div>
+<p>computed with the two-argument arctangent so that the quadrant is correct.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the unit vectors cancel, for example the angles <span class="math notranslate nohighlight">\(0\)</span> and
+<span class="math notranslate nohighlight">\(\pi\)</span>, the mean direction is undefined and the result is decided by
+rounding error.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Seealso<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#spatialmath.base.vectors.angle_std" title="spatialmath.base.vectors.angle_std"><code class="xref py py-func docutils literal notranslate"><span class="pre">angle_std()</span></code></a></p>
@@ -214,17 +222,30 @@ a NumPy array <code class="docutils literal notranslate"><span class="pre">a[i]-
 <dd><p>Standard deviation of angular values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>theta</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>], <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">floating</span></code></a>]]]</span>) – angular values</p>
+<dd class="field-odd"><p><strong>theta</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>], <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">floating</span></code></a>]]]</span>) – angular values, in radians</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>circular standard deviation</p>
+<dd class="field-even"><p>circular standard deviation, in radians</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
 </dd>
 </dl>
+<p>The circular standard deviation is</p>
 <div class="math notranslate nohighlight">
-\[\sigma_{\theta} = \sqrt{-2 \log \| \left[ \frac{\sum \sin \theta_i}{N}, \frac{\sum \sin \theta_i}{N} \right] \|} \in [0, \infty)\]</div>
+\[\sigma_{\theta} = \sqrt{-2 \log R} \in [0, \infty), \quad
+R = \left\| \left[ \frac{\sum \cos \theta_i}{N}, \frac{\sum \sin \theta_i}{N} \right] \right\|\]</div>
+<p>where <span class="math notranslate nohighlight">\(R\)</span> is the length of the mean of the unit vectors at angles
+<span class="math notranslate nohighlight">\(\theta_i\)</span>.  <span class="math notranslate nohighlight">\(R = 1\)</span> if all the angles are equal, giving a
+standard deviation of zero, and <span class="math notranslate nohighlight">\(R \to 0\)</span> as the angles spread evenly
+around the circle, when the standard deviation grows without bound.</p>
+<p>This is the same quantity as <code class="docutils literal notranslate"><span class="pre">scipy.stats.circstd</span></code> with its default
+arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <span class="math notranslate nohighlight">\(R\)</span> is exactly zero the result is <code class="docutils literal notranslate"><span class="pre">inf</span></code>, with a NumPy
+divide-by-zero warning.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Seealso<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#spatialmath.base.vectors.angle_mean" title="spatialmath.base.vectors.angle_mean"><code class="xref py py-func docutils literal notranslate"><span class="pre">angle_mean()</span></code></a></p>
@@ -238,7 +259,7 @@ a NumPy array <code class="docutils literal notranslate"><span class="pre">a[i]-
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>v</strong> (<em>array_like</em>) – angles to wrap</p></li>
+<li><p><strong>theta</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>], <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">floating</span></code></a>]]]</span>) – angles to wrap</p></li>
 <li><p><strong>mode</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – wrapping mode, one of: <code class="docutils literal notranslate"><span class="pre">"0:2pi"</span></code>, <code class="docutils literal notranslate"><span class="pre">"0:pi"</span></code>, <code class="docutils literal notranslate"><span class="pre">"-pi/2:pi/2"</span></code> or <code class="docutils literal notranslate"><span class="pre">"-pi:pi"</span></code> [default]</p></li>
 </ul>
 </dd>

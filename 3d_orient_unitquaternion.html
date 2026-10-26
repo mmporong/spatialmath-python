@@ -188,8 +188,9 @@ defined by a rotation of <code class="docutils literal notranslate"><span class=
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><span class="math notranslate nohighlight">\(\theta = 0\)</span> the result in an identity quaternion, otherwise
-<code class="docutils literal notranslate"><span class="pre">V</span></code> must have a finite length, ie. <span class="math notranslate nohighlight">\(|V| &gt; 0\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\theta\)</span> is zero within the default tolerance of
+<a class="reference internal" href="func_vector.html#spatialmath.base.vectors.iszero" title="spatialmath.base.vectors.iszero"><code class="xref py py-func docutils literal notranslate"><span class="pre">iszero()</span></code></a>, the result is an identity
+quaternion. Otherwise, <code class="docutils literal notranslate"><span class="pre">v</span></code> must have a nonzero norm.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Seealso<span class="colon">:</span></dt>
@@ -293,46 +294,27 @@ unit 3-vector <span class="math notranslate nohighlight">\(\omega / \lVert \omeg
 <dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.quaternion.UnitQuaternion.OA">
 <span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">OA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/quaternion.html#UnitQuaternion.OA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.quaternion.UnitQuaternion.OA" title="Link to this definition"></a></dt>
-<dd><blockquote>
-<div><p>Construct a new unit quaternion from two vectors</p>
+<dd><p>Construct a new unit quaternion from two vectors</p>
 <dl class="field-list simple">
-<dt class="field-odd">param o<span class="colon">:</span></dt>
-<dd class="field-odd"><p>3-vector parallel to Y- axis</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>o</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[<span class="highlight sphinx_autodoc_typehints-value"><code class="docutils literal notranslate"><span class="mi"><span class="pre">3</span></span></code></span>]], <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">floating</span></code></a>]]]</span>) – 3-vector parallel to Y- axis</p></li>
+<li><p><strong>a</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[<span class="highlight sphinx_autodoc_typehints-value"><code class="docutils literal notranslate"><span class="mi"><span class="pre">3</span></span></code></span>]], <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dtype</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.floating" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">floating</span></code></a>]]]</span>) – 3-vector parallel to the Z-axis</p></li>
+</ul>
 </dd>
-<dt class="field-even">type o<span class="colon">:</span></dt>
-<dd class="field-even"><p>array_like</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>unit-quaternion</p>
 </dd>
-<dt class="field-odd">param a<span class="colon">:</span></dt>
-<dd class="field-odd"><p>3-vector parallel to the Z-axis</p>
-</dd>
-<dt class="field-even">type a<span class="colon">:</span></dt>
-<dd class="field-even"><p>array_like</p>
-</dd>
-<dt class="field-odd">return<span class="colon">:</span></dt>
-<dd class="field-odd"><p>unit-quaternion</p>
-</dd>
-<dt class="field-even">rtype<span class="colon">:</span></dt>
-<dd class="field-even"><p>UnitQuaternion instance</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#spatialmath.quaternion.UnitQuaternion" title="spatialmath.quaternion.UnitQuaternion"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitQuaternion</span></code></a></span></p>
 </dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">UnitQuaternion.OA(O,</span> <span class="pre">A)</span></code> is a unit quaternion that describes the 3D rotation
 defined in terms of vectors parallel to the Y- and Z-axes of its reference
-frame, respectively :math:<a href="#id1"><span class="problematic" id="id2">`</span></a></p>
-</div></blockquote>
-<p>ec{o}` and :math:`
-ec{a}`.  In robotics these axes</p>
-<blockquote>
-<div><p>are respectively called the orientation and approach vectors defined such that
-:math:<a href="#id3"><span class="problematic" id="id4">`</span></a>mat{R}=[</p>
-</div></blockquote>
-<p>ec{n}, 
-ec{o}, 
-ec{a}]` and :math:`
-ec{n} = 
-ec{o}     imes 
-ec{a}`.</p>
-<blockquote>
-<div><p>Example:</p>
+frame, respectively <span class="math notranslate nohighlight">\(\vec{o}\)</span> and <span class="math notranslate nohighlight">\(\vec{a}\)</span>.  In robotics these axes
+are respectively called the orientation and approach vectors defined such that
+<span class="math notranslate nohighlight">\(\mat{R}=[\vec{n}, \vec{o}, \vec{a}]\)</span> and <span class="math notranslate nohighlight">\(\vec{n} = \vec{o} \times \vec{a}\)</span>.</p>
+<p>Example:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_orient_unitquaternion.html#spatialmath.quaternion.UnitQuaternion" title="spatialmath.quaternion.UnitQuaternion"><span class="n">UnitQuaternion</span></a> <span class="k">as</span> <span class="n">UQ</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_orient_unitquaternion.html#spatialmath.quaternion.UnitQuaternion.OA" title="spatialmath.quaternion.UnitQuaternion.OA"><span class="n">UQ</span><span class="o">.</span><span class="n">OA</span></a><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]))</span>
 <span class="go"> 0.7071 &lt;&lt; -0.7071,  0.0000, -0.0000 &gt;&gt;</span>
@@ -344,18 +326,12 @@ ec{a}`.</p>
 <li><p>Only the <code class="docutils literal notranslate"><span class="pre">A</span></code> vector is guaranteed to have the same direction in the resulting
 rotation matrix</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">O</span></code> and <code class="docutils literal notranslate"><span class="pre">A</span></code> do not have to be unit-length, they are normalized</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">O</span></code> and <a href="#id5"><span class="problematic" id="id6">``</span></a>A` do not have to be orthogonal, so long as they are not parallel</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O</span></code> and <a href="#id1"><span class="problematic" id="id2">``</span></a>A` do not have to be orthogonal, so long as they are not parallel</p></li>
 </ul>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">seealso<span class="colon">:</span></dt>
+<dt class="field-odd">Seealso<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="func_3d.html#spatialmath.base.transforms3d.oa2r" title="spatialmath.base.transforms3d.oa2r"><code class="xref py py-func docutils literal notranslate"><span class="pre">oa2r()</span></code></a></p>
-</dd>
-</dl>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#spatialmath.quaternion.UnitQuaternion" title="spatialmath.quaternion.UnitQuaternion"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitQuaternion</span></code></a></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -464,11 +440,11 @@ values.</p></li>
 <p>Example:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_orient_unitquaternion.html#spatialmath.quaternion.UnitQuaternion" title="spatialmath.quaternion.UnitQuaternion"><span class="n">UnitQuaternion</span></a> <span class="k">as</span> <span class="n">UQ</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_orient_unitquaternion.html#spatialmath.quaternion.UnitQuaternion.Rand" title="spatialmath.quaternion.UnitQuaternion.Rand"><span class="n">UQ</span><span class="o">.</span><span class="n">Rand</span></a><span class="p">())</span>
-<span class="go"> 0.6505 &lt;&lt;  0.5409, -0.3045, -0.4376 &gt;&gt;</span>
+<span class="go"> 0.8631 &lt;&lt; -0.1106, -0.4904, -0.0481 &gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><a class="sphinx-codeautolink-a" href="3d_orient_unitquaternion.html#spatialmath.quaternion.UnitQuaternion.Rand" title="spatialmath.quaternion.UnitQuaternion.Rand"><span class="n">UQ</span><span class="o">.</span><span class="n">Rand</span></a><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="go"> 0.1463 &lt;&lt;  0.5488,  0.0926, -0.8178 &gt;&gt;</span>
-<span class="go"> 0.3079 &lt;&lt; -0.5954, -0.6234,  0.4027 &gt;&gt;</span>
-<span class="go"> 0.4731 &lt;&lt; -0.2257, -0.7909,  0.3158 &gt;&gt;</span>
+<span class="go"> 0.5630 &lt;&lt;  0.3922, -0.5539,  0.4717 &gt;&gt;</span>
+<span class="go"> 0.3069 &lt;&lt;  0.6437,  0.0881,  0.6955 &gt;&gt;</span>
+<span class="go"> 0.7994 &lt;&lt; -0.3575, -0.2918, -0.3846 &gt;&gt;</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

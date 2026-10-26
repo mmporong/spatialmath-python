@@ -1646,7 +1646,7 @@
 <a class="viewcode-back" href="../../3d_orient_unitquaternion.html#spatialmath.quaternion.UnitQuaternion.OA">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">OA</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">ArrayLike3</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="n">ArrayLike3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UnitQuaternion</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">        Construct a new unit quaternion from two vectors</span>
 
 <span class="sd">        :param o: 3-vector parallel to Y- axis</span>
@@ -1710,13 +1710,17 @@
 <span class="sd">            &gt;&gt;&gt; print(UQ.AngVec(0, [1,0,0]))</span>
 <span class="sd">            &gt;&gt;&gt; print(UQ.AngVec(90, [1,0,0], unit='deg'))</span>
 
-<span class="sd">        .. note:: :math:`\theta = 0` the result in an identity quaternion, otherwise</span>
-<span class="sd">            ``V`` must have a finite length, ie. :math:`|V| &gt; 0`.</span>
+<span class="sd">        .. note:: If :math:`\theta` is zero within the default tolerance of</span>
+<span class="sd">            :func:`~spatialmath.base.vectors.iszero`, the result is an identity</span>
+<span class="sd">            quaternion. Otherwise, ``v`` must have a nonzero norm.</span>
 
 <span class="sd">        :seealso: :meth:`UnitQuaternion.angvec` :meth:`UnitQuaternion.exp` :func:`~spatialmath.base.transforms3d.angvec2r`</span>
 <span class="sd">        """</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">smb</span><span class="o">.</span><span class="n">getvector</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
         <span class="n">theta</span> <span class="o">=</span> <span class="n">smb</span><span class="o">.</span><span class="n">getunit</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">vector</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">smb</span><span class="o">.</span><span class="n">iszero</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">smb</span><span class="o">.</span><span class="n">unitvec</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="n">s</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">v</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">v</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span></div>
