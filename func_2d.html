@@ -376,9 +376,9 @@ list, dict, or a numpy array, row or column vector.</p></li>
 </dl>
 <p>Computes an adjoint matrix that maps the Lie algebra between frames.</p>
 <p>where <span class="math notranslate nohighlight">\(\mat{T} \in \SE2\)</span>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">tr2jac2(T)</span></code> is an adjoint matrix (6x6) that maps spatial velocity or
-differential motion between frame {B} to frame {A} which are attached to the
-same moving body.  The pose of {B} relative to {A} is represented by the
+<p><code class="docutils literal notranslate"><span class="pre">tr2adjoint2(T)</span></code> is an adjoint matrix (3x3 for SE(2), 1x1 for SO(2)) that
+maps spatial velocity or differential motion between frame {B} to frame {A}
+which are attached to the same moving body.  The pose of {B} relative to {A} is represented by the
 homogeneous transform T = <span class="math notranslate nohighlight">\({}^A {\bf T}_B\)</span>.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath.base</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="func_2d.html#spatialmath.base.transforms2d.tr2adjoint2" title="spatialmath.base.transforms2d.tr2adjoint2"><span class="n">tr2adjoint2</span></a><span class="p">,</span> <a class="sphinx-codeautolink-a" href="func_2d.html#spatialmath.base.transforms2d.trot2" title="spatialmath.base.transforms2d.trot2"><span class="n">trot2</span></a>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">T</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="func_2d.html#spatialmath.base.transforms2d.trot2" title="spatialmath.base.transforms2d.trot2"><span class="n">trot2</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>

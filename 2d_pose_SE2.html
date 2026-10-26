@@ -381,6 +381,38 @@ poses.</p></li>
 </dl>
 </dd></dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="spatialmath.pose2d.SE2.Ad">
+<span class="sig-name descname"><span class="pre">Ad</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/pose2d.html#SE2.Ad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.pose2d.SE2.Ad" title="Link to this definition"></a></dt>
+<dd><p>Adjoint of SE(2)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>adjoint matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ndarray(3,3)</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">SE2.Ad</span></code> is the 3x3 adjoint matrix</p>
+<p>If the twist or spatial velocity <span class="math notranslate nohighlight">\(\nu = (v_x, v_y, \omega)^T\)</span>
+and the SE(2) represents the pose of {B} relative to {A},
+ie. <span class="math notranslate nohighlight">\({}^A {\bf T}_B\)</span>, and the adjoint is <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> then
+<span class="math notranslate nohighlight">\({}^{A}\!\nu = \mathbf{A} {}^{B}\!\nu\)</span>.</p>
+<p>Example:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2.Ad" title="spatialmath.pose2d.SE2.Ad"><span class="n">Ad</span></a><span class="p">()</span>
+<span class="go">array([[ 0.9553, -0.2955,  2.    ],</span>
+<span class="go">       [ 0.2955,  0.9553, -1.    ],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ]])</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Seealso<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="3d_pose_SE3.html#spatialmath.pose3d.SE3.Ad" title="spatialmath.pose3d.SE3.Ad"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spatialmath.pose3d.SE3.Ad()</span></code></a>, <a class="reference internal" href="2d_pose_twist.html#spatialmath.twist.Twist2.ad" title="spatialmath.twist.Twist2.ad"><code class="xref py py-meth docutils literal notranslate"><span class="pre">spatialmath.twist.Twist2.ad()</span></code></a>,
+<a class="reference internal" href="func_2d.html#spatialmath.base.transforms2d.tr2adjoint2" title="spatialmath.base.transforms2d.tr2adjoint2"><code class="xref py py-func docutils literal notranslate"><span class="pre">tr2adjoint2()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.pose2d.SE2.SE2">
 <span class="sig-name descname"><span class="pre">SE2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.pose2d.SE2.SE2" title="Link to this definition"></a></dt>
 <dd><p>Create SE(2) from SO(2)</p>

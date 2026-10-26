@@ -322,6 +322,42 @@ for example:</p>
 </div>
 </dd></dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="spatialmath.twist.Twist2.Ad">
+<span class="sig-name descname"><span class="pre">Ad</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/twist.html#Twist2.Ad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.twist.Twist2.Ad" title="Link to this definition"></a></dt>
+<dd><p>Adjoint of 2D twist</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>adjoint matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ndarray(3,3)</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">S.Ad()</span></code> is the 3x3 adjoint matrix of the corresponding
+homogeneous transformation.</p>
+<p>For a twist representing motion from frame {B} to {A}, the adjoint will
+transform a twist relative to frame {A} to one relative to frame {B}.</p>
+<p>Example:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">S</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2.Ad" title="spatialmath.twist.Twist2.Ad"><span class="n">S</span><span class="o">.</span><span class="n">Ad</span></a><span class="p">()</span>
+<span class="go">array([[ 0.9553, -0.2955,  2.119 ],</span>
+<span class="go">       [ 0.2955,  0.9553, -0.6873],</span>
+<span class="go">       [ 0.    ,  0.    ,  1.    ]])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method computes the equivalent SE(2) matrix, then the adjoint
+of that.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Seealso<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#spatialmath.twist.Twist2.ad" title="spatialmath.twist.Twist2.ad"><code class="xref py py-func docutils literal notranslate"><span class="pre">Twist2.ad()</span></code></a>, <a class="reference internal" href="#spatialmath.twist.Twist2.SE2" title="spatialmath.twist.Twist2.SE2"><code class="xref py py-func docutils literal notranslate"><span class="pre">Twist2.SE2()</span></code></a>, <a class="reference internal" href="#spatialmath.twist.Twist2.exp" title="spatialmath.twist.Twist2.exp"><code class="xref py py-func docutils literal notranslate"><span class="pre">Twist2.exp()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.twist.Twist2.SE2">
 <span class="sig-name descname"><span class="pre">SE2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/twist.html#Twist2.SE2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.twist.Twist2.SE2" title="Link to this definition"></a></dt>
 <dd><p>Convert 2D twist to SE(2) matrix</p>
@@ -553,6 +589,47 @@ operation so the result will be a matrix</p></li>
 <span class="sig-name descname"><span class="pre">__truediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.twist.Twist2.__truediv__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="spatialmath.twist.Twist2.ad">
+<span class="sig-name descname"><span class="pre">ad</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spatialmath/twist.html#Twist2.ad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spatialmath.twist.Twist2.ad" title="Link to this definition"></a></dt>
+<dd><p>Logarithm of adjoint of 2D twist</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>logarithm of adjoint matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ndarray(3,3), or list of ndarray if the twist is a sequence</p>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">S.ad()</span></code> is the 3x3 matrix representation of the Lie bracket with
+the twist <code class="docutils literal notranslate"><span class="pre">S</span></code>, such that for twists <code class="docutils literal notranslate"><span class="pre">S</span></code> and <code class="docutils literal notranslate"><span class="pre">T</span></code></p>
+<div class="math notranslate nohighlight">
+\[\mathrm{ad}(S) \vec{T} = \vee \left( [S] [T] - [T] [S] \right)\]</div>
+<p>where <span class="math notranslate nohighlight">\([S]\)</span> is the augmented skew-symmetric matrix of the twist.
+For <span class="math notranslate nohighlight">\(S = (v_x, v_y, \omega)\)</span> it is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix} 0 &amp; -\omega &amp; v_y \\ \omega &amp; 0 &amp; -v_x \\ 0 &amp; 0 &amp; 0 \end{pmatrix}\end{split}\]</div>
+<p>Example:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">,</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">S</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a><span class="p">(</span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2.ad" title="spatialmath.twist.Twist2.ad"><span class="n">S</span><span class="o">.</span><span class="n">ad</span></a><span class="p">()</span>
+<span class="go">array([[ 0.    , -0.3   ,  1.835 ],</span>
+<span class="go">       [ 0.3   ,  0.    , -1.2925],</span>
+<span class="go">       [ 0.    ,  0.    ,  0.    ]])</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An alternative approach to computing the adjoint is to
+exponentiate this 3x3 matrix.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Seealso<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#spatialmath.twist.Twist2.Ad" title="spatialmath.twist.Twist2.Ad"><code class="xref py py-func docutils literal notranslate"><span class="pre">Twist2.Ad()</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
 <dt class="sig sig-object py" id="spatialmath.twist.Twist2.append">
 <span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spatialmath.twist.Twist2.append" title="Link to this definition"></a></dt>
 <dd><p>Append a value to an instance (BasePoseList superclass method)</p>
@@ -717,11 +794,11 @@ The inverse is the negative of the twist vector.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">Twist3</span></a>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">S</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">Twist3</span></a><span class="p">(</span><span class="n">SE3</span><span class="o">.</span><span class="n">Rand</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">S</span></a>
-<span class="go">Twist3([-0.56161, -0.17775, -1.4684, -2.5655, 0.54875, 0.025398])</span>
+<span class="go">Twist3([0.47871, 0.33403, 0.22081, -0.18623, 1.706, -1.6123])</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3.inv" title="spatialmath.twist.Twist3.inv"><span class="n">S</span><span class="o">.</span><span class="n">inv</span></a><span class="p">()</span>
-<span class="go">Twist3([0.56161, 0.17775, 1.4684, 2.5655, -0.54875, -0.025398])</span>
+<span class="go">Twist3([-0.47871, -0.33403, -0.22081, 0.18623, -1.706, 1.6123])</span>
 <span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3" title="spatialmath.twist.Twist3"><span class="n">S</span></a> <span class="o">*</span> <a class="sphinx-codeautolink-a" href="3d_pose_twist.html#spatialmath.twist.Twist3.inv" title="spatialmath.twist.Twist3.inv"><span class="n">S</span><span class="o">.</span><span class="n">inv</span></a><span class="p">()</span>
-<span class="go">Twist3([5.7778e-34, -2.2204e-16, -1.9429e-16, 0, 1.3878e-17, 6.9389e-18])</span>
+<span class="go">Twist3([1.6653e-16, 1.3878e-17, -2.7756e-17, 1.3878e-17, -2.7756e-17, 0])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -910,28 +987,6 @@ X is a <code class="docutils literal notranslate"><span class="pre">Twist3</span
 <li><p>if <code class="docutils literal notranslate"><span class="pre">len(X)</span></code> &gt; 1 then return a list of vectors.</p></li>
 </ul>
 </div>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="spatialmath.twist.Twist2.ad">
-<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ad</span></span><a class="headerlink" href="#spatialmath.twist.Twist2.ad" title="Link to this definition"></a></dt>
-<dd><p>Twist2.ad Logarithm of adjoint</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">S.ad()</span></code> is the logarithm of the adjoint matrix of the corresponding
-homogeneous transformation.</p></li>
-</ul>
-<p>Example:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">spatialmath</span><span class="w"> </span><span class="kn">import</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">,</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a>
-<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">SE2</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">S</span></a> <span class="o">=</span> <a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2" title="spatialmath.twist.Twist2"><span class="n">Twist2</span></a><span class="p">(</span><a class="sphinx-codeautolink-a" href="2d_pose_SE2.html#spatialmath.pose2d.SE2" title="spatialmath.pose2d.SE2"><span class="n">T</span></a><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><a class="sphinx-codeautolink-a" href="2d_pose_twist.html#spatialmath.twist.Twist2.unit" title="spatialmath.twist.Twist2.unit"><span class="n">S</span><span class="o">.</span><span class="n">unit</span></a><span class="p">()</span>
-<span class="go">Twist2([4.3083, 6.1166, 1])</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Seealso<span class="colon">:</span></dt>
-<dd class="field-odd"><p>SE3.Ad.</p>
-</dd>
-</dl>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="spatialmath.twist.Twist2.isprismatic">

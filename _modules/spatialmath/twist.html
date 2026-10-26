@@ -1817,13 +1817,28 @@
             <span class="k">return</span> <span class="n">Twist2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">S</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">))</span></div>
 
 
-    <span class="nd">@property</span>
+<div class="viewcode-block" id="Twist2.ad">
+<a class="viewcode-back" href="../../2d_pose_twist.html#spatialmath.twist.Twist2.ad">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">ad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Twist2.ad Logarithm of adjoint</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">"""</span>
+<span class="sd">        Logarithm of adjoint of 2D twist</span>
 
-<span class="sd">        - ``S.ad()`` is the logarithm of the adjoint matrix of the corresponding</span>
-<span class="sd">          homogeneous transformation.</span>
+<span class="sd">        :return: logarithm of adjoint matrix</span>
+<span class="sd">        :rtype: ndarray(3,3), or list of ndarray if the twist is a sequence</span>
+
+<span class="sd">        ``S.ad()`` is the 3x3 matrix representation of the Lie bracket with</span>
+<span class="sd">        the twist ``S``, such that for twists ``S`` and ``T``</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \mathrm{ad}(S) \vec{T} = \vee \left( [S] [T] - [T] [S] \right)</span>
+
+<span class="sd">        where :math:`[S]` is the augmented skew-symmetric matrix of the twist.</span>
+<span class="sd">        For :math:`S = (v_x, v_y, \omega)` it is</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \begin{pmatrix} 0 &amp; -\omega &amp; v_y \\ \omega &amp; 0 &amp; -v_x \\ 0 &amp; 0 &amp; 0 \end{pmatrix}</span>
 
 <span class="sd">        Example:</span>
 
@@ -1832,16 +1847,50 @@
 <span class="sd">            &gt;&gt;&gt; from spatialmath import SE2, Twist2</span>
 <span class="sd">            &gt;&gt;&gt; T = SE2(1, 2, 0.3)</span>
 <span class="sd">            &gt;&gt;&gt; S = Twist2(T)</span>
-<span class="sd">            &gt;&gt;&gt; S.unit()</span>
+<span class="sd">            &gt;&gt;&gt; S.ad()</span>
 
-<span class="sd">        :seealso: SE3.Ad.</span>
+<span class="sd">        .. note:: An alternative approach to computing the adjoint is to</span>
+<span class="sd">            exponentiate this 3x3 matrix.</span>
+
+<span class="sd">        :seealso: :func:`Twist2.Ad`</span>
 <span class="sd">        """</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="p">[</span>
-                <span class="p">[</span><span class="n">smb</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">),</span> <span class="n">smb</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">)],</span>
-                <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">smb</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">)],</span>
-            <span class="p">]</span>
-        <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">ad</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Twist2.Ad">
+<a class="viewcode-back" href="../../2d_pose_twist.html#spatialmath.twist.Twist2.Ad">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">Ad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Adjoint of 2D twist</span>
+
+<span class="sd">        :return: adjoint matrix</span>
+<span class="sd">        :rtype: ndarray(3,3)</span>
+
+<span class="sd">        ``S.Ad()`` is the 3x3 adjoint matrix of the corresponding</span>
+<span class="sd">        homogeneous transformation.</span>
+
+<span class="sd">        For a twist representing motion from frame {B} to {A}, the adjoint will</span>
+<span class="sd">        transform a twist relative to frame {A} to one relative to frame {B}.</span>
+
+<span class="sd">        Example:</span>
+
+<span class="sd">        .. runblock:: pycon</span>
+
+<span class="sd">            &gt;&gt;&gt; from spatialmath import Twist2</span>
+<span class="sd">            &gt;&gt;&gt; S = Twist2([1, 2, 0.3])</span>
+<span class="sd">            &gt;&gt;&gt; S.Ad()</span>
+
+<span class="sd">        .. note:: This method computes the equivalent SE(2) matrix, then the adjoint</span>
+<span class="sd">            of that.</span>
+
+<span class="sd">        :seealso: :func:`Twist2.ad`, :func:`Twist2.SE2`, :func:`Twist2.exp`</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">SE2</span><span class="p">()</span><span class="o">.</span><span class="n">Ad</span><span class="p">()</span></div>
+
 
 <div class="viewcode-block" id="Twist2.Tx">
 <a class="viewcode-back" href="../../2d_pose_twist.html#spatialmath.twist.Twist2.Tx">[docs]</a>

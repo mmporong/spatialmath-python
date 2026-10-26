@@ -743,6 +743,35 @@
             <span class="k">return</span> <span class="n">SE2</span><span class="p">([</span><span class="n">smb</span><span class="o">.</span><span class="n">rt2tr</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">x</span><span class="o">.</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">],</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="SE2.Ad">
+<a class="viewcode-back" href="../../2d_pose_SE2.html#spatialmath.pose2d.SE2.Ad">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">Ad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">"""</span>
+<span class="sd">        Adjoint of SE(2)</span>
+
+<span class="sd">        :return: adjoint matrix</span>
+<span class="sd">        :rtype: ndarray(3,3)</span>
+
+<span class="sd">        ``SE2.Ad`` is the 3x3 adjoint matrix</span>
+
+<span class="sd">        If the twist or spatial velocity :math:`\nu = (v_x, v_y, \omega)^T`</span>
+<span class="sd">        and the SE(2) represents the pose of {B} relative to {A},</span>
+<span class="sd">        ie. :math:`{}^A {\bf T}_B`, and the adjoint is :math:`\mathbf{A}` then</span>
+<span class="sd">        :math:`{}^{A}\!\nu = \mathbf{A} {}^{B}\!\nu`.</span>
+
+<span class="sd">        Example:</span>
+
+<span class="sd">        .. runblock:: pycon</span>
+
+<span class="sd">            &gt;&gt;&gt; from spatialmath import SE2</span>
+<span class="sd">            &gt;&gt;&gt; SE2(1, 2, 0.3).Ad()</span>
+
+<span class="sd">        :seealso: :meth:`spatialmath.pose3d.SE3.Ad`, :meth:`spatialmath.twist.Twist2.ad`,</span>
+<span class="sd">            :func:`~spatialmath.base.transforms2d.tr2adjoint2`</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">smb</span><span class="o">.</span><span class="n">tr2adjoint2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="SE2.SE3">
 <a class="viewcode-back" href="../../2d_pose_SE2.html#spatialmath.pose2d.SE2.SE3">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">SE3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
