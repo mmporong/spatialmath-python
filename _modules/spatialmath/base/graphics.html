@@ -1855,11 +1855,18 @@
 <span class="sd">            * A -&gt; [-A, A, -A, A, -A, A]</span>
 <span class="sd">            * [A,B] -&gt; [A, B, A, B, A, B]</span>
 <span class="sd">            * [A,B,C,D,E,F] -&gt; [A, B, C, D, E, F]</span>
+
+<span class="sd">        A scalar is symmetric about zero, so its sign is ignored: ``-A`` is the</span>
+<span class="sd">        same as ``A``.  For the other forms the values are returned as given and</span>
+<span class="sd">        no ordering check is made.  If a minimum is greater than the</span>
+<span class="sd">        corresponding maximum, matplotlib will invert that axis when the limits</span>
+<span class="sd">        are applied, which is a convenient way to flip an axis direction.</span>
 <span class="sd">        """</span>
         <span class="n">dim</span> <span class="o">=</span> <span class="n">smb</span><span class="o">.</span><span class="n">getvector</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">nd</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">dim</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">]</span>
             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
@@ -1869,6 +1876,7 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"bad dimension specified"</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">nd</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">dim</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="o">-</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">]</span>
             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dim</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
@@ -1878,6 +1886,37 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"bad dimension specified"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"nd is 2 or 3"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_window_title</span><span class="p">(</span><span class="n">fig</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">Figure</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Set the title of the window containing a figure, if it has one</span>
+
+<span class="sd">        :param fig: the figure</span>
+<span class="sd">        :type fig: Figure</span>
+<span class="sd">        :param title: the window title</span>
+<span class="sd">        :type title: str</span>
+<span class="sd">        :return: True if the title was set</span>
+<span class="sd">        :rtype: bool</span>
+
+<span class="sd">        A figure has a window only if it is managed by pyplot and the backend</span>
+<span class="sd">        provides one.  A figure on a headless backend such as ``Agg``, or one</span>
+<span class="sd">        created directly with ``matplotlib.figure.Figure``, does not, and then</span>
+<span class="sd">        nothing is done and False is returned.</span>
+
+<span class="sd">        Example::</span>
+
+<span class="sd">            &gt;&gt;&gt; from spatialmath.base import plotvol2, set_window_title</span>
+<span class="sd">            &gt;&gt;&gt; ax = plotvol2(5)</span>
+<span class="sd">            &gt;&gt;&gt; set_window_title(ax.figure, "my plot")</span>
+
+<span class="sd">        .. note:: The title of the window is not the title of the axes, see</span>
+<span class="sd">            :meth:`matplotlib.axes.Axes.set_title`.</span>
+<span class="sd">        """</span>
+        <span class="n">manager</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="p">,</span> <span class="s2">"manager"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">manager</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="s2">"set_window_title"</span><span class="p">):</span>
+            <span class="n">manager</span><span class="o">.</span><span class="n">set_window_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">isnotebook</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""</span>
@@ -1975,6 +2014,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">plot_cylinder</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Matplotlib is not installed: pip install matplotlib"</span><span class="p">)</span></div>
 
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_window_title</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Matplotlib is not installed: pip install matplotlib"</span><span class="p">)</span>
 </pre></div>
 
            </div>
